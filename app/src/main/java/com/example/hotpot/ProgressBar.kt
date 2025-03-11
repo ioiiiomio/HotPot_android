@@ -5,7 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
-class ProgressView @JvmOverloads constructor(
+class ProgressBar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
@@ -13,7 +13,7 @@ class ProgressView @JvmOverloads constructor(
     private var maxProgress = 2000f
 
     private val outlinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.WHITE
+        color = Color.GRAY // Outline color
         style = Paint.Style.STROKE
         strokeWidth = 20f
         strokeCap = Paint.Cap.ROUND
@@ -25,60 +25,48 @@ class ProgressView @JvmOverloads constructor(
         strokeCap = Paint.Cap.ROUND
     }
 
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.BLACK
-        textSize = 40f
-        typeface = Typeface.DEFAULT_BOLD
-        textAlign = Paint.Align.CENTER
-    }
-
-    private val titlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.BLACK
-        textSize = 50f
-        typeface = Typeface.DEFAULT_BOLD
-        textAlign = Paint.Align.CENTER
-    }
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val viewWidth = width.toFloat()
-        val viewHeight = height.toFloat()
+        val centerX = width / 2f
+        val centerY = height.toFloat()
 
-      
-        canvas.drawColor(Color.parseColor("#F4EDE6"))
-
-
-        val radius = viewWidth * 0.4f
-        val centerX = viewWidth / 2
-        val centerY = viewHeight / 2
+        // Ensure the radius fits inside the given width and height
+        val radius = width * 0.4f
 
         val rectF = RectF(
-            centerX - radius, centerY - radius,
-            centerX + radius, centerY + radius
+            centerX - radius,     // Left
+            centerY - radius * 2, // Top
+            centerX + radius,     // Right
+            centerY               // Bottom
         )
 
-        val shader = LinearGradient(
-            0f, viewHeight, viewWidth, 0f,
+        // Dynamically create shader based on actual dimensions
+        progressPaint.shader = LinearGradient(
+            rectF.left, rectF.top, rectF.right, rectF.bottom,
             intArrayOf(Color.GREEN, Color.parseColor("#A5D6A7")),
             null,
             Shader.TileMode.CLAMP
         )
-        progressPaint.shader = shader
 
-        canvas.drawArc(rectF, 180f, 180f, false, outlinePaint)
+        // Draw the arc outline
+        canvas.drawArc(rectF, 250f, 250f, false, outlinePaint)
 
-        val sweepAngle = (progress / maxProgress) * 180f
-        canvas.drawArc(rectF, 180f, sweepAngle, false, progressPaint)
-
-        canvas.drawText("HotPot", centerX, centerY - radius - 30, titlePaint)
-
-        val progressText = "${progress.toInt()} kcal / ${maxProgress.toInt()} kcal"
-        canvas.drawText(progressText, centerX, centerY + 80, textPaint)
+        // Draw progress arc
+        val sweepAngle = (progress / maxProgress) * 250f
+        canvas.drawArc(rectF, 250f, sweepAngle, false, progressPaint)
     }
 
     fun setProgress(calories: Float) {
         progress = calories.coerceIn(0f, maxProgress)
         invalidate()
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        // Make sure height is smaller than width (half-circle effect)
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        val height = (width * 0.5).toInt() // Half of width
+
+        setMeasuredDimension(width, height)
     }
 }
