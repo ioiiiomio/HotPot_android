@@ -19,8 +19,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        progressBar.setProgress(1200f)
-
     }
 }
