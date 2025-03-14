@@ -24,6 +24,10 @@
         "source": "com.example.hotpot.app-main-72:/layout/fragment_forum.xml"
     },
     {
+        "merged": "com.example.hotpot.app-debug-70:/layout_progress_weight_goal.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/progress_weight_goal.xml"
+    },
+    {
         "merged": "com.example.hotpot.app-debug-70:/mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "com.example.hotpot.app-main-72:/mipmap-mdpi/ic_launcher_round.webp"
     },
@@ -52,6 +56,10 @@
         "source": "com.example.hotpot.app-main-72:/layout/bottom_nav.xml"
     },
     {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_dummy_image.jpeg.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/dummy_image.jpeg"
+    },
+    {
         "merged": "com.example.hotpot.app-debug-70:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.hotpot.app-main-72:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
@@ -74,6 +82,10 @@
     {
         "merged": "com.example.hotpot.app-debug-70:/layout_activity_main.xml.flat",
         "source": "com.example.hotpot.app-main-72:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/layout_progress_life_score.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/progress_life_score.xml"
     },
     {
         "merged": "com.example.hotpot.app-debug-70:/layout_fragment_progress.xml.flat",

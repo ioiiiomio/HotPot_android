@@ -1,13 +1,14 @@
 R_DEF: Internal format may change without notice
 local
+color background_beige
+color background_white
 color black
-color purple_200
-color purple_500
-color purple_700
-color teal_200
-color teal_700
+color dark_green
+color fresh_green
+color text_color
 color white
 drawable bg_top
+drawable dummy_image
 drawable ic_chat
 drawable ic_forum
 drawable ic_launcher_background
@@ -16,16 +17,24 @@ drawable ic_plus
 drawable ic_progress
 drawable ic_recipes
 font inria_serif_bold
+id actionButton
 id bottomNavigationView
 id fragment_container
 id imageView
+id lifeScoreCard
+id lifeScoreText
 id nav_chat
 id nav_forum
 id nav_home
 id nav_host_fragment
 id nav_progress
 id nav_recipes
+id progressBar
+id progressCard
+id progressDescription
 id titleText
+id weightGoalCard
+id weightGoalText
 layout activity_bottom_nav
 layout activity_main
 layout bottom_nav
@@ -34,6 +43,8 @@ layout fragment_forum
 layout fragment_home
 layout fragment_progress
 layout fragment_recipes
+layout progress_life_score
+layout progress_weight_goal
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
