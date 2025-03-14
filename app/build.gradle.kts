@@ -6,7 +6,11 @@ plugins {
 android {
     namespace = "com.example.hotpot"
     compileSdk = 35
-
+//Added to make views in MainActivity
+    viewBinding {
+        enable = true
+    }
+//->mio
     defaultConfig {
         applicationId = "com.example.hotpot"
         minSdk = 24
@@ -59,6 +63,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+//    navbar to navigate
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+//    -> mio
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

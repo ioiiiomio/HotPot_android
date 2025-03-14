@@ -1,66 +1,126 @@
 [
     {
-        "merged": "com.example.hotpot.app-debug-46:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.example.hotpot.app-debug-70:/layout_fragment_chat.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/fragment_chat.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/xml/data_extraction_rules.xml"
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_plus.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_plus.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-70:/xml_backup_rules.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.hotpot.app-debug-70:/layout_fragment_forum.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/fragment_forum.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/xml_backup_rules.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/xml/backup_rules.xml"
+        "merged": "com.example.hotpot.app-debug-70:/layout_fragment_home.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.hotpot.app-debug-70:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_forum.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_forum.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.hotpot.app-debug-70:/layout_bottom_nav.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/bottom_nav.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.hotpot.app-main-48:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-46:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.hotpot.app-main-48:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.hotpot.app-debug-70:/layout_activity_bottom_nav.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/activity_bottom_nav.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_progress.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_progress.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/layout_activity_main.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/layout_fragment_progress.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/fragment_progress.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_chat.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_chat.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/layout_fragment_recipes.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/layout/fragment_recipes.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/navigation_nav_graph.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_recipes.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_recipes.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.hotpot.app-main-72:/mipmap-xhdpi/ic_launcher_round.webp"
     }
 ]
