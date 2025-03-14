@@ -12,4 +12,8 @@
     <color name="background_beige">#F4EDE6</color>
     <color name="start_green">#79FC5B</color>
     <color name="end_green">#00B600</color>
+    <color name="background_white">#FCFBF8</color>
+    <color name="text_color">#4D2905</color>">
+    <color name="fresh_green">#00E000</color>
+    <color name="dark_green">#00B600</color>
 </resources>
