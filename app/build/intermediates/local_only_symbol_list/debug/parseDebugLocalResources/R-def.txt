@@ -7,6 +7,7 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable bg_top
 drawable ic_chat
 drawable ic_forum
 drawable ic_launcher_background
@@ -14,14 +15,17 @@ drawable ic_launcher_foreground
 drawable ic_plus
 drawable ic_progress
 drawable ic_recipes
+font inria_serif_bold
 id bottomNavigationView
 id fragment_container
+id imageView
 id nav_chat
 id nav_forum
 id nav_home
 id nav_host_fragment
 id nav_progress
 id nav_recipes
+id titleText
 layout activity_bottom_nav
 layout activity_main
 layout bottom_nav
