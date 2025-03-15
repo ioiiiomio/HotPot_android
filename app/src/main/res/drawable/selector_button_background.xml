@@ -1,0 +1,32 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected State -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:startColor="#79FC5B"
+                android:endColor="#00B600"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+    <!-- Pressed State -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:startColor="#79FC5B"
+                android:endColor="#00B600"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+    <!-- Default State (Inactive) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/light_beige"/> <!-- Light beige -->
+            <corners android:radius="20dp"/>
+            <stroke android:width="2dp" android:color="#00B600"/>
+        </shape>
+    </item>
+</selector>

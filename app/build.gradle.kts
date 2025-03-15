@@ -66,6 +66,7 @@ dependencies {
 //    navbar to navigate
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.recyclerview)
 //    -> mio
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -74,4 +75,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+//    -> ui stuff
+    implementation("androidx.compose.ui:ui:1.5.0")
+    implementation("androidx.compose.material:material:1.5.0")
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1'")
+    implementation("com.github.bumptech.glide:glide:4.15.0")
 }

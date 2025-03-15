@@ -1,0 +1,10 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected State -->
+    <item android:state_selected="true" android:color="#F6F5EE"/> <!-- Beige text -->
+
+    <!-- Pressed State -->
+    <item android:state_pressed="true" android:color="#F6F5EE"/> <!-- Beige text -->
+
+    <!-- Default State (Inactive) -->
+    <item android:color="#00B600"/> <!-- Green text -->
+</selector>
