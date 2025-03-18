@@ -3,4 +3,5 @@
     <string name="forum_page">Forum</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </string>
     <string name="image">https://norma-center.ru/assets/uploads/images/u/89/t/dietolog-1562314436.jpg</string>
+    <string name="calories_consumed">calories consumed</string>
 </resources>

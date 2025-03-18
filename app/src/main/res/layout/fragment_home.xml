@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="411dp"
+        android:layout_height="300dp"
+        android:contentDescription="header_bg"
+        android:scaleType="fitXY"
+        android:src="@drawable/header_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Category Buttons -->
+
+
+    <com.example.hotpot.models.CaloriesProgressBarRing
+        android:id="@+id/progressBarRing"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/banner"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/banner"
+        app:layout_constraintTop_toTopOf="@id/banner" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inria_serif_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/progressBarRing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginVertical="20dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarRing"
+        app:layout_constraintTop_toTopOf="@+id/progressBarRing"
+        app:layout_constraintStart_toStartOf="@+id/progressBarRing"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarRing"
+        app:layout_constraintVertical_bias="0.4">
+
+    <TextView
+        android:id="@+id/caloriesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inria_serif_bold"
+        android:text="2500/2500"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inria_serif_bold"
+        android:text="@string/calories_consumed"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarRing"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarRing"
+        app:layout_constraintStart_toStartOf="@+id/progressBarRing"
+        app:layout_constraintTop_toTopOf="@+id/progressBarRing"
+        app:layout_constraintVertical_bias="0.505" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

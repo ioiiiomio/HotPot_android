@@ -16,6 +16,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.progressBarRing.currentCalories = 1500f
+        binding.caloriesTotal.text="${1500}/${binding.progressBarRing.dailyNorm.toInt()}"
         return binding.root
     }
 

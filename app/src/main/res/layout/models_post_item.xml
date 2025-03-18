@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="horizontal"
-    android:layout_margin="20dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="10dp"
     android:padding="8dp"
     android:background="@drawable/item_card_background"
     android:backgroundTint="@color/light_beige">
