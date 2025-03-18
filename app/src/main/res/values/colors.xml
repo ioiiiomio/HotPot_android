@@ -10,4 +10,6 @@
     <color name="title_green">#3C9769</color>
     <color name="light_beige">#F6F5EE</color>
     <color name="background_beige">#F4EDE6</color>
+    <color name="start_green">#79FC5B</color>
+    <color name="end_green">#00B600</color>
 </resources>

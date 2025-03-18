@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,12 +47,6 @@ class ForumFragment : Fragment() {
         binding.recyclerView.addItemDecoration(ItemDecoration(spacing))
 
 
-        class ItemDecoration(private val spacing: Int) : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                outRect.bottom = spacing
-            }
-        }
-
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
@@ -65,9 +60,14 @@ class ForumFragment : Fragment() {
 
         buttons.forEach { button ->
             button.setOnClickListener {
-                buttons.forEach { it.isSelected = false }
+                buttons.forEach {
+                    it.isSelected = false
+                    it.setTextColor(ContextCompat.getColor(requireContext(), R.color.title_green))
+                }
 
                 button.isSelected = true
+                button.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_beige))
+
 
                 when (button.id) {
                     R.id.btnAll -> filterNews("all")
@@ -78,6 +78,7 @@ class ForumFragment : Fragment() {
         }
 
         binding.btnAll.isSelected = true
+        binding.btnAll.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_beige))
     }
 
     private fun filterNews(category: String) {
@@ -95,5 +96,11 @@ class ForumFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+}
+
+class ItemDecoration(private val spacing: Int) : RecyclerView.ItemDecoration() {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        outRect.bottom = spacing
     }
 }
