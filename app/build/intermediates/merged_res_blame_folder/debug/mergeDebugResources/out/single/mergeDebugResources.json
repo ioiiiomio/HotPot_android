@@ -16,6 +16,14 @@
         "source": "com.example.hotpot.app-main-72:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.hotpot.app-debug-70:/font_inria_serif_italic.ttf.flat",
+        "source": "com.example.hotpot.app-main-72:/font/inria_serif_italic.ttf"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/font_inria_serif_regular.ttf.flat",
+        "source": "com.example.hotpot.app-main-72:/font/inria_serif_regular.ttf"
+    },
+    {
         "merged": "com.example.hotpot.app-debug-70:/xml_backup_rules.xml.flat",
         "source": "com.example.hotpot.app-main-72:/xml/backup_rules.xml"
     },
@@ -52,6 +60,10 @@
         "source": "com.example.hotpot.app-main-72:/drawable/ic_forum.xml"
     },
     {
+        "merged": "com.example.hotpot.app-debug-70:/font_inria_serif_light.ttf.flat",
+        "source": "com.example.hotpot.app-main-72:/font/inria_serif_light.ttf"
+    },
+    {
         "merged": "com.example.hotpot.app-debug-70:/layout_bottom_nav.xml.flat",
         "source": "com.example.hotpot.app-main-72:/layout/bottom_nav.xml"
     },
@@ -62,6 +74,10 @@
     {
         "merged": "com.example.hotpot.app-debug-70:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.hotpot.app-main-72:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/drawable_progress_scale.jpg.flat",
+        "source": "com.example.hotpot.app-main-72:/drawable/progress_scale.jpg"
     },
     {
         "merged": "com.example.hotpot.app-debug-70:/mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -82,6 +98,10 @@
     {
         "merged": "com.example.hotpot.app-debug-70:/layout_activity_main.xml.flat",
         "source": "com.example.hotpot.app-main-72:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/font_inria_serif_bold_italic.ttf.flat",
+        "source": "com.example.hotpot.app-main-72:/font/inria_serif_bold_italic.ttf"
     },
     {
         "merged": "com.example.hotpot.app-debug-70:/layout_progress_life_score.xml.flat",
@@ -112,6 +132,10 @@
         "source": "com.example.hotpot.app-main-72:/layout/fragment_recipes.xml"
     },
     {
+        "merged": "com.example.hotpot.app-debug-70:/font_inria_seif_light_italic.ttf.flat",
+        "source": "com.example.hotpot.app-main-72:/font/inria_seif_light_italic.ttf"
+    },
+    {
         "merged": "com.example.hotpot.app-debug-70:/font_inria_serif_bold.ttf.flat",
         "source": "com.example.hotpot.app-main-72:/font/inria_serif_bold.ttf"
     },
@@ -124,12 +148,12 @@
         "source": "com.example.hotpot.app-main-72:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.hotpot.app-debug-70:/navigation_nav_graph.xml.flat",
-        "source": "com.example.hotpot.app-main-72:/navigation/nav_graph.xml"
-    },
-    {
         "merged": "com.example.hotpot.app-debug-70:/drawable_ic_launcher_foreground.xml.flat",
         "source": "com.example.hotpot.app-main-72:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-70:/navigation_nav_graph.xml.flat",
+        "source": "com.example.hotpot.app-main-72:/navigation/nav_graph.xml"
     },
     {
         "merged": "com.example.hotpot.app-debug-70:/drawable_ic_recipes.xml.flat",

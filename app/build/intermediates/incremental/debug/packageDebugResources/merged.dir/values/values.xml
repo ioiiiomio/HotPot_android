@@ -8,10 +8,11 @@
     <color name="text_color">#4D2905</color>
     <color name="white">#FFFFFF</color>
     <string name="app_name">HotPot</string>
+    <string name="no_data"><![CDATA[No Data Yet :<]]></string>
     <style name="Theme.Hotpot" parent="Theme.MaterialComponents.Light.NoActionBar">
         
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/dark_green</item>
+        <item name="colorPrimaryVariant">@color/fresh_green</item>
         <item name="colorOnPrimary">@color/white</item>
     </style>
 </resources>

@@ -16,7 +16,13 @@ drawable ic_launcher_foreground
 drawable ic_plus
 drawable ic_progress
 drawable ic_recipes
+drawable progress_scale
+font inria_seif_light_italic
 font inria_serif_bold
+font inria_serif_bold_italic
+font inria_serif_italic
+font inria_serif_light
+font inria_serif_regular
 id actionButton
 id bottomNavigationView
 id fragment_container
@@ -50,6 +56,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
 string app_name
+string no_data
 style Theme.Hotpot
 xml backup_rules
 xml data_extraction_rules
