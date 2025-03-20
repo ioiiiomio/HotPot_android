@@ -45,7 +45,7 @@
                 android:layout_height="230dp"
                 android:layout_marginTop="28dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/dummy_image"
+                android:src="@drawable/progress_scale"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Your life score is improving!"
+                android:text="@string/no_data"
                 android:textColor="@color/text_color"
                 android:textSize="24sp"
                 android:fontFamily="@font/inria_serif_bold"
