@@ -9,12 +9,14 @@ color dark_green
 color fresh_green
 color text_color
 color white
+drawable bg_load
 drawable bg_top
 drawable dummy_image
 drawable ic_chat
 drawable ic_forum
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_logo
 drawable ic_plus
 drawable ic_progress
 drawable ic_recipes
@@ -57,6 +59,7 @@ layout progress_life_score
 layout progress_weight_goal
 menu bottom_nav_menu
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation nav_graph
 string app_name
