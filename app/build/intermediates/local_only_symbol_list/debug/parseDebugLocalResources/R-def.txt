@@ -1,5 +1,7 @@
 R_DEF: Internal format may change without notice
 local
+anim fade_in
+anim fade_out
 color background_beige
 color background_white
 color black
@@ -38,11 +40,13 @@ id nav_recipes
 id progressBar
 id progressCard
 id progressDescription
+id splashLogo
 id titleText
 id weightGoalCard
 id weightGoalText
 layout activity_bottom_nav
 layout activity_main
+layout activity_splash
 layout bottom_nav
 layout fragment_chat
 layout fragment_forum
