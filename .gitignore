@@ -1,4 +1,8 @@
 *.iml
+*bin
+*lock
+*probe
+*txt
 .gradle
 /local.properties
 /.idea/caches
@@ -13,3 +17,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
