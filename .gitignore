@@ -17,3 +17,6 @@ local.properties
 /app/build/kotlin/compileDebugKotlin
 /.gradle
 /app/build
+/.gradle/8.7
+/app/build
+/app/build
