@@ -7,4 +7,8 @@
     <color name="text_color">#4D2905</color>">
     <color name="fresh_green">#00E000</color>
     <color name="dark_green">#00B600</color>
+    <color name="title_green">#3C9769</color>
+    <color name="light_beige">#F6F5EE</color>
+    <color name="start_green">#79FC5B</color>
+    <color name="end_green">#00B600</color>
 </resources>

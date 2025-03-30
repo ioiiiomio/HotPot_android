@@ -67,6 +67,7 @@ dependencies {
 //    navbar to navigate
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.recyclerview)
 //    -> mio
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -75,4 +76,19 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //    -> ui stuff
+    implementation("androidx.compose.ui:ui:1.5.0")
+    implementation("androidx.compose.material:material:1.5.0")
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1'")
+    implementation("com.github.bumptech.glide:glide:4.15.0")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.3.0")
+
+    //dependency injection
+    implementation ("io.insert-koin:koin-android:3.5.0")
 }
