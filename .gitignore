@@ -17,3 +17,8 @@ local.properties
 /.gradle
 /app/build
 gradle/libs.versions.toml
+/.idea
+local.properties
+/.gradle
+/.gradle/buildOutputCleanup
+/app/build
