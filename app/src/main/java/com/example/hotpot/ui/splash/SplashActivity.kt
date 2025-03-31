@@ -7,7 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AnimationUtils
 import com.example.hotpot.databinding.ActivitySplashBinding
-import com.example.hotpot.MainActivity
+import com.example.hotpot.ui.activity.MainActivity
 import com.example.hotpot.R
 
 class SplashActivity : AppCompatActivity() {

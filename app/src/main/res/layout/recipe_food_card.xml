@@ -15,14 +15,25 @@
             android:id="@+id/ivRecipeImage"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            />
 
         <TextView
             android:id="@+id/tvRecipeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textSize="12sp"
+            android:fontFamily="@font/inria_serif_bold"
+            android:gravity="center"
+            android:paddingStart="12dp"/>
+        <TextView
+            android:id="@+id/tvRecipeCalorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:fontFamily="@font/inria_serif_light"
+            android:gravity="center"
+            android:paddingStart="12dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

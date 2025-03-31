@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="fragments.ProgressFragment"
+        tools:context=".ui.fragments.ProgressFragment"
         android:background="@color/background_beige">
 
         <!-- Header Section -->
@@ -50,7 +50,6 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <ImageView
-
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="12dp"
@@ -68,9 +67,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <include
             android:id="@+id/popularRecipeCard"
@@ -82,7 +79,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-
-
+        <!-- Vertical RecyclerView for Meal Types -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/verticalRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popularRecipeCard" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>

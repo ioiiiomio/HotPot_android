@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:fontFamily="@font/inria_serif_bold"
+        android:textColor="@android:color/black"
         />
 
     <!-- Horizontal RecyclerView for Recipes -->
@@ -21,4 +22,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:overScrollMode="never"/>
+
 </LinearLayout>

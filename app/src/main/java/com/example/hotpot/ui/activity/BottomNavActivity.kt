@@ -1,14 +1,15 @@
-package com.example.hotpot
+package com.example.hotpot.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.hotpot.R
 import com.example.hotpot.databinding.ActivityBottomNavBinding
-import com.example.hotpot.fragments.ChatFragment
-import com.example.hotpot.fragments.ForumFragment
-import com.example.hotpot.fragments.HomeFragment
-import com.example.hotpot.fragments.ProgressFragment
-import com.example.hotpot.fragments.RecipesFragment
+import com.example.hotpot.ui.fragments.ChatFragment
+import com.example.hotpot.ui.fragments.ForumFragment
+import com.example.hotpot.ui.fragments.HomeFragment
+import com.example.hotpot.ui.fragments.ProgressFragment
+import com.example.hotpot.ui.fragments.RecipesFragment
 
 class BottomNavActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBottomNavBinding
