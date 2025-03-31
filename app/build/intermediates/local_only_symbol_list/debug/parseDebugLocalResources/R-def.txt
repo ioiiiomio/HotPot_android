@@ -10,7 +10,8 @@ color fresh_green
 color text_color
 color white
 drawable bg_load
-drawable bg_top
+drawable bg_top_recipe_main
+drawable bg_top_standard
 drawable dummy_image
 drawable ic_chat
 drawable ic_forum
@@ -20,6 +21,7 @@ drawable ic_logo
 drawable ic_plus
 drawable ic_progress
 drawable ic_recipes
+drawable ic_search
 drawable progress_scale
 font inria_seif_light_italic
 font inria_serif_bold
@@ -42,7 +44,10 @@ id nav_recipes
 id progressBar
 id progressCard
 id progressDescription
+id recipes_search_bar
+id search_bar_text
 id splashLogo
+id squareHeader
 id titleText
 id weightGoalCard
 id weightGoalText

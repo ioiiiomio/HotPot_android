@@ -18,7 +18,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="104dp"
         android:scaleType="fitXY"
         android:src="@drawable/bg_top_standard"
         app:layout_constraintTop_toTopOf="parent"
