@@ -44,6 +44,10 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_chat.xml"
     },
     {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_heart.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_heart.xml"
+    },
+    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_italic.ttf.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_italic.ttf"
     },
@@ -72,12 +76,12 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/dummy_recipe.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-hdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_recipe_food_category.xml.flat",

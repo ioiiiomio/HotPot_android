@@ -17,6 +17,7 @@ drawable dummy_image
 drawable dummy_recipe
 drawable ic_chat
 drawable ic_forum
+drawable ic_heart
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_logo
@@ -32,6 +33,7 @@ font inria_serif_italic
 font inria_serif_light
 font inria_serif_regular
 id actionButton
+id addToFavorite
 id bottomNavigationView
 id foodCategoryName
 id fragment_container
