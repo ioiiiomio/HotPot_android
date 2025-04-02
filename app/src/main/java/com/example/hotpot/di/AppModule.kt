@@ -7,6 +7,9 @@ import com.example.hotpot.data.auth.login.LoginRepositoryImpl
 import com.example.hotpot.data.auth.register.RegisterApi
 import com.example.hotpot.data.auth.register.RegisterRepository
 import com.example.hotpot.data.auth.register.RegisterRepositoryImpl
+import com.example.hotpot.data.posts.posts.PostsApi
+import com.example.hotpot.data.posts.posts.PostsRepository
+import com.example.hotpot.data.posts.posts.PostsRepositoryImpl
 import com.prowheelxrassistv01.data.AppStorage
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
@@ -14,12 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
-const val BASE_URL = "http://192.168.101.16:8080"
+const val BASE_URL = "http://172.20.10.12:8080"
 
 val appModule = module {
     single { AppStorage.getInstance(androidContext()) }
 
-    single { AuthInterceptor(get(), get()) }
+    single { AuthInterceptor(get()) }
 
     single {
         OkHttpClient.Builder()
@@ -41,5 +44,8 @@ val appModule = module {
 
     single {get<Retrofit>().create(LoginApi::class.java)}
     single<LoginRepository> {LoginRepositoryImpl(get())}
+
+    single {get<Retrofit>().create(PostsApi::class.java)}
+    single<PostsRepository> {PostsRepositoryImpl(get())}
 
 }
