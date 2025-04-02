@@ -8,16 +8,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hotpot.BottomNavActivity
+import com.example.hotpot.FullscreenActivity
 import com.example.hotpot.R
 import com.example.hotpot.adapters.PostsAdapter
+import com.example.hotpot.data.auth.login.LoginRepository
+import com.example.hotpot.data.posts.posts.FeedResult
+import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.databinding.FragmentForumBinding
+import com.example.hotpot.models.ArticleContent
 import com.example.hotpot.models.PostItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.koin.mp.KoinPlatform.getKoin
 
 class ForumFragment : Fragment() {
     private var _binding: FragmentForumBinding? = null
     private val binding get() = _binding!!
+
+    private val postsRepository: PostsRepository by lazy { getKoin().get<PostsRepository>() }
+    private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     private lateinit var adapter: PostsAdapter
     private var allNews = listOf<PostItem>()
@@ -29,18 +45,15 @@ class ForumFragment : Fragment() {
     ): View {
         _binding = FragmentForumBinding.inflate(inflater, container, false)
 
-        // Ensure getString() is called after the fragment is attached
-        allNews = listOf(
-            PostItem("Title 1", "Description 1", getString(R.string.lorem_ipsum), getString(R.string.image)),
-            PostItem("Title 2", "Description 2", getString(R.string.lorem_ipsum), getString(R.string.image)),
-            PostItem("Title 3", "Description 3", getString(R.string.lorem_ipsum), getString(R.string.image)),
-            PostItem("Title 4", "Description 4", getString(R.string.lorem_ipsum), getString(R.string.image)),
-        )
 
-        filteredNews = allNews
+        initNews()
 
         adapter = PostsAdapter(filteredNews) { news ->
-            // Handle click on news item if needed
+            FullscreenActivity.launch(
+                requireContext(),
+                ArticleFragment::class.java,
+                Bundle().apply { putInt("articleID", news.post_id) }
+            )
         }
 
         val spacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
@@ -53,6 +66,21 @@ class ForumFragment : Fragment() {
         setupCategoryButtons()
 
         return binding.root
+    }
+
+    private fun initNews(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            val feedResult = postsRepository.getFeed()
+            if (feedResult is FeedResult.Success) {
+                allNews = feedResult.postsPreviews
+                filteredNews = allNews
+                withContext(Dispatchers.Main) {
+                    adapter.updateData(filteredNews)
+                }
+            } else {
+                Log.e("ForumFragment", "Failed to fetch feed")
+            }
+        }
     }
 
     private fun setupCategoryButtons() {
@@ -82,12 +110,11 @@ class ForumFragment : Fragment() {
     }
 
     private fun filterNews(category: String) {
-        Log.e("ForumFragment", "Filtering category: $category")
 
         filteredNews = when (category) {
-            "All" -> allNews
-            "News" -> allNews.filter { it.title.contains("News", ignoreCase = true) }
-            "Events" -> allNews.filter { it.title.contains("Event", ignoreCase = true) }
+            "all" -> allNews
+            "popular" -> allNews
+            "favorites" -> allNews.filter { it.is_favourite }
             else -> allNews
         }
 

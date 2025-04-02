@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beige_background">
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="411dp"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/black_gradient_overlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:textAlignment="textStart"
+        android:fontFamily="@font/inria_serif_bold"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:text="Stop eating chia pudding"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@id/info"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/banner"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/newsImage"
+            android:src="@drawable/dummy_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_image_background"
+            android:layout_margin="10dp"/>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                android:id="@+id/author"
+                android:textAlignment="textStart"
+                android:fontFamily="@font/inria_serif_bold"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:text="dietolog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="4dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/follow"
+                android:textAlignment="textStart"
+                android:fontFamily="@font/inria_serif_bold"
+                android:textSize="15sp"
+                android:text="Follow"
+                android:background="@drawable/button_selector"
+                android:textColor="@color/title_green"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:paddingHorizontal="30dp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tag1"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/inria_serif_bold"
+                    android:textSize="12sp"
+                    android:text="Follow"
+                    android:background="@drawable/yellow_rounded_background"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tag2"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/inria_serif_bold"
+                    android:textSize="12sp"
+                    android:text="Follow"
+                    android:background="@drawable/light_green_rounded_background"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tag3"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/inria_serif_bold"
+                    android:textSize="12sp"
+                    android:text="Follow"
+                    android:background="@drawable/dark_green_rounded_background"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/articleRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="0dp"/>
+    <LinearLayout
+        android:id="@+id/rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/articleRecyclerView"
+        android:paddingHorizontal="20dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inria_serif_bold"
+            android:textSize="16sp"
+            android:text="Was this article useful?"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"/>
+        <ImageButton
+            android:id="@+id/thumbsUpButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_thumbs_up_selector"
+            android:layout_marginHorizontal="5dp"/>
+        <ImageButton
+            android:id="@+id/thumbsDownButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_thumbs_down_selector"
+            android:layout_marginHorizontal="5dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/commentsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_rounded_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:padding="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/rating">
+
+        <!-- Header with Expand Button and Sorting -->
+        <LinearLayout
+            android:id="@+id/commentsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/expandCollapseButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comments"
+                android:fontFamily="@font/inria_serif_bold"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/commentsNumber"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/light_green_rounded_background"
+                android:text="3"
+                android:textSize="10dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <Spinner
+                android:id="@+id/sortSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/comment_sort_options"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/commentPreview"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@drawable/beige_background"
+            android:layout_marginTop="15dp">
+
+            <ImageView
+                android:id="@+id/commentPreviewImage"
+                android:src="@drawable/dummy_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_image_background"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/commentPreviewText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_bold"
+                android:textSize="16sp"
+                android:text="Karma is a b**ch, chia seeds! 😏"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+        <!-- Comment List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/commentsHeader"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
