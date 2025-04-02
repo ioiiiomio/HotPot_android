@@ -1,23 +1,21 @@
-package com.example.hotpot.fragments
+package com.example.hotpot.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.hotpot.databinding.FragmentHomeBinding
+import com.example.hotpot.databinding.FragmentChatBinding
 
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+class ChatFragment : Fragment() {
+    private var _binding: FragmentChatBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.progressBarRing.currentCalories = 1500f
-        binding.caloriesTotal.text="${1500}/${binding.progressBarRing.dailyNorm.toInt()}"
+        _binding = FragmentChatBinding.inflate(inflater, container, false)
         return binding.root
     }
 

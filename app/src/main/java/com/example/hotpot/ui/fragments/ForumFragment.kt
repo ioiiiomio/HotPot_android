@@ -1,4 +1,4 @@
-package com.example.hotpot.fragments
+package com.example.hotpot.ui.fragments
 
 import android.graphics.Rect
 import android.os.Bundle
