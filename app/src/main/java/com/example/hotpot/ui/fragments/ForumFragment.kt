@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hotpot.BottomNavActivity
 import com.example.hotpot.FullscreenActivity
 import com.example.hotpot.R
 import com.example.hotpot.adapters.PostsAdapter
@@ -19,6 +18,7 @@ import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.posts.posts.FeedResult
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.databinding.FragmentForumBinding
+import com.example.hotpot.fragments.ArticleFragment
 import com.example.hotpot.models.ArticleContent
 import com.example.hotpot.models.PostItem
 import kotlinx.coroutines.CoroutineScope

@@ -14,6 +14,7 @@ import com.example.hotpot.data.auth.register.RegisterRequest
 import com.example.hotpot.data.auth.register.RegisterResult
 import com.example.hotpot.fragments.LoginFragment
 import com.example.hotpot.fragments.RegisterFragment
+import com.example.hotpot.ui.activity.MainActivity
 import com.prowheelxrassistv01.data.AppStorage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

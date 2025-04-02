@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AnimationUtils
+import com.example.hotpot.AuthActivity
 import com.example.hotpot.databinding.ActivitySplashBinding
 import com.example.hotpot.ui.activity.MainActivity
 import com.example.hotpot.R
@@ -24,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
 
         // Delay and navigate
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, AuthActivity::class.java))
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out) // Apply transition
             finish()
         }, 2000)  // 2-second delay
