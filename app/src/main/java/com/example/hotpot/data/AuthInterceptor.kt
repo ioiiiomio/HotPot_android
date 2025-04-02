@@ -15,7 +15,7 @@ import retrofit2.Invocation
 import java.lang.reflect.Method
 import java.util.Date
 
-class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepository): Interceptor {
+class AuthInterceptor(val appStorage: AppStorage): Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest: Request = chain.request()
         val requireAuth = requiresAuthentication(originalRequest)
@@ -24,8 +24,9 @@ class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepo
             header("User-Agent", "android")
             if (requireAuth) {
                 val token = runBlocking { getAccessToken() }
+                Log.e("auth is required", token.toString())
                 token?.let {
-                    addHeader("Authorization", "Bearer $it")
+                    addHeader("Authorization", it)
                 }
             }
         }
@@ -39,20 +40,9 @@ class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepo
         return method?.isAnnotationPresent(RequiresAuth::class.java) == true
     }
 
-    private suspend fun getAccessToken() : String?{
+    private fun getAccessToken() : String?{
         var accessToken = appStorage.getAccessToken()
-        if(accessToken!=null){
-            return accessToken
-        }
-        val email = appStorage.getEmail()
-        val password = appStorage.getPassword()
-        if(email!=null && password!=null){
-            val loginResult = loginRepository.login(LoginRequest(email, password))
-            if(loginResult is LoginResult.Success){
-                return loginResult.accessToken
-            }
-        }
-        return null
+        return accessToken
     }
 
     private fun isJwtTokenExpired(token: String): Boolean {
