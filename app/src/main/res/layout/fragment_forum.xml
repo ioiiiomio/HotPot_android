@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="411dp"
+        android:layout_height="200dp"
+        android:contentDescription="top_bg"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Category Buttons -->
+
+
+
+    <LinearLayout
+        android:id="@+id/categoryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="30dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAll"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/title_green"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/inria_serif_bold"
+            android:text="all" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPopular"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/title_green"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/inria_serif_bold"
+            android:text="popular" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFavorites"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/title_green"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/inria_serif_bold"
+            android:text="favorites" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inria_serif_bold"
+        android:text="@string/forum_page"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/categoryContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        android:layout_marginVertical="20dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/item_card_background"
+        android:backgroundTint="@color/background_beige"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
