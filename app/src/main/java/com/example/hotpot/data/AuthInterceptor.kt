@@ -2,6 +2,7 @@ package com.example.hotpot.data
 
 import android.util.Base64
 import android.util.Log
+import com.example.hotpot.data.Utils.isJwtTokenExpired
 import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.auth.login.LoginRequest
 import com.example.hotpot.data.auth.login.LoginResult
@@ -15,10 +16,12 @@ import retrofit2.Invocation
 import java.lang.reflect.Method
 import java.util.Date
 
-class AuthInterceptor(val appStorage: AppStorage): Interceptor {
+class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepository): Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest: Request = chain.request()
         val requireAuth = requiresAuthentication(originalRequest)
+
+        Log.e("auth is required?", requireAuth.toString())
 
         val requestBuilder: Request.Builder = originalRequest.newBuilder().apply {
             header("User-Agent", "android")
@@ -40,26 +43,21 @@ class AuthInterceptor(val appStorage: AppStorage): Interceptor {
         return method?.isAnnotationPresent(RequiresAuth::class.java) == true
     }
 
-    private fun getAccessToken() : String?{
+    private suspend fun getAccessToken() : String?{
         var accessToken = appStorage.getAccessToken()
-        return accessToken
-    }
 
-    private fun isJwtTokenExpired(token: String): Boolean {
-        try {
-            val parts = token.split(".")
-            if (parts.size != 3) throw IllegalArgumentException("Invalid JWT token")
-
-            val payload = String(Base64.decode(parts[1], Base64.URL_SAFE))
-            val payloadJson = JSONObject(payload)
-
-            if (!payloadJson.has("exp")) throw IllegalArgumentException("No expiration claim in token")
-
-            val expirationTime = payloadJson.getLong("exp") * 1000
-            return Date().time > expirationTime
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return true
+        if (accessToken==null || isJwtTokenExpired(accessToken)) {
+            try {
+                val result = loginRepository.login(LoginRequest(appStorage.getEmail()!!, appStorage.getPassword()!!))
+                if(result is LoginResult.Success){
+                    appStorage.saveAccessToken(result.accessToken)
+                    return result.accessToken
+                }
+            } catch (e: Exception) {
+                Log.e("AuthInterceptor", "Failed to fetch token: ${e.message}")
+                accessToken=null
+            }
         }
+        return accessToken
     }
 }

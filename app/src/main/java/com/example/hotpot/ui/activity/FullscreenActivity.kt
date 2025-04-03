@@ -1,10 +1,11 @@
-package com.example.hotpot
+package com.example.hotpot.ui.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.hotpot.R
 
 
 class FullscreenActivity : AppCompatActivity() {

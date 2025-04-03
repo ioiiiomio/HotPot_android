@@ -18,7 +18,7 @@ interface PostsApi {
     suspend fun getPostById(@Path("id") id: String): Article
 
     @RequiresAuth
-    @GET("/posts/api/v1/protected/posts")
+    @GET("/posts/api/v1/protected/feed")
     suspend fun getFeed(): FeedResponse
 }
 data class FeedResponse(
