@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AuthActivity"
+            android:name=".ui.activity.AuthActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         </activity>
@@ -40,7 +40,7 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
 
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".ui.activity.FullscreenActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         </activity>

@@ -13,39 +13,60 @@ import com.example.hotpot.data.posts.posts.PostsRepositoryImpl
 import com.prowheelxrassistv01.data.AppStorage
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
-import retrofit2.converter.gson.GsonConverterFactory
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "http://172.20.10.12:8080"
 
 val appModule = module {
+
     single { AppStorage.getInstance(androidContext()) }
 
-    single { AuthInterceptor(get()) }
-
-    single {
+    single(named("noAuthOkHttpClient")) {
         OkHttpClient.Builder()
-            .addInterceptor(get<AuthInterceptor>())
             .build()
     }
 
-    single {
+    // Retrofit without interceptor
+    single(named("noInterceptorRetrofit")) {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(get())
+            .client(get(named("noAuthOkHttpClient")))
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    single { get<Retrofit>(named("noInterceptorRetrofit")).create(LoginApi::class.java) }
+    single<LoginRepository> { LoginRepositoryImpl(get()) }
+
+
+    // OkHttpClient with interceptor
+    single(named("authOkHttpClient")) {
+        OkHttpClient.Builder()
+            .addInterceptor(AuthInterceptor(get(), get()))
+            .build()
+    }
+
+    // Retrofit with interceptor
+    single(named("interceptorRetrofit")) {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(get(named("authOkHttpClient")))  // Uses OkHttpClient with AuthInterceptor
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
 
-    single {get<Retrofit>().create(RegisterApi::class.java)}
-    single<RegisterRepository> {RegisterRepositoryImpl(get())}
+    single { get<Retrofit>(named("interceptorRetrofit")).create(RegisterApi::class.java) }
+    single<RegisterRepository> { RegisterRepositoryImpl(get()) }
 
-    single {get<Retrofit>().create(LoginApi::class.java)}
-    single<LoginRepository> {LoginRepositoryImpl(get())}
+    single { get<Retrofit>(named("interceptorRetrofit")).create(PostsApi::class.java) }
+    single<PostsRepository> { PostsRepositoryImpl(get()) }
 
-    single {get<Retrofit>().create(PostsApi::class.java)}
-    single<PostsRepository> {PostsRepositoryImpl(get())}
+
+
+
 
 }

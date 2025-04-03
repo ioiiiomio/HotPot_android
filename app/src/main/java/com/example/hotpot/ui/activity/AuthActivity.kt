@@ -1,11 +1,14 @@
-package com.example.hotpot
+package com.example.hotpot.ui.activity
 
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.hotpot.R
+import com.example.hotpot.data.Utils
 import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.auth.login.LoginRequest
 import com.example.hotpot.data.auth.login.LoginResult
@@ -14,7 +17,6 @@ import com.example.hotpot.data.auth.register.RegisterRequest
 import com.example.hotpot.data.auth.register.RegisterResult
 import com.example.hotpot.fragments.LoginFragment
 import com.example.hotpot.fragments.RegisterFragment
-import com.example.hotpot.ui.activity.MainActivity
 import com.prowheelxrassistv01.data.AppStorage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -81,6 +83,8 @@ class AuthActivity : AppCompatActivity() {
                     appStorage.savePassword(password)
                     appStorage.saveEmail(email)
                     appStorage.saveAccessToken(loginResult.accessToken)
+                    appStorage.saveRole(Utils.getRole(loginResult.accessToken)?:"user")
+                    Log.e("role", "${Utils.getRole(loginResult.accessToken)}")
                 }else{
                     Toast.makeText(this@AuthActivity, "Error occurred while authorizing", Toast.LENGTH_SHORT).show()
                 }

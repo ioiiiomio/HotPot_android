@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.hotpot.AuthActivity
+import com.example.hotpot.ui.activity.AuthActivity
 import com.example.hotpot.R
 import com.google.android.material.button.MaterialButton
 
