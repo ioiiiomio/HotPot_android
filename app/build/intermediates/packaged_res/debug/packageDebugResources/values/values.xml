@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="comment_sort_options">
+        <item>Newest First</item>
+        <item>Oldest First</item>
+        <item>Most Liked</item>
+        <item>Least Liked</item>
+    </string-array>
     <color name="background_beige">#F4EDE6</color>
     <color name="background_white">#FCFBF8</color>
     <color name="black">#FF000000</color>
     <color name="dark_green">#00B600</color>
+    <color name="end_green">#00B600</color>
     <color name="fresh_green">#00E000</color>
+    <color name="gray">#909090</color>
+    <color name="light_beige">#F6F5EE</color>
+    <color name="start_green">#79FC5B</color>
     <color name="text_color">#4D2905</color>
+    <color name="title_green">#3C9769</color>
     <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFBB00</color>
+    <dimen name="item_spacing">5dp</dimen>
     <string name="app_name">HotPot</string>
+    <string name="calories_consumed">calories consumed</string>
     <string name="dressings_sauces"><![CDATA[Dressings & Sauces]]></string>
+    <string name="forum_page">Forum</string>
+    <string name="image">https://norma-center.ru/assets/uploads/images/u/89/t/dietolog-1562314436.jpg</string>
+    <string name="login">Login</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </string>
     <string name="no_data"><![CDATA[No Data Yet :<]]></string>
+    <string name="or">OR</string>
+    <string name="register">Register</string>
+    <string name="register_now">Register now!</string>
+    <style name="RoundedImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
     <style name="Theme.Hotpot" parent="Theme.MaterialComponents.Light.NoActionBar">
         
         <item name="colorPrimary">@color/dark_green</item>

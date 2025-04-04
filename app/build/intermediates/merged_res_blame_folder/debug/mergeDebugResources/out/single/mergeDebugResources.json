@@ -1,250 +1,402 @@
 [
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_fragment_home.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_home.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_recipe.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_recipe.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_fragment_recipes.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_recipes.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_recipe_food_card.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/recipe_food_card.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-mdpi/ic_launcher_foreground.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_black_gradient_overlay.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/black_gradient_overlay.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-hdpi/ic_launcher_foreground.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_arrow_right.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_arrow_right.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/xml_backup_rules.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/xml/backup_rules.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/menu_bottom_nav_menu.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/menu/bottom_nav_menu.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xhdpi/ic_launcher_foreground.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_beige_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/beige_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_bold_italic.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_bold_italic.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumb_up_outline.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumb_up_outline.xml"
     },
     {
-        "merged": "com.example.hotpot.app-debug-71:/layout_recipe_food_card.xml.flat",
-        "source": "com.example.hotpot.app-main-73:/layout/recipe_food_card.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumb_up.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumb_up.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_progress.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_progress.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_recipes_vertical_view.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/recipes_vertical_view.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_item_card_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/item_card_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_fragment_chat.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_chat.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_heart.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_heart.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_italic.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_italic.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_recipe_popular_card.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/recipe_popular_card.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_activity_splash.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/activity_splash.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_register.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_register.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/navigation_nav_graph.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/navigation/nav_graph.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_top_recipe_main.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_top_recipe_main.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_seif_light_italic.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_seif_light_italic.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_gradient_green.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/gradient_green.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart_outline.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart_outline.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_dummy_recipe.png.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/dummy_recipe.png"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_bottom_nav.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/activity_bottom_nav.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_serif_bold.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_bold.ttf"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_recipe_food_category.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/recipe_food_category.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_seif_light_italic.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_seif_light_italic.ttf"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/anim_fade_out.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/anim/fade_out.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_launcher_background.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_launcher_background.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumbs_up_selector.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumbs_up_selector.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_recipe_food_card.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/recipe_food_card.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_auth.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_auth.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_regular.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_regular.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_forum.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_forum.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_bg_top_recipe_main.png.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/bg_top_recipe_main.png"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_yellow_rounded_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/yellow_rounded_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_progress.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_progress.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_bg_top_standard.jpeg.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/bg_top_standard.jpeg"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_recipe_popular_card.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/recipe_popular_card.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_fragment_forum.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_forum.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_article.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_article.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_chat.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_chat.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_dummy_image.jpeg.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/dummy_image.jpeg"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_bold.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_bold.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_models_comment_item.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/models_comment_item.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/xml_data_extraction_rules.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/xml/data_extraction_rules.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_button_selector.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/button_selector.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/font_inria_serif_light.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/font/inria_serif_light.ttf"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_plus.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_plus.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_models_post_item.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/models_post_item.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_progress_weight_goal.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/progress_weight_goal.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_light_green_rounded_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/light_green_rounded_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_bg_recipe.png.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/bg_recipe.png"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_rounded_image_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/rounded_image_background.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_dummy_image.jpeg.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/dummy_image.jpeg"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_bottom_nav.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/bottom_nav.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_fragment_progress.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/fragment_progress.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/menu_bottom_nav_menu.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/menu/bottom_nav_menu.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_logo.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_logo.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_progress_life_score.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/progress_life_score.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_progress_weight_goal.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/progress_weight_goal.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.hotpot.app-debug-76:/layout_fragment_register.xml.flat",
+        "source": "com.example.hotpot.app-main-78:/layout/fragment_register.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_models_article_text.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/models_article_text.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/anim_fade_out.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/anim/fade_out.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_activity_bottom_nav.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/activity_bottom_nav.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_splash.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/activity_splash.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_activity_main.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/activity_main.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/anim_fade_in.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/anim/fade_in.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_bg_load.png.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/bg_load.png"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/xml_network_security_config.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/xml/network_security_config.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_recipes.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_recipes.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/anim_fade_in.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/anim/fade_in.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_header_bg.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/header_bg.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_progress_life_score.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/progress_life_score.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_default_profile.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/default_profile.png"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_login.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_login.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_recipes.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_recipes.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_forum.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_forum.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_arrow_left.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_arrow_left.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_launcher_foreground.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_progress.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_progress.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_logo.png.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_logo.png"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/xml_backup_rules.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/xml/backup_rules.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_progress_scale.jpg.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/progress_scale.jpg"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_recipes_vertical_view.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/recipes_vertical_view.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/layout_bottom_nav.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/layout/bottom_nav.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/drawable_ic_search.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/drawable/ic_search.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-hdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-71:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-73:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_search.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_models_reply_item.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/models_reply_item.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_green_gradient_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/green_gradient_background.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_top.jpeg.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_top.jpeg"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_main.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_home.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumb_down_outline.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumb_down_outline.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_fullscreen.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/activity_fullscreen.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/navigation_nav_graph.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart_selector.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart_selector.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_auth.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/activity_auth.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_progress_scale.jpg.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/progress_scale.jpg"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_forum.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_forum.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_chat.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_chat.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_recipe_food_category.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/recipe_food_category.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart_filled.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart_filled.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_load.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_load.png"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_plus.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_plus.xml"
+    },
+    {
+        "merged": "com.example.hotpot.app-debug-76:/layout_fragment_login.xml.flat",
+        "source": "com.example.hotpot.app-main-78:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_recipes.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_recipes.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_white_rounded_bg.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/white_rounded_bg.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_models_article_image.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/models_article_image.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_chat.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_top_standard.jpeg.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_top_standard.jpeg"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_dummy_recipe.png.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/dummy_recipe.png"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_dark_green_rounded_background.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/dark_green_rounded_background.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_serif_italic.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_italic.ttf"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_serif_bold_italic.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_bold_italic.ttf"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumb_down.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumb_down.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_serif_regular.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_regular.ttf"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumbs_down_selector.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_thumbs_down_selector.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_serif_light.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_light.ttf"
     }
 ]
