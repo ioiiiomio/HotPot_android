@@ -15,7 +15,7 @@ interface PostsApi {
 
     @NoAuth
     @GET("/posts/api/v1/posts/{id}")
-    suspend fun getPostById(@Path("id") id: String): Article
+    suspend fun getPostById(@Path("id") id: String): ArticleResponse
 
     @RequiresAuth
     @GET("/posts/api/v1/protected/feed")
@@ -25,4 +25,10 @@ data class FeedResponse(
     val code : Int,
     val data : List<PostItem>,
     val message : String
+)
+
+data class ArticleResponse(
+    val code: Int,
+    val data: Article,
+    val message: String
 )

@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotpot.R
+import com.example.hotpot.models.Article
 import com.example.hotpot.models.ArticleContent
+import com.example.hotpot.models.PostItem
 
-class ArticleAdapter(private val contentList: List<ArticleContent>) :
+class ArticleAdapter(private var contentList: List<ArticleContent>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -41,6 +43,11 @@ class ArticleAdapter(private val contentList: List<ArticleContent>) :
     }
 
     override fun getItemCount() = contentList.size
+
+    fun updateData(newArticleContent: List<ArticleContent>) {
+        contentList = newArticleContent
+        notifyDataSetChanged()
+    }
 
     class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(text: String) {
