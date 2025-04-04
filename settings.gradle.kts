@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "HotPot"
 include(":app")
+include(":core")
+include(":feature_auth")
+include(":feature_main")

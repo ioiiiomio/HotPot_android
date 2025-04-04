@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="comment_sort_options">
+        <item>Newest First</item>
+        <item>Oldest First</item>
+        <item>Most Liked</item>
+        <item>Least Liked</item>
+    </string-array>
+</resources>

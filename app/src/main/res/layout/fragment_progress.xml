@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="fragments.ProgressFragment"
+        tools:context=".ui.fragments.ProgressFragment"
         android:background="@color/background_beige"
         >
 
@@ -18,9 +18,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="104dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bg_top"
+        android:src="@drawable/bg_top_standard"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -53,15 +53,18 @@
         />
 
     <!-- Weight Goal Progress Card -->
-    <include
-        android:id="@+id/weightGoalCard"
-        layout="@layout/progress_weight_goal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lifeScoreCard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        />
+        <include
+            android:id="@+id/weightGoalCard"
+            layout="@layout/progress_weight_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="72dp"
+            android:paddingBottom="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lifeScoreCard" />
 </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

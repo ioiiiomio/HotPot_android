@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.libsDirectory
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -67,6 +69,10 @@ dependencies {
 //    navbar to navigate
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.androidx.navigation.ui.ktx)
+//    Glide implementation
+    implementation(libs.glide) // Latest version of Glide
+    annotationProcessor (libs.compiler)  // Required for Glide annotations
+
     implementation(libs.androidx.recyclerview)
 //    -> mio
     testImplementation(libs.junit)
@@ -76,6 +82,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+//    Retrofit ;>
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.gson)
+
+
+
 
     //    -> ui stuff
     implementation("androidx.compose.ui:ui:1.5.0")

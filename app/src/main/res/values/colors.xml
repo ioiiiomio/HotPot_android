@@ -11,4 +11,6 @@
     <color name="light_beige">#F6F5EE</color>
     <color name="start_green">#79FC5B</color>
     <color name="end_green">#00B600</color>
+    <color name="yellow">#FFBB00</color>
+    <color name="gray">#909090</color>
 </resources>

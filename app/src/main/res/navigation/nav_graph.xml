@@ -5,26 +5,26 @@
 
     <fragment
         android:id="@+id/nav_progress"
-        android:name="com.example.hotpot.fragments.ProgressFragment"
+        android:name="com.example.hotpot.ui.fragments.ProgressFragment"
         android:label="Progress"/>
 
     <fragment
         android:id="@+id/nav_recipes"
-        android:name="com.example.hotpot.fragments.RecipesFragment"
+        android:name="com.example.hotpot.ui.fragments.RecipesFragment"
         android:label="Recipes"/>
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.hotpot.fragments.HomeFragment"
+        android:name="com.example.hotpot.ui.fragments.HomeFragment"
         android:label="Home"/>
 
     <fragment
         android:id="@+id/nav_chat"
-        android:name="com.example.hotpot.fragments.ChatFragment"
+        android:name="com.example.hotpot.ui.fragments.ChatFragment"
         android:label="Chat"/>
 
     <fragment
         android:id="@+id/nav_forum"
-        android:name="com.example.hotpot.fragments.ForumFragment"
+        android:name="com.example.hotpot.ui.fragments.ForumFragment"
         android:label="Forum"/>
 </navigation>

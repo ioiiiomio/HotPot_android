@@ -8,22 +8,30 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hotpot.R
 import com.example.hotpot.databinding.ModelsPostItemBinding
 import com.example.hotpot.models.PostItem
+import com.example.hotpot.ui.fragments.ForumFragment
 
 class PostsAdapter(
-    private val newsList: List<PostItem>,
-    private val onClick: (PostItem) -> Unit
+    private var newsList: List<PostItem>,
+    private val onClick: (PostItem) -> Unit,
+    private val onFavoriteClick: (PostItem) -> Unit
 ) : RecyclerView.Adapter<PostsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(private val binding: ModelsPostItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(news: PostItem) {
             binding.newsTitle.text = news.title
-            binding.newsAuthor.text = news.author
+            binding.newsAuthor.text = news.author_username
             binding.newsPreview.text = news.preview
+            binding.favoriteButton.isSelected=news.is_favourite
+            binding.favoriteButton.setOnClickListener{
+                it.isSelected = !it.isSelected
+                onFavoriteClick(news)
+            }
 
             // Load image with placeholder and error handling
             Glide.with(binding.root.context)
-                .load(news.imageUrl.takeIf { it.isNotBlank() }) // Load only if not empty
+                .load(news.author_pfp.takeIf { it.isNotBlank() }) // Load only if not empty
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .circleCrop()
                 .placeholder(R.drawable.ic_launcher_foreground) // Show this while loading
                 .error(R.drawable.ic_launcher_foreground) // Show this if loading fails
                 .into(binding.newsImage)
@@ -31,6 +39,12 @@ class PostsAdapter(
             binding.root.setOnClickListener { onClick(news) }
         }
     }
+
+    fun updateData(newList: List<PostItem>) {
+        newsList = newList
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val binding = ModelsPostItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

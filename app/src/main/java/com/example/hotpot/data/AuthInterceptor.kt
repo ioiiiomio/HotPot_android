@@ -2,6 +2,7 @@ package com.example.hotpot.data
 
 import android.util.Base64
 import android.util.Log
+import com.example.hotpot.data.Utils.isJwtTokenExpired
 import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.auth.login.LoginRequest
 import com.example.hotpot.data.auth.login.LoginResult
@@ -20,12 +21,15 @@ class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepo
         val originalRequest: Request = chain.request()
         val requireAuth = requiresAuthentication(originalRequest)
 
+        Log.e("auth is required?", requireAuth.toString())
+
         val requestBuilder: Request.Builder = originalRequest.newBuilder().apply {
             header("User-Agent", "android")
             if (requireAuth) {
                 val token = runBlocking { getAccessToken() }
+                Log.e("auth is required", token.toString())
                 token?.let {
-                    addHeader("Authorization", "Bearer $it")
+                    addHeader("Authorization", it)
                 }
             }
         }
@@ -41,35 +45,19 @@ class AuthInterceptor(val appStorage: AppStorage, val loginRepository: LoginRepo
 
     private suspend fun getAccessToken() : String?{
         var accessToken = appStorage.getAccessToken()
-        if(accessToken!=null){
-            return accessToken
-        }
-        val email = appStorage.getEmail()
-        val password = appStorage.getPassword()
-        if(email!=null && password!=null){
-            val loginResult = loginRepository.login(LoginRequest(email, password))
-            if(loginResult is LoginResult.Success){
-                return loginResult.accessToken
+
+        if (accessToken==null || isJwtTokenExpired(accessToken)) {
+            try {
+                val result = loginRepository.login(LoginRequest(appStorage.getEmail()!!, appStorage.getPassword()!!))
+                if(result is LoginResult.Success){
+                    appStorage.saveAccessToken(result.accessToken)
+                    return result.accessToken
+                }
+            } catch (e: Exception) {
+                Log.e("AuthInterceptor", "Failed to fetch token: ${e.message}")
+                accessToken=null
             }
         }
-        return null
-    }
-
-    private fun isJwtTokenExpired(token: String): Boolean {
-        try {
-            val parts = token.split(".")
-            if (parts.size != 3) throw IllegalArgumentException("Invalid JWT token")
-
-            val payload = String(Base64.decode(parts[1], Base64.URL_SAFE))
-            val payloadJson = JSONObject(payload)
-
-            if (!payloadJson.has("exp")) throw IllegalArgumentException("No expiration claim in token")
-
-            val expirationTime = payloadJson.getLong("exp") * 1000
-            return Date().time > expirationTime
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return true
-        }
+        return accessToken
     }
 }

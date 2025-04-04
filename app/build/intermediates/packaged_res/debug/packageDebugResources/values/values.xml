@@ -8,6 +8,7 @@
     <color name="text_color">#4D2905</color>
     <color name="white">#FFFFFF</color>
     <string name="app_name">HotPot</string>
+    <string name="dressings_sauces"><![CDATA[Dressings & Sauces]]></string>
     <string name="no_data"><![CDATA[No Data Yet :<]]></string>
     <style name="Theme.Hotpot" parent="Theme.MaterialComponents.Light.NoActionBar">
         
