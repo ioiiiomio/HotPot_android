@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.example.hotpot.R
 import com.example.hotpot.adapters.ArticleAdapter
 import com.example.hotpot.adapters.CommentsAdapter
+import com.example.hotpot.data.posts.comments.CommentsRepository
+import com.example.hotpot.data.posts.comments.CommentsResult
 import com.example.hotpot.data.posts.posts.ArticleResult
 import com.example.hotpot.models.Article
 import com.example.hotpot.models.ArticleContent
@@ -34,6 +36,9 @@ class ArticleFragment : Fragment() {
     private lateinit var articleRecyclerView: RecyclerView
     private lateinit var articleAdapter: ArticleAdapter
 
+    private lateinit var commentPreviewImage : ImageView
+    private lateinit var commentPreviewText : TextView
+
     private lateinit var commentsContainer: LinearLayout
     private lateinit var commentsRecyclerView: RecyclerView
     private lateinit var expandCollapseButton: ImageButton
@@ -45,6 +50,17 @@ class ArticleFragment : Fragment() {
     private val commentsAdapter = CommentsAdapter(mutableListOf())
 
     private val postsRepository by lazy { getKoin().get<com.example.hotpot.data.posts.posts.PostsRepository>() }
+    private val commentsRepository by lazy { getKoin().get<CommentsRepository>() }
+
+    val fakeReplies = listOf(
+        Reply(
+            id = "r1",
+            author = "Bob",
+            authorImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwo92fsfWVEJfrVchKg8M84aYYsXWpRzFzvA&s",
+            text = "Totally agree!",
+            timestamp = "1 hour ago"
+        )
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +98,9 @@ class ArticleFragment : Fragment() {
 
         commentsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         commentsRecyclerView.adapter = commentsAdapter
+
+        commentPreviewImage = view.findViewById(R.id.commentPreviewImage)
+        commentPreviewText = view.findViewById(R.id.commentPreviewText)
 
         commentsContainer.setOnClickListener { toggleComments() }
         expandCollapseButton.setOnClickListener { toggleComments() }
@@ -143,34 +162,39 @@ class ArticleFragment : Fragment() {
     }
 
     private fun loadComments() {
-        val comments = listOf(
-            Comment(
-                id = "1",
-                author = "Alice",
-                authorImageUrl = "https://m.media-amazon.com/images/M/MV5BYTJhOGYwZDgtNjE5NS00NWY5LWEyYjAtOThkODI2OTFjN2Y1XkEyXkFqcGc@._V1_.jpg",
-                text = "This is an amazing post!",
-                timestamp = "2 hours ago",
-                replies = listOf(
-                    Reply(
-                        id = "r1",
-                        author = "Bob",
-                        authorImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwo92fsfWVEJfrVchKg8M84aYYsXWpRzFzvA&s",
-                        text = "Totally agree!",
-                        timestamp = "1 hour ago"
-                    )
-                )
-            ),
-            Comment(
-                id = "2",
-                author = "Charlie",
-                authorImageUrl = "https://i.pinimg.com/736x/38/3b/ee/383beea690bbec590b2e02bbfd599c98.jpg",
-                text = "Interesting take on this topic.",
-                timestamp = "3 hours ago",
-                replies = emptyList()
-            )
-        )
+        viewLifecycleOwner.lifecycleScope.launch {
+            articleID?.let { id ->
+                val result = commentsRepository.getComments(id.toString())
 
-        commentsAdapter.updateComments(comments)
-        commentsNumber.text = comments.size.toString()
+                if (result is CommentsResult.Success) {
+                    val comments = result.comments
+
+                    withContext(Dispatchers.Main) {
+                        comments.forEach{
+                            it.replies =  fakeReplies
+                        }
+                        if(comments.size>0){
+                            view?.context?.let {
+                                Glide.with(it)
+                                    .load(comments[0].authorImageUrl)
+                                    .error(R.drawable.default_profile)
+                                    .fallback(R.drawable.default_profile)
+                                    .circleCrop()
+                                    .into(commentPreviewImage)
+                            }
+                            commentPreviewText.text = comments[0].content
+                        }else{
+                            commentPreview.visibility=View.GONE
+                        }
+                        commentsAdapter.updateComments(comments)
+                        commentsNumber.text = comments.size.toString()
+                    }
+                } else {
+                    Log.e("ArticleFragment", "Error fetching article")
+                }
+            }
+        }
+
     }
+
 }
