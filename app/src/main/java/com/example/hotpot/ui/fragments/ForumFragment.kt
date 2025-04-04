@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hotpot.ui.activity.FullscreenActivity
 import com.example.hotpot.R
 import com.example.hotpot.adapters.PostsAdapter
+import com.example.hotpot.data.posts.favorites.FavoriteRequest
+import com.example.hotpot.data.posts.favorites.FavoritesRepository
+import com.example.hotpot.data.posts.favorites.FavoritesResult
 import com.example.hotpot.data.posts.posts.FeedResult
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.databinding.FragmentForumBinding
@@ -31,6 +34,7 @@ class ForumFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val postsRepository: PostsRepository by lazy { getKoin().get<PostsRepository>() }
+    private val favoritesRepository: FavoritesRepository by lazy { getKoin().get<FavoritesRepository>() }
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     private lateinit var adapter: PostsAdapter
@@ -46,13 +50,16 @@ class ForumFragment : Fragment() {
 
         initNews()
 
-        adapter = PostsAdapter(filteredNews) { news ->
+        adapter = PostsAdapter(filteredNews, { news ->
             FullscreenActivity.launch(
                 requireContext(),
                 ArticleFragment::class.java,
                 Bundle().apply { putInt("articleID", news.post_id) }
             )
-        }
+        }, { post ->
+            toggleFavorite(post)
+        })
+
 
         val spacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
         binding.recyclerView.addItemDecoration(ItemDecoration(spacing))
@@ -71,7 +78,6 @@ class ForumFragment : Fragment() {
             val feedResult = postsRepository.getFeed()
             if (feedResult is FeedResult.Success) {
                 allNews = feedResult.postsPreviews
-                filteredNews = allNews
                 withContext(Dispatchers.Main) {
                     adapter.updateData(filteredNews)
                 }
@@ -96,9 +102,9 @@ class ForumFragment : Fragment() {
 
 
                 when (button.id) {
-                    R.id.btnAll -> filterNews("all")
-                    R.id.btnPopular -> filterNews("popular")
-                    R.id.btnFavorites -> filterNews("favorites")
+                    R.id.btnAll -> adapter.updateData(allNews)
+                    R.id.btnPopular -> adapter.updateData(allNews)
+                    R.id.btnFavorites -> filterFavoriteNews()
                 }
             }
         }
@@ -107,16 +113,37 @@ class ForumFragment : Fragment() {
         binding.btnAll.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_beige))
     }
 
-    private fun filterNews(category: String) {
+    private fun filterFavoriteNews() {
+        filteredNews = allNews.filter { it.is_favourite }
+        adapter.updateData(filteredNews)
+    }
 
-        filteredNews = when (category) {
-            "all" -> allNews
-            "popular" -> allNews
-            "favorites" -> allNews.filter { it.is_favourite }
-            else -> allNews
+    private fun toggleFavorite(post: PostItem) {
+        val updatedPost = post.copy(is_favourite = !post.is_favourite)
+
+        allNews = allNews.map { if (it.post_id == post.post_id) updatedPost else it }
+
+        if(binding.btnFavorites.isSelected){
+            filteredNews
         }
 
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            val result = if (updatedPost.is_favourite) {
+                favoritesRepository.makeFavorite(FavoriteRequest(post.post_id))
+            } else {
+                favoritesRepository.deleteFromFavorites(post.post_id)
+            }
+
+            if (!(result is FavoritesResult.Success)) {
+                allNews = allNews.map { if (it.post_id == post.post_id) post else it }
+                if(binding.btnFavorites.isSelected){
+                    filteredNews
+                }
+            }
+        }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

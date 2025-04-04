@@ -7,6 +7,9 @@ import com.example.hotpot.data.auth.login.LoginRepositoryImpl
 import com.example.hotpot.data.auth.register.RegisterApi
 import com.example.hotpot.data.auth.register.RegisterRepository
 import com.example.hotpot.data.auth.register.RegisterRepositoryImpl
+import com.example.hotpot.data.posts.favorites.FavoritesApi
+import com.example.hotpot.data.posts.favorites.FavoritesRepository
+import com.example.hotpot.data.posts.favorites.FavoritesRepositoryImpl
 import com.example.hotpot.data.posts.posts.PostsApi
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.data.posts.posts.PostsRepositoryImpl
@@ -65,8 +68,8 @@ val appModule = module {
     single { get<Retrofit>(named("interceptorRetrofit")).create(PostsApi::class.java) }
     single<PostsRepository> { PostsRepositoryImpl(get()) }
 
-
-
+    single { get<Retrofit>(named("interceptorRetrofit")).create(FavoritesApi::class.java) }
+    single<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
 
 
 }
