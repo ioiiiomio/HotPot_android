@@ -23,7 +23,12 @@ class RepliesAdapter(private val replies: List<Reply>) :
             authorName.text = reply.author
             timestamp.text = reply.timestamp
             replyText.text = reply.text
-            Glide.with(itemView.context).load(reply.authorImageUrl).into(profileImage)
+            Glide.with(itemView.context)
+                .load(reply.authorImageUrl)
+                .circleCrop()
+                .error(R.drawable.default_profile)
+                .fallback(R.drawable.default_profile)
+                .into(profileImage)
         }
     }
 
