@@ -8,10 +8,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hotpot.R
 import com.example.hotpot.databinding.ModelsPostItemBinding
 import com.example.hotpot.models.PostItem
+import com.example.hotpot.ui.fragments.ForumFragment
 
 class PostsAdapter(
     private var newsList: List<PostItem>,
-    private val onClick: (PostItem) -> Unit
+    private val onClick: (PostItem) -> Unit,
+    private val onFavoriteClick: (PostItem) -> Unit
 ) : RecyclerView.Adapter<PostsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(private val binding: ModelsPostItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -22,7 +24,7 @@ class PostsAdapter(
             binding.favoriteButton.isSelected=news.is_favourite
             binding.favoriteButton.setOnClickListener{
                 it.isSelected = !it.isSelected
-                news.is_favourite=it.isSelected
+                onFavoriteClick(news)
             }
 
             // Load image with placeholder and error handling
