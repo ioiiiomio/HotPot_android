@@ -46,4 +46,22 @@ class PostsRepositoryImpl (
             FeedResult.Error(500, e.message)
         }
     }
+
+    override suspend fun getPostById(id: Int): ArticleResult {
+        return try{
+            val response = api.getPostById(id.toString())
+            Log.e("Repository", "success")
+            ArticleResult.Success(response.data)
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            if(e.code()==401){
+                ArticleResult.Unauthorized(e.code(), e.message())
+            }else{
+                ArticleResult.Error(e.code(), e.message())
+            }
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            ArticleResult.Error(500, e.message)
+        }
+    }
 }
