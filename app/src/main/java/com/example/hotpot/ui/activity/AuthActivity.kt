@@ -84,6 +84,7 @@ class AuthActivity : AppCompatActivity() {
                     appStorage.saveEmail(email)
                     appStorage.saveAccessToken(loginResult.accessToken)
                     appStorage.saveRole(Utils.getRole(loginResult.accessToken)?:"user")
+                    Utils.getId(loginResult.accessToken)?.let { appStorage.saveID(it) }
                     Log.e("role", "${Utils.getRole(loginResult.accessToken)}")
                 }else{
                     Toast.makeText(this@AuthActivity, "Error occurred while authorizing", Toast.LENGTH_SHORT).show()

@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.hotpot.R
 import com.example.hotpot.models.Reply
 
-class RepliesAdapter(private val replies: List<Reply>) :
+class RepliesAdapter(private val replies: List<Reply>, private val onAuthorClick: (String) -> Unit) :
     RecyclerView.Adapter<RepliesAdapter.ReplyViewHolder>() {
 
     inner class ReplyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -29,6 +29,9 @@ class RepliesAdapter(private val replies: List<Reply>) :
                 .error(R.drawable.default_profile)
                 .fallback(R.drawable.default_profile)
                 .into(profileImage)
+            authorName.setOnClickListener{
+                onAuthorClick(authorName.text.toString())
+            }
         }
     }
 

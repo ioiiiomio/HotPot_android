@@ -1,6 +1,7 @@
 package com.example.hotpot.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -8,12 +9,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hotpot.R
 import com.example.hotpot.databinding.ModelsPostItemBinding
 import com.example.hotpot.models.PostItem
-import com.example.hotpot.ui.fragments.ForumFragment
 
 class PostsAdapter(
     private var newsList: List<PostItem>,
     private val onClick: (PostItem) -> Unit,
-    private val onFavoriteClick: (PostItem) -> Unit
+    private val onFavoriteClick: ((PostItem) -> Unit)?
 ) : RecyclerView.Adapter<PostsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(private val binding: ModelsPostItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -21,10 +21,14 @@ class PostsAdapter(
             binding.newsTitle.text = news.title
             binding.newsAuthor.text = news.author_username
             binding.newsPreview.text = news.preview
-            binding.favoriteButton.isSelected=news.is_favourite
-            binding.favoriteButton.setOnClickListener{
-                it.isSelected = !it.isSelected
-                onFavoriteClick(news)
+            if(onFavoriteClick!=null) {
+                binding.favoriteButton.isSelected = news.is_favourite
+                binding.favoriteButton.setOnClickListener {
+                    it.isSelected = !it.isSelected
+                    onFavoriteClick?.let { it1 -> it1(news) }
+                }
+            }else{
+                binding.favoriteButton.visibility=View.INVISIBLE
             }
 
             // Load image with placeholder and error handling

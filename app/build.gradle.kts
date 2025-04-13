@@ -70,7 +70,8 @@ dependencies {
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.androidx.navigation.ui.ktx)
 //    Glide implementation
-    implementation(libs.glide) // Latest version of Glide
+    implementation(libs.glide)
+    implementation(libs.androidx.media3.common.ktx) // Latest version of Glide
     annotationProcessor (libs.compiler)  // Required for Glide annotations
 
     implementation(libs.androidx.recyclerview)

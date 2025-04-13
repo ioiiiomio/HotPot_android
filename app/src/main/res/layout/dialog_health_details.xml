@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_beige">
+
+    <EditText
+        android:id="@+id/dobInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Date of Birth"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+
+    <EditText
+        android:id="@+id/heightInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Height (cm)"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/weightInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Weight (kg)"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/sexGroup"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:text="Male"
+            android:fontFamily="@font/inria_serif_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/female"
+            android:text="Female"
+            android:fontFamily="@font/inria_serif_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+</LinearLayout>
