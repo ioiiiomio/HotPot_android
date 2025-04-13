@@ -22,6 +22,7 @@ public class AppStorage private constructor(context: Context) {
         const val PASSWORD = "password"
         const val ACCESS_TOKEN = "access_token"
         const val ROLE = "role"
+        const val USER_ID = "user_id"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -59,6 +60,9 @@ public class AppStorage private constructor(context: Context) {
     fun saveRole(role: String){
         saveToStorage(ROLE, role)
     }
+    fun saveID(id: Int){
+        saveToStorage(USER_ID, id.toString())
+    }
     fun getAccessToken() : String?{
         val accessToken = getData(ACCESS_TOKEN)
         if(accessToken==null){
@@ -86,6 +90,13 @@ public class AppStorage private constructor(context: Context) {
             Log.e("AppStorage", "Role was not found")
         }
         return mapPosition
+    }
+    fun getId() : Int?{
+        val id = retrieveFromStorage(USER_ID)?.toInt()
+        if(id==null){
+            Log.e("AppStorage", "ID was not found")
+        }
+        return id
     }
 
     /**

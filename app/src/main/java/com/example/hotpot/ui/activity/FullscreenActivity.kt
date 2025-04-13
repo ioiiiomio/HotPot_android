@@ -3,6 +3,7 @@ package com.example.hotpot.ui.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.hotpot.R
@@ -16,6 +17,8 @@ class FullscreenActivity : AppCompatActivity() {
         val fragmentClass = intent.getStringExtra("fragment_class")
         val args = intent.getBundleExtra("args")
 
+        Log.e("abcd", "${fragmentClass} ${args}")
+
         try {
             val fragment = Class.forName(fragmentClass!!).newInstance() as Fragment
             fragment.arguments = args
@@ -24,6 +27,7 @@ class FullscreenActivity : AppCompatActivity() {
                 .replace(R.id.fullscreen_container, fragment)
                 .commit()
         } catch (e: Exception) {
+            Log.e("abcd", e.message.toString())
             finish() // Close activity if fragment loading fails
         }
     }

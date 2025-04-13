@@ -56,6 +56,24 @@ object Utils {
         return null
     }
 
+    fun getId(token: String): Int? {
+        try {
+            val parts = token.split(".")
+            if (parts.size != 3) throw IllegalArgumentException("Invalid JWT token")
+
+            val payload = String(Base64.decode(parts[1], Base64.URL_SAFE))
+            val payloadJson = JSONObject(payload)
+
+            if (!payloadJson.has("user_id")) throw IllegalArgumentException("No user id data in token")
+
+            val id = payloadJson.getInt("user_id")
+            return id
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
+    }
+
     fun getRelativeTime(timestamp: String): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.getDefault())
         sdf.timeZone = TimeZone.getTimeZone("UTC")

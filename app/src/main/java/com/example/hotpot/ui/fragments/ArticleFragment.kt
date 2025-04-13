@@ -20,6 +20,7 @@ import com.example.hotpot.models.Article
 import com.example.hotpot.models.ArticleContent
 import com.example.hotpot.models.Comment
 import com.example.hotpot.models.Reply
+import com.example.hotpot.ui.activity.FullscreenActivity
 import kotlinx.coroutines.*
 import org.koin.mp.KoinPlatform.getKoin
 
@@ -47,7 +48,14 @@ class ArticleFragment : Fragment() {
     private lateinit var commentPreview: LinearLayout
 
     private var isExpanded = false
-    private val commentsAdapter = CommentsAdapter(mutableListOf())
+    private val commentsAdapter = CommentsAdapter(mutableListOf()) { username ->
+        FullscreenActivity.launch(
+            requireContext(),
+            UserProfileFragment::class.java,
+            Bundle().apply { putString("username", username) }
+        )
+    }
+
 
     private val postsRepository by lazy { getKoin().get<com.example.hotpot.data.posts.posts.PostsRepository>() }
     private val commentsRepository by lazy { getKoin().get<CommentsRepository>() }
@@ -134,6 +142,22 @@ class ArticleFragment : Fragment() {
                         // Update title and author
                         articleTitle.text = article.title
                         authorUsername.text = article.author
+
+                        authorUsername.setOnClickListener{
+                                FullscreenActivity.launch(
+                                    requireContext(),
+                                    DieticianProfileFragment::class.java,
+                                    Bundle().apply { putString("username", article.author) }
+                                )
+                        }
+
+                        authorPfp.setOnClickListener{
+                            FullscreenActivity.launch(
+                                requireContext(),
+                                DieticianProfileFragment::class.java,
+                                Bundle().apply { putString("username", article.author) }
+                            )
+                        }
 
                         // Load image (optional, you can use Glide)
 //                        Glide.with(requireContext())
