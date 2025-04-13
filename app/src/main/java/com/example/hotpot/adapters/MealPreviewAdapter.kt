@@ -1,0 +1,62 @@
+package com.example.hotpot.adapters
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.hotpot.R
+import com.example.hotpot.models.Meal
+import com.google.android.material.card.MaterialCardView
+
+class MealPreviewAdapter(
+    private val meals: MutableList<Meal>,
+    private val onMealClick: (List<Meal>) -> Unit
+) : RecyclerView.Adapter<MealPreviewAdapter.MealViewHolder>() {
+
+    private val selectedStates = mutableSetOf<Int>()
+
+    inner class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val mealTitle: TextView = itemView.findViewById(R.id.mealTitle)
+        val mealCalories: TextView = itemView.findViewById(R.id.breakfastText)
+        val mealActionIcon: ImageView = itemView.findViewById(R.id.plus)
+        val card: MaterialCardView = itemView.findViewById(R.id.breakfast)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.models_meal_preview, parent, false)
+        return MealViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
+        val meal = meals[position]
+
+        holder.mealTitle.text = meal.title
+        holder.mealCalories.text = "${meal.calories.total} kcal (${meal.calories.carbs}g, ${meal.calories.protein}g, ${meal.calories.fats}g)"
+
+        val imageRes = if (selectedStates.contains(meal.id)) R.drawable.plus else R.drawable.plus_gray
+        holder.mealActionIcon.setImageResource(imageRes)
+
+        holder.card.setOnClickListener {
+            if (selectedStates.contains(meal.id)) {
+                selectedStates.remove(meal.id)
+                holder.mealActionIcon.setImageResource(R.drawable.plus_gray)
+            } else {
+                selectedStates.add(meal.id)
+                holder.mealActionIcon.setImageResource(R.drawable.plus)
+            }
+            onMealClick(meals.filter { meal -> selectedStates.contains(meal.id) })
+
+        }
+    }
+
+    fun addMeal(meal: Meal) {
+        meals.add(meal)
+        notifyItemInserted(meals.size - 1)
+    }
+
+
+    override fun getItemCount(): Int = meals.size
+}

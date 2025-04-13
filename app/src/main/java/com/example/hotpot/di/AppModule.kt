@@ -16,9 +16,11 @@ import com.example.hotpot.data.posts.favorites.FavoritesRepositoryImpl
 import com.example.hotpot.data.posts.posts.PostsApi
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.data.posts.posts.PostsRepositoryImpl
+import com.example.hotpot.ui.viewmodels.MainActivityVM
 import com.prowheelxrassistv01.data.AppStorage
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -77,5 +79,6 @@ val appModule = module {
     single { get<Retrofit>(named("interceptorRetrofit")).create(CommentsApi::class.java) }
     single<CommentsRepository> { CommentsRepositoryImpl(get()) }
 
+    viewModel { MainActivityVM() }
 
 }

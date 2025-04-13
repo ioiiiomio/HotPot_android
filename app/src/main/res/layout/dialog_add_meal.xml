@@ -1,0 +1,45 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_beige"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/mealTitleInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meal Title"/>
+
+    <EditText
+        android:id="@+id/caloriesInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Calories"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/carbsInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Carbs"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/proteinsInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Proteins"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/fatsInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fats"
+        android:inputType="number"/>
+
+</LinearLayout>

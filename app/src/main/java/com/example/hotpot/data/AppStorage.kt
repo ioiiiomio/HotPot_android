@@ -10,6 +10,9 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 import android.util.Base64
 import android.util.Log
+import com.example.hotpot.models.CalorieNorm
+import com.example.hotpot.models.DailyMeal
+import com.google.gson.Gson
 
 public class AppStorage private constructor(context: Context) {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("HotpotPrefs", Context.MODE_PRIVATE)
@@ -23,6 +26,8 @@ public class AppStorage private constructor(context: Context) {
         const val ACCESS_TOKEN = "access_token"
         const val ROLE = "role"
         const val USER_ID = "user_id"
+        const val CALORIE_NORM = "calorie_norm"
+        const val DAILY_MEAL = "daily_meal"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -63,6 +68,12 @@ public class AppStorage private constructor(context: Context) {
     fun saveID(id: Int){
         saveToStorage(USER_ID, id.toString())
     }
+    fun saveCalorieNorm(norm : CalorieNorm){
+        saveToStorage(CALORIE_NORM, Gson().toJson(norm))
+    }
+    fun saveDailyMeal(meal : DailyMeal){
+        saveToStorage(DAILY_MEAL, Gson().toJson(meal))
+    }
     fun getAccessToken() : String?{
         val accessToken = getData(ACCESS_TOKEN)
         if(accessToken==null){
@@ -97,6 +108,22 @@ public class AppStorage private constructor(context: Context) {
             Log.e("AppStorage", "ID was not found")
         }
         return id
+    }
+    fun getCalorieNorm() : CalorieNorm?{
+        val norm = retrieveFromStorage(CALORIE_NORM)
+        if(norm==null){
+            Log.e("AppStorage", "Norm was not found")
+            return null
+        }
+        return Gson().fromJson(norm, CalorieNorm::class.java)
+    }
+    fun getDailyMeal() : DailyMeal?{
+        val norm = retrieveFromStorage(DAILY_MEAL)
+        if(norm==null){
+            Log.e("AppStorage", "Norm was not found")
+            return null
+        }
+        return Gson().fromJson(norm, DailyMeal::class.java)
     }
 
     /**
