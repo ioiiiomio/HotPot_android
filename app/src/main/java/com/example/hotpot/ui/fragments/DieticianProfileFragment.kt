@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +26,12 @@ import com.bumptech.glide.Glide
 import com.example.hotpot.data.posts.favorites.FavoritesRepository
 import com.example.hotpot.data.posts.posts.FeedResult
 import com.example.hotpot.data.posts.posts.PostsRepository
+import com.example.hotpot.data.profile.DieticianResult
+import com.example.hotpot.data.profile.DieticiansResult
+import com.example.hotpot.data.profile.FollowsResult
+import com.example.hotpot.data.profile.ProfileRepository
+import com.example.hotpot.data.profile.UpdateResult
+import com.example.hotpot.data.profile.UserResult
 import com.example.hotpot.models.Dietician
 import com.example.hotpot.models.GuideItem
 import com.example.hotpot.ui.fragments.DetailsFragment
@@ -38,6 +45,7 @@ import kotlinx.coroutines.withContext
 class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
 
     private val postsRepository: PostsRepository by lazy { getKoin().get<PostsRepository>() }
+    private val profileRepository: ProfileRepository by lazy { getKoin().get<ProfileRepository>() }
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     private lateinit var tabLayout: TabLayout
@@ -48,6 +56,7 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
     private lateinit var postsCount : TextView
     private lateinit var premiumCount : TextView
     private lateinit var viewModel: FullScreenActivityVM
+    private lateinit var followButton : AppCompatButton
 
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
 
@@ -63,8 +72,11 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         followersCount = view.findViewById(R.id.followersCount)
         postsCount = view.findViewById(R.id.postsCount)
         premiumCount = view.findViewById(R.id.premiumCount)
+        followButton = view.findViewById(R.id.followButton)
 
         val username = arguments?.getString("username")
+        Log.e("abcd", username.toString())
+        val id = arguments?.getInt("id")
         Log.e("abcd", username.toString())
 
         viewModel.dieticianProfile.observe(viewLifecycleOwner) { dietician ->
@@ -80,8 +92,30 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
                 if(postsResult is FeedResult.Success){
                     viewModel.posts.value = postsResult.postsPreviews
                 }
-                var dietician = mockDietician
-                viewModel.dieticianProfile.value = dietician
+                if (username != null) {
+                    val result = profileRepository.getDietician(username)
+                    if (result is DieticianResult.Success) {
+                        val dietician = result.dietician
+
+                        // Check if current user follows this dietician
+                        val isFollowing = checkIfFollowing(dietician.user_id)
+                        dietician.is_following = isFollowing
+
+                        viewModel.dieticianProfile.postValue(dietician)
+                    }
+                } else if (id != null) {
+                    val result = profileRepository.getDietician(id)
+                    if (result is DieticianResult.Success) {
+                        val dietician = result.dietician
+
+                        // Check if current user follows this dietician
+                        val isFollowing = checkIfFollowing(dietician.user_id)
+                        dietician.is_following = isFollowing
+
+                        viewModel.dieticianProfile.postValue(dietician)
+                    }
+                }
+
 
                 withContext(Dispatchers.Main) {
                     val guidesFragment = GuidesFragment()
@@ -97,10 +131,44 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         }
     }
 
-    private fun isOwnProfile(userProfile: UserProfile): Boolean {
+    private fun isOwnProfile(dietician: Dietician): Boolean {
         val currentUserId = appStorage.getId()
-        return userProfile.user_id == currentUserId
+        return dietician.user_id == currentUserId
     }
+    private suspend fun checkIfFollowing(dieticianId: Int): Boolean {
+        return try {
+            val currentUserId = appStorage.getId()
+            val userProfileResult = currentUserId?.let { profileRepository.getUser(it)}
+
+            val dieticianProfileResult = currentUserId?.let { profileRepository.getDietician(it) }
+
+            if (userProfileResult is UserResult.Success) {
+                val username = userProfileResult.user.username
+                val followsResult = profileRepository.getFollows(username)
+
+                if (followsResult is FollowsResult.Success) {
+                    followsResult.follows.map { it -> it.user_id }.contains(dieticianId)
+                } else {
+                    false
+                }
+            }else if (dieticianProfileResult is DieticianResult.Success) {
+                val username = dieticianProfileResult.dietician.username
+                val followsResult = profileRepository.getFollows(username)
+
+                if (followsResult is FollowsResult.Success) {
+                    followsResult.follows.map { it -> it.user_id }.contains(dieticianId)
+                } else {
+                    false
+                }
+            } else {
+                false
+            }
+        } catch (e: Exception) {
+            Log.e("DieticianProfileFragment", "Failed to check follow status", e)
+            false
+        }
+    }
+
 
     private fun updateUi(dietician: Dietician) {
         Glide.with(this)
@@ -114,6 +182,57 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         followersCount.text = dietician.followers.toString()
         postsCount.text = dietician.posts.toString()
         premiumCount.text = dietician.premium_subscribers.toString()
+        if (isOwnProfile(dietician)) {
+            followButton.visibility = View.GONE
+        } else {
+            followButton.visibility = View.VISIBLE
+
+            setFollowButtonState(dietician.is_following ?: false)
+
+            followButton.setOnClickListener {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    try {
+                        val result = profileRepository.follow(dietician.username)
+                        if (result is UpdateResult.Success) {
+                            val newFollowingState = !dietician.is_following!!
+                            dietician.is_following = newFollowingState
+
+                            withContext(Dispatchers.Main) {
+                                setFollowButtonState(newFollowingState)
+                                val updatedFollowers =
+                                    if (newFollowingState) dietician.followers + 1 else dietician.followers - 1
+                                followersCount.text = updatedFollowers.toString()
+                            }
+                        } else {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Failed to update follow status",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                requireContext(),
+                                "Something went wrong",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    private fun setFollowButtonState(isFollowing: Boolean) {
+        if (isFollowing) {
+            followButton.text = "Unfollow"
+            followButton.setBackgroundResource(R.drawable.light_green_rounded_background)
+        } else {
+            followButton.text = "Follow"
+            followButton.setBackgroundResource(R.drawable.yellow_rounded_background)
+        }
     }
 
     private fun setupCustomTabs(tabLayout: TabLayout, tabTitles: List<String>) {
@@ -152,48 +271,6 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         textView.isSelected = isSelected
         return view
     }
-
-    val mockDietician = Dietician(
-        user_id = 1,
-        name = "Emily",
-        surname = "Parker",
-        username = "@emily.nutrition",
-        followers = 2450,
-        posts = 78,
-        premium_subscribers = 320,
-        profile_picture = "https://example.com/images/emily_profile.jpg",
-        occupation = "Clinical Dietitian & Sports Nutritionist",
-        about = "Emily works with professional athletes and individuals aiming to optimize their health through tailored nutrition plans. She specializes in weight management, sports performance, and chronic disease prevention.",
-        experience_years = "7+ years",
-        experience = listOf(
-            GuideItem(
-                title = "Senior Clinical Dietitian",
-                institution = "ABC Hospital",
-                year = "2019 - Present",
-                description = "Providing medical nutrition therapy, personalized meal plans, and educating patients on managing chronic diseases like diabetes and hypertension."
-            ),
-            GuideItem(
-                title = "Sports Nutrition Specialist",
-                institution = "Elite Performance Center",
-                year = "2016 - 2019",
-                description = "Worked with professional athletes, developing performance-oriented diet plans and conducting workshops on recovery nutrition."
-            )
-        ),
-        certificates = listOf(
-            GuideItem(
-                title = "Certified Clinical Nutritionist (CCN)",
-                institution = "Nutrition Board USA",
-                year = "2018",
-                description = "Certification covering clinical nutrition practices, patient counseling, and dietary intervention protocols."
-            ),
-            GuideItem(
-                title = "Sports Nutrition Certification",
-                institution = "International Sports Science Association",
-                year = "2017",
-                description = "Program focusing on nutrition strategies for athletic performance, injury recovery, and body composition management."
-            )
-        )
-    )
 
 
 }

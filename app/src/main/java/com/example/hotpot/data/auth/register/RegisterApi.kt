@@ -11,12 +11,17 @@ interface RegisterApi {
 }
 
 data class RegisterRequest(
-    val email : String,
-    val username : String,
-    val firstname : String,
-    val lastname : String,
-    val password : String
+    val birth_date: String,
+    val email: String,
+    val firstname: String,
+    val lastname: String,
+    val password: String,
+    val profile_picture: String,
+    val sex: String,
+    val username: String,
+    val vision: List<String>
 )
+
 
 data class RegisterResponse(
     val code : Int,

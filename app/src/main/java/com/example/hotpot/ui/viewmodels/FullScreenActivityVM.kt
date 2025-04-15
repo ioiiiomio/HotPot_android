@@ -4,10 +4,17 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hotpot.data.meal.MealRepository
+import com.example.hotpot.data.meal.MealResult
+import com.example.hotpot.data.profile.ProfileRepository
+import com.example.hotpot.data.profile.UpdateRequest
+import com.example.hotpot.data.profile.UserResult
 import com.example.hotpot.models.CalorieNorm
 import com.example.hotpot.models.Calories
+import com.example.hotpot.models.DailyMeal
 import com.example.hotpot.models.Dietician
 import com.example.hotpot.models.HealthDetail
+import com.example.hotpot.models.MealDetail
 import com.example.hotpot.models.PostItem
 import com.example.hotpot.models.UserProfile
 import com.prowheelxrassistv01.data.AppStorage
@@ -24,6 +31,7 @@ class FullScreenActivityVM : ViewModel() {
     var posts = MutableLiveData<List<PostItem>>()
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
     private val mainActivityVM: MainActivityVM by lazy { getKoin().get<MainActivityVM>()}
+    private val profileRepository: ProfileRepository by lazy { getKoin().get<ProfileRepository>() }
 
 
     fun updateHealthDetails(height: Int, weight: Double, dob: String, sex: String) {
@@ -38,7 +46,7 @@ class FullScreenActivityVM : ViewModel() {
         val updatedProfile = currentProfile.copy(
             birth_date = dob,
             sex = sex,
-            health_details = currentProfile.health_details + newHealthDetail
+            health_details = currentProfile.health_details?.plus(newHealthDetail)
         )
 
         userProfile.value = updatedProfile
@@ -58,7 +66,38 @@ class FullScreenActivityVM : ViewModel() {
         }
     }
 
+    fun fetchUserById(id: Int) {
+        viewModelScope.launch {
+            val result = profileRepository.getUser(id)
+            if (result is UserResult.Success) {
+                userProfile.postValue(result.user)
+            }
+        }
+    }
+
+    fun fetchUserByUsername(username: String) {
+        viewModelScope.launch {
+            val result = profileRepository.getUser(username)
+            if (result is UserResult.Success) {
+                userProfile.postValue(result.user)
+            }
+        }
+    }
+
+
     suspend fun generateAndUpdateCalorieNorm() {
+        if(userProfile.value == null) return
+        if(userProfile.value!!.health_details == null || userProfile.value!!.health_details!!.size == 0) return
+        if(userProfile.value!!.vision == null || userProfile.value!!.vision!!.isEmpty()) return
+        if(userProfile.value!!.sex == null ||  userProfile.value!!.sex!!.isEmpty() ) return
+        if(userProfile.value!!.birth_date == null  || userProfile.value!!.birth_date!!.endsWith("1900")) return
+        try{
+            val result = profileRepository.updateProfile(
+                userProfile.value!!.username,
+                UpdateRequest(userProfile.value!!.birth_date!!, userProfile.value!!.health_details!!, userProfile.value!!.profile_picture, userProfile.value!!.sex!!, userProfile.value!!.vision))
+        }catch (e: Exception){
+            return
+        }
 //        val profile = userProfile.value ?: return
 //
 //        val prompt = "Based on a ${profile.sex} born on ${profile.birth_date} weighing ${

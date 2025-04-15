@@ -10,7 +10,7 @@ data class UserProfile(
     val profile_picture: String,
     val birth_date: String?,
     val sex: String?,
-    val health_details: List<HealthDetail>,
+    var health_details: List<HealthDetail>?,
     val vision: List<String>
 )
 
@@ -21,6 +21,7 @@ data class HealthDetail(
 )
 
 data class Dietician(
+    var is_following : Boolean?,
     val user_id: Int,
     val name: String,
     val surname: String,

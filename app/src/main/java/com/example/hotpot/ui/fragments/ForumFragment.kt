@@ -13,14 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotpot.ui.activity.FullscreenActivity
 import com.example.hotpot.R
+import com.example.hotpot.adapters.DieticianPreviewAdapter
 import com.example.hotpot.adapters.PostsAdapter
 import com.example.hotpot.data.posts.favorites.FavoriteRequest
 import com.example.hotpot.data.posts.favorites.FavoritesRepository
 import com.example.hotpot.data.posts.favorites.FavoritesResult
 import com.example.hotpot.data.posts.posts.FeedResult
 import com.example.hotpot.data.posts.posts.PostsRepository
+import com.example.hotpot.data.profile.DieticiansResult
+import com.example.hotpot.data.profile.ProfileRepository
 import com.example.hotpot.databinding.FragmentForumBinding
 import com.example.hotpot.fragments.ArticleFragment
+import com.example.hotpot.fragments.DieticianProfileFragment
+import com.example.hotpot.models.Dietician
 import com.example.hotpot.models.PostItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +38,11 @@ class ForumFragment : Fragment() {
     private var _binding: FragmentForumBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var dieticianAdapter: DieticianPreviewAdapter
+    private var dieticians = listOf<Dietician>()
+
     private val postsRepository: PostsRepository by lazy { getKoin().get<PostsRepository>() }
+    private val profileRepository: ProfileRepository by lazy { getKoin().get<ProfileRepository>() }
     private val favoritesRepository: FavoritesRepository by lazy { getKoin().get<FavoritesRepository>() }
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -49,6 +58,7 @@ class ForumFragment : Fragment() {
 
 
         initNews()
+        initDieticians()
 
         adapter = PostsAdapter(filteredNews, { news ->
             FullscreenActivity.launch(
@@ -59,6 +69,14 @@ class ForumFragment : Fragment() {
         }, { post ->
             toggleFavorite(post)
         })
+
+        dieticianAdapter = DieticianPreviewAdapter(dieticians) { username ->
+            FullscreenActivity.launch(
+                requireContext(),
+                DieticianProfileFragment::class.java,
+                Bundle().apply { putString("username", username) }
+            )
+        }
 
 
         val spacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
@@ -86,6 +104,22 @@ class ForumFragment : Fragment() {
             }
         }
     }
+    private fun initDieticians() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val result = profileRepository.getDieticians()
+            if (result is DieticiansResult.Success) {
+                dieticians = result.dieticians
+                withContext(Dispatchers.Main) {
+                    dieticianAdapter.updateData(dieticians)
+                    binding.recyclerView.adapter = dieticianAdapter
+                }
+            } else {
+                Log.e("ForumFragment", "Failed to fetch feed")
+            }
+
+        }
+    }
+
 
     private fun setupCategoryButtons() {
         val buttons = listOf(binding.btnAll, binding.btnPopular, binding.btnFavorites)
@@ -102,9 +136,17 @@ class ForumFragment : Fragment() {
 
 
                 when (button.id) {
-                    R.id.btnAll -> adapter.updateData(allNews)
-                    R.id.btnPopular -> adapter.updateData(allNews)
-                    R.id.btnFavorites -> filterFavoriteNews()
+                    R.id.btnAll -> {
+                        binding.recyclerView.adapter = adapter
+                        adapter.updateData(allNews)
+                    }
+                    R.id.btnPopular -> {
+                        initDieticians()
+                    }
+                    R.id.btnFavorites -> {
+                        binding.recyclerView.adapter = adapter
+                        filterFavoriteNews()
+                    }
                 }
             }
         }
