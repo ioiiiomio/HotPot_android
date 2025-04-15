@@ -10,6 +10,9 @@ import com.example.hotpot.data.auth.register.RegisterRepositoryImpl
 import com.example.hotpot.data.meal.MealApi
 import com.example.hotpot.data.meal.MealRepository
 import com.example.hotpot.data.meal.MealRepositoryImpl
+import com.example.hotpot.data.openai.OpenAIApi
+import com.example.hotpot.data.openai.OpenAIRepository
+import com.example.hotpot.data.openai.OpenAIRepositoryImpl
 import com.example.hotpot.data.posts.comments.CommentsApi
 import com.example.hotpot.data.posts.comments.CommentsRepository
 import com.example.hotpot.data.posts.comments.CommentsRepositoryImpl
@@ -90,6 +93,24 @@ val appModule = module {
 
     single { get<Retrofit>(named("interceptorRetrofit")).create(ProfilelApi::class.java) }
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
+
+    single(named("openAIHttpClient")) {
+        OkHttpClient.Builder()
+            //.addInterceptor()
+            .build()
+    }
+
+    // Retrofit with interceptor
+    single(named("openAIRetrofit")) {
+        Retrofit.Builder()
+            .baseUrl("https://api.openai.com/v1/")
+            .client(get(named("openAIHttpClient")))
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    single { get<Retrofit>(named("openAIRetrofit")).create(OpenAIApi::class.java) }
+    single<OpenAIRepository> { OpenAIRepositoryImpl(get()) }
 
     viewModel { MainActivityVM() }
 

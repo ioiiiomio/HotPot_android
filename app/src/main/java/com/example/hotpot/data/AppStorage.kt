@@ -12,6 +12,7 @@ import android.util.Base64
 import android.util.Log
 import com.example.hotpot.models.CalorieNorm
 import com.example.hotpot.models.DailyMeal
+import com.example.hotpot.ui.viewmodels.MainActivityVM
 import com.google.gson.Gson
 
 public class AppStorage private constructor(context: Context) {
@@ -28,6 +29,7 @@ public class AppStorage private constructor(context: Context) {
         const val USER_ID = "user_id"
         const val CALORIE_NORM = "calorie_norm"
         const val DAILY_MEAL = "daily_meal"
+        const val PROGRESS = "progress"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -73,6 +75,9 @@ public class AppStorage private constructor(context: Context) {
     }
     fun saveDailyMeal(meal : DailyMeal){
         saveToStorage(DAILY_MEAL, Gson().toJson(meal))
+    }
+    fun saveFeedback(feedback : MainActivityVM.Feedback){
+        saveToStorage(PROGRESS, Gson().toJson(feedback))
     }
     fun getAccessToken() : String?{
         val accessToken = getData(ACCESS_TOKEN)
@@ -124,6 +129,14 @@ public class AppStorage private constructor(context: Context) {
             return null
         }
         return Gson().fromJson(norm, DailyMeal::class.java)
+    }
+    fun getFeedback() : MainActivityVM.Feedback?{
+        val norm = retrieveFromStorage(PROGRESS)
+        if(norm==null){
+            Log.e("AppStorage", "progress was not found")
+            return null
+        }
+        return Gson().fromJson(norm, MainActivityVM.Feedback::class.java)
     }
 
     /**
