@@ -89,6 +89,8 @@ dependencies {
     implementation (libs.converter.gson)
     implementation (libs.gson)
 
+//    for AI
+
 
 
 

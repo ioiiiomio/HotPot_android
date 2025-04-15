@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hotpot.R
 import com.example.hotpot.databinding.FragmentRecipesBinding
 import com.example.hotpot.data.viewmodel.RecipeViewModel
 import com.example.hotpot.data.model.MealType
@@ -34,7 +36,7 @@ class RecipesFragment : Fragment() {
             val recipeMap = mealTypesWithRecipes.associate { it.mealType to it.recipes }
 
             // Set up the vertical RecyclerView adapter
-            val mealTypeAdapter = MealTypeAdapter(MealType.entries.toList(), recipeMap)
+
             binding.verticalRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.verticalRecyclerView.adapter = mealTypeAdapter
         })

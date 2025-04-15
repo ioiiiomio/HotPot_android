@@ -6,25 +6,36 @@
     <fragment
         android:id="@+id/nav_progress"
         android:name="com.example.hotpot.ui.fragments.ProgressFragment"
-        android:label="Progress"/>
+        android:label="Progress" />
 
     <fragment
         android:id="@+id/nav_recipes"
         android:name="com.example.hotpot.ui.fragments.RecipesFragment"
-        android:label="Recipes"/>
+        android:label="Recipes">
+        <action
+            android:id="@+id/action_nav_recipes_to_recipesBreakfastFragment"
+            app:destination="@layout/recipes_breakfast" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.hotpot.ui.fragments.HomeFragment"
-        android:label="Home"/>
+        android:label="Home" />
 
     <fragment
         android:id="@+id/nav_chat"
         android:name="com.example.hotpot.ui.fragments.ChatFragment"
-        android:label="Chat"/>
+        android:label="Chat" />
 
     <fragment
         android:id="@+id/nav_forum"
         android:name="com.example.hotpot.ui.fragments.ForumFragment"
-        android:label="Forum"/>
+        android:label="Forum" />
+
+    <!-- 🍳 NEW BREAKFAST FRAGMENT -->
+    <fragment
+        android:id="@+id/recipesBreakfastFragment"
+        android:name="com.example.hotpot.ui.fragments.RecipesBreakfastFragment"
+        android:label="Breakfast Recipe"
+        android:layout="@layout/recipes_breakfast" />
 </navigation>

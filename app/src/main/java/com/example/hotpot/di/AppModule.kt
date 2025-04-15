@@ -1,6 +1,7 @@
 package com.example.hotpot.di
 
 import com.example.hotpot.data.AuthInterceptor
+import com.example.hotpot.data.api.RecipeApi
 import com.example.hotpot.data.auth.login.LoginApi
 import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.auth.login.LoginRepositoryImpl
@@ -71,7 +72,6 @@ val appModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 
     single { get<Retrofit>(named("interceptorRetrofit")).create(RegisterApi::class.java) }
     single<RegisterRepository> { RegisterRepositoryImpl(get()) }

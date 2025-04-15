@@ -12,4 +12,5 @@
     <string name="register">Register</string>
     <string name="not_working"><![CDATA[Oh no :<]]></string>
     <string name="dafault_pfp">https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg</string>
+    <string name="loading_the_recipe">Loading the recipe...</string>
 </resources>
