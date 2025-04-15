@@ -5,15 +5,21 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotpot.data.auth.login.LoginRepository
 import com.example.hotpot.data.meal.MealRepository
 import com.example.hotpot.data.meal.MealResult
-import com.example.hotpot.data.model.MealType
+import com.example.hotpot.data.openai.ChatRequest
+import com.example.hotpot.data.openai.Message
+import com.example.hotpot.data.openai.OpenAIRepository
+import com.example.hotpot.data.openai.OpenAIResult
+import com.example.hotpot.data.profile.ProfileRepository
+import com.example.hotpot.data.profile.UserResult
 import com.example.hotpot.models.CalorieNorm
 import com.example.hotpot.models.Calories
 import com.example.hotpot.models.DailyMeal
 import com.example.hotpot.models.Meal
 import com.example.hotpot.models.MealDetail
+import com.example.hotpot.models.UserProfile
+import com.google.gson.Gson
 import com.prowheelxrassistv01.data.AppStorage
 import kotlinx.coroutines.launch
 import org.koin.mp.KoinPlatform.getKoin
@@ -23,10 +29,13 @@ import java.util.Date
 import java.util.Locale
 
 class MainActivityVM : ViewModel() {
+    private val profileRepository: ProfileRepository by lazy { getKoin().get<ProfileRepository>() }
+    private val openAIRepository: OpenAIRepository by lazy { getKoin().get<OpenAIRepository>() }
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
     private val mealRepository: MealRepository by lazy { getKoin().get<MealRepository>() }
     var calorieNorm = MutableLiveData<CalorieNorm?>()
     var dailyMeal = MutableLiveData<DailyMeal>()
+    val healthLevel = MutableLiveData<Feedback>()
     private var currentDate: String? = null
 
     fun fetchOrInitializeCalorieNorm() {
@@ -178,6 +187,86 @@ class MainActivityVM : ViewModel() {
         currentDate = SimpleDateFormat("dd-MM-yyyy").format(calendar.time)
     }
 
+    private fun getLast7DaysDates(): List<String> {
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        return (0..6).map {
+            val date = dateFormat.format(calendar.time)
+            calendar.add(Calendar.DAY_OF_YEAR, -1)
+            date
+        }
+    }
+
+    suspend fun collectDataAndSendPrompt(token: String, id: Int) {
+        val feedback = appStorage.getFeedback()
+        if(feedback!=null && feedback.date==getTodayDate()){
+            healthLevel.postValue(feedback!!)
+            return
+        }
+        try {
+            val userResult = profileRepository.getUser(id)
+            if(userResult is UserResult.Success){
+                val userProfile = userResult.user
+                val dates = getLast7DaysDates()
+                val meals = dates.mapNotNull { date ->
+                    when (val result = mealRepository.getMeal(date)) {
+                        is MealResult.Success -> result.meal
+                        is MealResult.Error -> null
+                    }
+                }
+                val prompt = buildPrompt(userProfile, meals)
+                sendPromptToOpenAI(token, prompt)
+            }
+
+        } catch (e: Exception) {
+            Log.e("ProgressFragment", "Error: ${e.message}")
+        }
+    }
+
+    private fun buildPrompt(profile: UserProfile, meals: List<DailyMeal>): String {
+        val profileJson: String = Gson().toJson(profile)
+        val mealsJson: String = Gson().toJson(meals)
+        return """
+        Based on my profile:
+        ${profileJson.toString()}
+        
+        And the data from the last 7 days about consumed meals:
+        ${mealsJson.toString()}
+        
+        Please rate my health level from 1 to 100 and provide feedback in this json, return json only, make feedback no longer than 30 words:
+        { rating: 1, feedback: "some feedback" }
+    """.trimIndent()
+    }
+
+
+    private suspend fun sendPromptToOpenAI(token: String, prompt: String) {
+        val request = ChatRequest(
+            model = "gpt-3.5-turbo",
+            messages = listOf(
+                Message("user", Gson().toJson(prompt))
+            )
+        )
+        Log.e("abcd", Gson().toJson(prompt))
+
+        val result = openAIRepository.getChatResponse("Bearer $token", request)
+
+        when (result) {
+            is OpenAIResult.Success -> {
+                val content = result.chatResponse.choices.firstOrNull()?.message?.content
+                val feedback = Gson().fromJson(content, Feedback::class.java)
+                feedback.date=getTodayDate()
+                appStorage.saveFeedback(feedback)
+                healthLevel.postValue(feedback)
+                Log.d("OpenAI", "Response: $content")
+            }
+            is OpenAIResult.Error -> {
+                Log.e("OpenAI", "Error: ${result.message}")
+            }
+        }
+    }
+
+
+
 
     fun recalculate(
         mealType: String,
@@ -216,6 +305,11 @@ class MainActivityVM : ViewModel() {
             )
         )
     }
+    data class Feedback(
+        val rating : Int,
+        val feedback : String,
+        var date : String
+    )
 
 
 

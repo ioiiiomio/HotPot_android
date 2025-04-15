@@ -11,7 +11,7 @@ class OpenAIRepositoryImpl (
     override suspend fun getChatResponse(token: String, request: ChatRequest): OpenAIResult {
         return try{
             val response = api.getChatResponse(token, request)
-            Log.e("Repository", "success")
+            Log.e("Repository", response.toString())
             OpenAIResult.Success(response)
         }catch(e: HttpException) {
             Log.e("Repository", "{${e.message()}}")

@@ -72,11 +72,11 @@ class HealthLevelCirlce @JvmOverloads constructor(
         // Prepare gradient shader
         val gradient = SweepGradient(
             rectF.centerX(), rectF.centerY(),
-            intArrayOf(Color.GREEN, Color.YELLOW, Color.RED),
+            intArrayOf(Color.rgb(255, 172, 28), Color.YELLOW, Color.GREEN),
             null
         )
         val matrix = Matrix()
-        matrix.preRotate(startAngle, rectF.centerX(), rectF.centerY())
+        matrix.preRotate(startAngle - 5f, rectF.centerX(), rectF.centerY())
         gradient.setLocalMatrix(matrix)
         paintProgress.shader = gradient
 
