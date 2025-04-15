@@ -46,40 +46,23 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
         username = view.findViewById(R.id.username)
         followsCount = view.findViewById(R.id.followsCount)
 
+
         val username = arguments?.getString("username")
         Log.e("abcd", username.toString())
+
+        val id = arguments?.getInt("id")
+        Log.e("abcd", id.toString())
+
+        if (id != null) {
+            viewModel.fetchUserById(id)
+        } else if (!username.isNullOrEmpty()) {
+            viewModel.fetchUserByUsername(username)
+        }
 
         viewModel.userProfile.observe(viewLifecycleOwner) { userProfile ->
             updateUi(userProfile)
         }
 
-        //lifecycleScope.launch {
-            try {
-                var userProfile = mockUserProfile
-                if(username!="@shyndaliu"){
-                    userProfile = mockUserProfileSecond
-                }
-
-                val tabs = if (isOwnProfile(userProfile)) {
-                    listOf("Overview", "Details")
-                } else {
-                    listOf("Overview")
-                }
-
-                setupCustomTabs(tabLayout, tabs)
-
-                val overviewFragment = OverviewFragment()
-                viewModel.userProfile.value = userProfile
-
-
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.tabContentContainer, overviewFragment)
-                    .commit()
-
-            } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Failed to load profile", Toast.LENGTH_SHORT).show()
-            }
-        //}
     }
 
     private fun isOwnProfile(userProfile: UserProfile): Boolean {
@@ -88,6 +71,21 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
     }
 
     private fun updateUi(userProfile: UserProfile) {
+        tabLayout.removeAllTabs()
+        val tabs = if (isOwnProfile(userProfile)) {
+            listOf("Overview", "Details")
+        } else {
+            listOf("Overview")
+        }
+
+        setupCustomTabs(tabLayout, tabs)
+
+        val overviewFragment = OverviewFragment()
+
+        childFragmentManager.beginTransaction()
+            .replace(R.id.tabContentContainer, overviewFragment)
+            .commit()
+
         Glide.with(this)
             .load(userProfile.profile_picture)
             .placeholder(R.drawable.default_profile)

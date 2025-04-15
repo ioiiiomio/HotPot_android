@@ -60,7 +60,7 @@ class AuthActivity : AppCompatActivity() {
             lastname.isNotEmpty() && username.isNotEmpty() &&
             password.isNotEmpty() && password.length>4 && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             viewModelScope.launch {
-                val registerResult = registerRepository.register(RegisterRequest(email, username, firstname, lastname, password))
+                val registerResult = registerRepository.register(RegisterRequest("01-01-1900", email, firstname, lastname, password, getString(R.string.dafault_pfp), "", username, listOf() ))
                 if(registerResult is RegisterResult.Success){
                     setFragment(loginFragment)
                 }else{

@@ -50,7 +50,9 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.dailyMeal.observe(viewLifecycleOwner){ dailyMeal ->
-            updateUi(viewModel.calorieNorm.value ?: emptyNorm, dailyMeal)
+            if(dailyMeal != null){
+                updateUi(viewModel.calorieNorm.value ?: emptyNorm, dailyMeal)
+            }
         }
 
         binding.btnProfile.setOnClickListener{
@@ -59,15 +61,24 @@ class HomeFragment : Fragment() {
                 FullscreenActivity.launch(
                     requireContext(),
                     UserProfileFragment::class.java,
-                    Bundle().apply { putString("username", "@shyndaliu") }
+                    Bundle().apply { appStorage.getId()?.let { it1 -> putInt("id", it1) } }
                 )
             }else{
                 FullscreenActivity.launch(
                     requireContext(),
                     DieticianProfileFragment::class.java,
-                    Bundle().apply { putString("username", "@shyndaliu") }
+                    Bundle().apply { appStorage.getId()?.let { it1 -> putInt("id", it1) } }
                 )
             }
+        }
+
+        binding.next.setOnClickListener {
+            viewModel.nextDate()
+            viewModel.fetchOrInitializeCalorieNorm()
+        }
+        binding.previous.setOnClickListener {
+            viewModel.previousDate()
+            viewModel.fetchOrInitializeCalorieNorm()
         }
 
         viewModel.fetchOrInitializeCalorieNorm()
@@ -159,7 +170,9 @@ class HomeFragment : Fragment() {
                     FullscreenActivity.launch(
                         requireContext(),
                         MealDetailsFragment::class.java,
-                        Bundle().apply { putString("mealType", mealType) }
+                        Bundle().apply {
+                            putString("mealType", mealType)
+                            putString("date", viewModel.getCurrentDate())}
                     )
                 } else {
                     Toast.makeText(requireContext(), "Please configure your profile", Toast.LENGTH_SHORT).show()

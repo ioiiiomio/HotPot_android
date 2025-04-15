@@ -7,7 +7,6 @@ data class Comment(
     val authorImageUrl: String?,
     val content: String,
     val created_at: String,
-    val updated_at: String,
     var replies: List<Reply>?
 )
 

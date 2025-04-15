@@ -53,6 +53,9 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
         }
     }
     private fun populateOverview(userProfile: UserProfile) {
+        if(userProfile.health_details == null){
+            userProfile.health_details = listOf()
+        }
 
         if(userProfile.birth_date!=null){
             val age = calculateAge(userProfile.birth_date)
@@ -60,17 +63,19 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
         }
 
         val healthDetails = userProfile.health_details
-        val before = healthDetails.firstOrNull()
-        val after = healthDetails.lastOrNull()
+        val before = healthDetails?.firstOrNull()
+        val after = healthDetails?.lastOrNull()
 
-        if(healthDetails.size>0) {
+        if (healthDetails != null) {
+            if(healthDetails.size>0) {
 
-            heightBefore.text = before?.height.toString()
-            heightAfter.text = after?.height.toString()
+                heightBefore.text = before?.height.toString()
+                heightAfter.text = after?.height.toString()
 
-            weightBefore.text = before?.weight.toString()
-            weightAfter.text = after?.weight.toString()
+                weightBefore.text = before?.weight.toString()
+                weightAfter.text = after?.weight.toString()
 
+            }
         }
 
         visionLayout.removeAllViews()

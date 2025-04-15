@@ -72,8 +72,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             userProfile?.let { profile ->
                 dobInput.setText(profile.birth_date)
                 selectedDate = profile.birth_date
-                heightInput.setText((profile.health_details.lastOrNull()?.height ?: "-").toString())
-                weightInput.setText((profile.health_details.lastOrNull()?.weight ?: "-").toString())
+                heightInput.setText((profile.health_details?.lastOrNull()?.height ?: "-").toString())
+                weightInput.setText((profile.health_details?.lastOrNull()?.weight ?: "-").toString())
 
                 when (profile.sex) {
                     "Male" -> sexGroup.check(R.id.male)

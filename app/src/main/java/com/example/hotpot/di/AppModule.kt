@@ -7,6 +7,9 @@ import com.example.hotpot.data.auth.login.LoginRepositoryImpl
 import com.example.hotpot.data.auth.register.RegisterApi
 import com.example.hotpot.data.auth.register.RegisterRepository
 import com.example.hotpot.data.auth.register.RegisterRepositoryImpl
+import com.example.hotpot.data.meal.MealApi
+import com.example.hotpot.data.meal.MealRepository
+import com.example.hotpot.data.meal.MealRepositoryImpl
 import com.example.hotpot.data.posts.comments.CommentsApi
 import com.example.hotpot.data.posts.comments.CommentsRepository
 import com.example.hotpot.data.posts.comments.CommentsRepositoryImpl
@@ -16,6 +19,9 @@ import com.example.hotpot.data.posts.favorites.FavoritesRepositoryImpl
 import com.example.hotpot.data.posts.posts.PostsApi
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.data.posts.posts.PostsRepositoryImpl
+import com.example.hotpot.data.profile.ProfileRepository
+import com.example.hotpot.data.profile.ProfileRepositoryImpl
+import com.example.hotpot.data.profile.ProfilelApi
 import com.example.hotpot.ui.viewmodels.MainActivityVM
 import com.prowheelxrassistv01.data.AppStorage
 import okhttp3.OkHttpClient
@@ -78,6 +84,12 @@ val appModule = module {
 
     single { get<Retrofit>(named("interceptorRetrofit")).create(CommentsApi::class.java) }
     single<CommentsRepository> { CommentsRepositoryImpl(get()) }
+
+    single { get<Retrofit>(named("interceptorRetrofit")).create(MealApi::class.java) }
+    single<MealRepository> { MealRepositoryImpl(get()) }
+
+    single { get<Retrofit>(named("interceptorRetrofit")).create(ProfilelApi::class.java) }
+    single<ProfileRepository> { ProfileRepositoryImpl(get()) }
 
     viewModel { MainActivityVM() }
 

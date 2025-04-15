@@ -57,6 +57,31 @@ class MealPreviewAdapter(
         notifyItemInserted(meals.size - 1)
     }
 
+    fun updateMeals(newMeals: List<Meal>) {
+        // Clear previous selection
+        selectedStates.clear()
+
+        // Update selection state for system recipes
+        for (meal in newMeals) {
+            if (meal.type == "recipe") {
+                // Find matching system recipe by title
+                meals.find { it.title == meal.title && it.type == "recipe" }?.let {
+                    selectedStates.add(it.id)
+                }
+            } else if (meal.type == "custom") {
+                // If custom meal not in list, add it
+                if (meals.none { it.id == meal.id && it.type == "custom" }) {
+                    meals.add(meal)
+                }
+                selectedStates.add(meal.id)
+            }
+        }
+
+        notifyDataSetChanged()
+    }
+
+
+
 
     override fun getItemCount(): Int = meals.size
 }

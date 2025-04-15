@@ -55,11 +55,12 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
 
         val mealType = arguments?.getString("mealType")
         Log.e("abcd", mealType.toString())
+        val date = arguments?.getString("date")
 
-        mainActivityVM.fetchOrInitializeCalorieNorm()
+
         mainActivityVM.calorieNorm.observe(viewLifecycleOwner) { norm ->
-            if (norm != null) {
-                mainActivityVM.initializeDailyMeal(norm)
+            if (norm != null && date != null) {
+                mainActivityVM.fetchOrInitializeDailyMealForDate(date, norm)
             }
         }
 
@@ -73,6 +74,15 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
 
         mainActivityVM.dailyMeal.observe(viewLifecycleOwner){dailyMeal ->
             updateUI(dailyMeal)
+            val meals = when (mealType) {
+                "breakfast" -> dailyMeal.breakfast.meals
+                "lunch"     -> dailyMeal.lunch.meals
+                "dinner"    -> dailyMeal.dinner.meals
+                "snack"    -> dailyMeal.snacks.meals
+                else        -> emptyList()
+            }
+
+            adapter.updateMeals(meals)
         }
 
         addCustom.setOnClickListener {
@@ -104,6 +114,8 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
                 .show()
         }
 
+        mainActivityVM.fetchOrInitializeCalorieNorm()
+
 
     }
     fun updateUI(dailyMeal: DailyMeal){
@@ -122,7 +134,61 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
 
     }
     val sampleMeals = mutableListOf(
-        Meal(1, "recipe", "Savory Vegan Breakfast Bowl", Calories(350, 12, 20, 30)),
-        Meal(2, "recipe", "Grilled Chicken Salad", Calories(420, 35, 18, 22))
+        Meal(
+            id = 1,
+            type = "recipe",
+            title = "Avocado Toast",
+            calories = Calories(
+                total = 250,
+                protein = 6,
+                fats = 14,
+                carbs = 22
+            )
+        ),
+        Meal(
+            id = 2,
+            type = "recipe",
+            title = "Chicken Caesar Salad",
+            calories = Calories(
+                total = 420,
+                protein = 30,
+                fats = 28,
+                carbs = 12
+            )
+        ),
+        Meal(
+            id = 3,
+            type = "recipe",
+            title = "Greek Yogurt Bowl",
+            calories = Calories(
+                total = 180,
+                protein = 10,
+                fats = 5,
+                carbs = 20
+            )
+        ),
+        Meal(
+            id = 4,
+            type = "recipe",
+            title = "Banana Protein Shake",
+            calories = Calories(
+                total = 300,
+                protein = 20,
+                fats = 8,
+                carbs = 35
+            )
+        ),
+        Meal(
+            id = 5,
+            type = "recipe",
+            title = "Oatmeal with Berries",
+            calories = Calories(
+                total = 350,
+                protein = 8,
+                fats = 10,
+                carbs = 50
+            )
+        )
     )
+
 }
