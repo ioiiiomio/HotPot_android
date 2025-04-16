@@ -70,7 +70,7 @@ drawable light_green_rounded_background
 drawable lunch
 drawable pfp_background
 drawable progress_scale
-drawable radial_gradient
+drawable radial_gradient_xml
 drawable rounded_image_background
 drawable snack
 drawable white_rounded_bg

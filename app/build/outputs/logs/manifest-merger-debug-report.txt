@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-52:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-52:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-52:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-52:12
+ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
 MERGED from [androidx.databinding:viewbinding:8.6.1] /Users/amayakof/.gradle/caches/transforms-4/0a3ccfc1145b9271cf1cc905d147c507/transformed/viewbinding-8.6.1/AndroidManifest.xml:2:1-7:12
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-common:2.8.9] /Users/amayakof/.gradle/caches/transforms-4/117e381e15486afcfc1685996f2239dd/transformed/navigation-common-2.8.9/AndroidManifest.xml:17:1-22:12
@@ -118,8 +118,8 @@ MERGED from [androidx.media3:media3-common:1.6.0] /Users/amayakof/.gradle/caches
 	android:name
 		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-47:19
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-47:19
+ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-57:19
+INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-57:19
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:9:5-20
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.4.0] /Users/amayakof/.gradle/caches/transforms-4/480695b7533d0740b9c1d4e1c0dbf71f/transformed/material-1.4.0/AndroidManifest.xml:22:5-20
@@ -214,6 +214,14 @@ ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidMani
 		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:45:13-78
 	android:name
 		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:43:13-59
+activity#com.example.hotpot.ui.activity.RecipeDetailActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:47:9-50:20
+	android:exported
+		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:48:13-36
+	android:theme
+		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:49:13-78
+	android:name
+		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:47:19-67
 uses-sdk
 INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml

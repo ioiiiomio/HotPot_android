@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotpot.databinding.FragmentRecipesBinding
 import com.example.hotpot.data.viewmodel.RecipeViewModel
 import com.example.hotpot.data.model.MealType
+import com.example.hotpot.data.model.Recipe
 import com.example.hotpot.ui.activity.RecipeDetailActivity
 import com.example.hotpot.ui.adapter.MealTypeAdapter
 import com.example.hotpot.data.repository.RecipeRepositoryLocal
-import com.example.hotpot.data.model.Recipe
 
 class RecipesFragment : Fragment() {
     private var _binding: FragmentRecipesBinding? = null
@@ -31,17 +31,16 @@ class RecipesFragment : Fragment() {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
         val root = binding.root
 
-        // Observe the recipe data from the ViewModel
         recipeViewModel.mealTypesWithRecipes.observe(viewLifecycleOwner, Observer { mealTypesWithRecipes ->
             val recipeMap = mealTypesWithRecipes.associate { it.mealType to it.recipes }
 
             val mealTypeAdapter = MealTypeAdapter(
                 mealTypes = MealType.entries.toList(),
                 recipeMap = recipeMap,
-                onMealTypeClick = { mealType -> launchRecipeDetail(mealType) }
+                onMealTypeClick = { mealType -> launchRecipeDetailFromMealType(mealType) },
+                onRecipeClick = { recipe -> launchRecipeDetailFromRecipe(recipe) }
             )
 
-            // Setup the RecyclerView for displaying meal types
             binding.verticalRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.verticalRecyclerView.adapter = mealTypeAdapter
         })
@@ -49,34 +48,36 @@ class RecipesFragment : Fragment() {
         return root
     }
 
-    private fun launchRecipeDetail(mealType: MealType) {
-        // Generate the prompt for the selected meal type using data from RecipeRepositoryLocal
+    private fun launchRecipeDetailFromMealType(mealType: MealType) {
         val prompt = getPromptFromLocalRepository(mealType)
-
-        // Launch the RecipeDetailActivity with the generated prompt
         val intent = Intent(requireContext(), RecipeDetailActivity::class.java).apply {
             putExtra("prompt", prompt)
-            putExtra("recipeQuery", mealType.name)  // Optional: send meal type name as query
+            putExtra("recipeQuery", mealType.name)
         }
         startActivity(intent)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun launchRecipeDetailFromRecipe(recipe: Recipe) {
+        val intent = Intent(requireContext(), RecipeDetailActivity::class.java).apply {
+            putExtra("prompt", recipe.name)
+            putExtra("recipeQuery", recipe.name)
+            putExtra("imageUrl", recipe.imageUrl)
+        }
+        startActivity(intent)
     }
 
-    // Fetch recipes from the RecipeRepositoryLocal based on meal type and generate a prompt
     private fun getPromptFromLocalRepository(mealType: MealType): String {
-        // Get the recipes from the repository based on meal type
         val recipes: List<Recipe> = recipeRepositoryLocal.getRecipesByMealType(mealType)
-
-        // Generate a prompt based on the available recipes
         return if (recipes.isNotEmpty()) {
             val recipeNames = recipes.joinToString(", ") { it.name }
             "Suggest a recipe for $mealType. For example, you can try: $recipeNames."
         } else {
             "Give me a recipe idea for a $mealType."
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

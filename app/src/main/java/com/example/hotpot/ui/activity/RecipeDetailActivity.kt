@@ -7,15 +7,26 @@ import com.example.hotpot.R
 import com.example.hotpot.databinding.RecipeDetailBinding
 import com.example.hotpot.data.model.MealType
 import com.example.hotpot.data.model.Recipe
+import com.example.hotpot.data.openai.ChatRequest
+import com.example.hotpot.data.openai.ChatResponse
+import com.example.hotpot.data.openai.Message
+import com.example.hotpot.data.openai.OpenAIRepository
+import com.example.hotpot.data.openai.OpenAIRepositoryImpl
+import com.example.hotpot.data.openai.OpenAIResult
 import com.example.hotpot.models.Calories
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
 class RecipeDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: RecipeDetailBinding
+    private val openAIRepository: OpenAIRepository = OpenAIRepositoryImpl(OpenAIApiClient.api())
+//    Какой у нас апи клиент?
+    private val token = "Bearer YOUR_API_KEY"
+//    Сюда надо добавить токен, но скрытый
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +37,37 @@ class RecipeDetailActivity : AppCompatActivity() {
         val prompt = intent.getStringExtra("prompt") ?: "default recipe"
         val recipeQuery = intent.getStringExtra("recipeQuery") ?: "default recipe"
 
-        // Fetch recipe details from OpenAI or other source
-        fetchRecipeFromOpenAI(recipeQuery)
+        // Fetch recipe details from OpenAI based on the prompt
+        fetchRecipeFromPrompt(prompt)
     }
 
-    private fun fetchRecipeFromOpenAI(recipeQuery: String) {
+    private fun fetchRecipeFromPrompt(prompt: String) {
+        // Create the request body for OpenAI
+        val messages = listOf(
+            Message(role = "system", content = "You are a helpful assistant that suggests recipes."),
+            Message(role = "user", content = prompt)
+        )
+
+        val request = ChatRequest(
+            model = "gpt-3.5-turbo",
+//            UPD Какой у нас гпт?
+            messages = messages
+        )
+
+        // Call the OpenAI API using the repository
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Replace this with your actual OpenAI API call to get the recipe
-                val recipe = getRecipeFromOpenAI(recipeQuery)
-
+                val response = openAIRepository.getChatResponse(token, request)
                 withContext(Dispatchers.Main) {
-                    displayRecipe(recipe)
+                    when (response) {
+                        is OpenAIResult.Success -> {
+                            val recipe = parseRecipeFromResponse(response.chatResponse)
+                            displayRecipe(recipe)
+                        }
+                        is OpenAIResult.Error -> {
+                            Toast.makeText(this@RecipeDetailActivity, "Error: ${response.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -47,30 +77,35 @@ class RecipeDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayRecipe(recipe: Recipe) = with(binding) {
-        imageViewRecipe.setImageResource(R.drawable.dummy_recipe) // Placeholder image
+    private fun parseRecipeFromResponse(response: ChatResponse): Recipe {
+        // Here you need to parse the response from OpenAI to get recipe details
+        val recipeText = response.choices.firstOrNull()?.message?.content ?: "No recipe found"
 
-        textViewRecipeName.text = recipe.name
-        textViewDescription.text = recipe.description
-        textViewIngredients.text = recipe.ingredients.joinToString(separator = "\n") { "• $it" }
-        textViewInstructions.text = recipe.instructions.mapIndexed { i, step -> "${i + 1}. $step" }.joinToString("\n")
-
-        textViewSubstitutions.text = "You can substitute ingredients like broccoli with green beans." // Placeholder for substitutions
-    }
-
-    // Placeholder function simulating the OpenAI recipe fetch
-    private fun getRecipeFromOpenAI(prompt: String): Recipe {
-        // Fake implementation - replace with your real OpenAI API call and JSON parsing
+        // A simple simulation of converting the recipeText into a Recipe object
+        // In a real implementation, you can improve this by parsing the structured recipe data from the response
         return Recipe(
             id = 1,
-            name = "Chicken Stir Fry",
-            description = "A delicious and easy stir fry with chicken and veggies.",
-            calories = Calories(400, 30, 10, 45),
-            imageUrl = "https://yourcdn.com/stirfry.jpg",
-            mealType = MealType.DINNER,
-            ingredients = listOf("1 lb chicken breast", "2 cups broccoli", "1 bell pepper", "Soy sauce", "Garlic"),
-            instructions = listOf("Slice the chicken.", "Stir fry the veggies.", "Add chicken and sauce.", "Serve hot."),
+            name = "Generated Recipe",
+            description = recipeText,
+            calories = Calories(300, 20, 10, 30),
+            imageUrl = "https://yourcdn.com/generated_recipe.jpg",
+            mealType = MealType.BREAKFAST, // Or parse based on the prompt
+            ingredients = listOf("Ingredient 1", "Ingredient 2"),
+            instructions = listOf("Step 1", "Step 2"),
             isFavorite = false
         )
+    }
+
+    private fun displayRecipe(recipe: Recipe) {
+        with(binding) {
+            // Update UI with the fetched recipe details
+            imageViewRecipe.setImageResource(R.drawable.dummy_recipe) // Placeholder image
+            textViewRecipeName.text = recipe.name
+            textViewDescription.text = recipe.description
+            textViewIngredients.text = recipe.ingredients.joinToString(separator = "\n") { "• $it" }
+            textViewInstructions.text = recipe.instructions.joinToString(separator = "\n") { "• $it" }
+            textViewSubstitutions.text = "You can substitute ingredients like broccoli with green beans." //Пока что так
+//            add the substitution field in the future in go
+        }
     }
 }

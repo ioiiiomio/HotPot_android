@@ -1,94 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="@color/background_beige"
+    tools:context=".ui.fragments.RecipesFragment">
 
-    <LinearLayout
+    <!-- Optional static header section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/squareHeader"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/background_beige"
-        tools:context=".ui.fragments.ProgressFragment">
+        android:layout_height="210dp"
+        android:background="@color/white">
 
-        <!-- Header Section -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/squareHeader"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:background="@color/white">
+            android:layout_height="104dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_top_recipe_main"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Background Image -->
-            <ImageView
-                android:id="@+id/imageView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recipes_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/background_beige"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="104dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_top_recipe_main"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
 
-            <!-- Search Bar -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/recipes_search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/background_beige"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search icon" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/search_bar_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/inria_serif_bold"
+                    android:text="Find Recipes"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_search"
-                        android:contentDescription="Search icon" />
+    <!-- Popular recipe card -->
+    <include
+        android:id="@+id/popularRecipeCard"
+        layout="@layout/recipe_popular_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/search_bar_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/inria_serif_bold"
-                        android:text="Find Recipes"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Popular Recipe Card -->
-        <include
-            android:id="@+id/popularRecipeCard"
-            layout="@layout/recipe_popular_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" />
-
-        <!-- RecyclerView Container -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/verticalRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:padding="8dp"
-            android:nestedScrollingEnabled="false" />
-    </LinearLayout>
-</ScrollView>
+    <!-- Scrollable list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/verticalRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+</LinearLayout>

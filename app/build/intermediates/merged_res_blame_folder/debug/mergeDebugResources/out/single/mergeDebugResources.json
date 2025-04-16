@@ -52,24 +52,20 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_guides.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_recipes_breakfast.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/recipes_breakfast.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_user_profile.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_user_profile.xml"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_user_profile.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_user_profile.xml"
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_cat.jpg.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_cat.jpg"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_cat.jpg.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_cat.jpg"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_launcher_background.xml.flat",
@@ -88,10 +84,6 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_meal.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_radial_gradient.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/radial_gradient.xml"
-    },
-    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_bg_top_recipe_main.png.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/bg_top_recipe_main.png"
     },
@@ -100,12 +92,12 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_left.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart_outline.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart_outline.xml"
-    },
-    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_gradient_green.xml.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/gradient_green.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_heart_outline.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_heart_outline.xml"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_activity_bottom_nav.xml.flat",
@@ -120,12 +112,12 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_serif_bold.ttf"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_seif_light_italic.ttf.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_seif_light_italic.ttf"
-    },
-    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/anim_fade_out.xml.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/anim/fade_out.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/font_inria_seif_light_italic.ttf.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/font/inria_seif_light_italic.ttf"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_thumbs_up_selector.xml.flat",
@@ -392,6 +384,10 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_forum.xml"
     },
     {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_radial_gradient_xml.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/radial_gradient_xml.xml"
+    },
+    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_chat.xml.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_chat.xml"
     },
@@ -440,12 +436,12 @@
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_plus.xml"
     },
     {
-        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_plus_gray.xml.flat",
-        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_plus_gray.xml"
-    },
-    {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/layout_fragment_recipes.xml.flat",
         "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/layout/fragment_recipes.xml"
+    },
+    {
+        "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_ic_plus_gray.xml.flat",
+        "source": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-main-78:/drawable/ic_plus_gray.xml"
     },
     {
         "merged": "/Users/amayakof/.gradle/daemon/8.7/com.example.hotpot.app-debug-76:/drawable_white_rounded_bg.xml.flat",
