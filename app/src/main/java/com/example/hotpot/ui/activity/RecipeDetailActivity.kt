@@ -18,15 +18,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.mp.KoinPlatform.getKoin
 
 
 class RecipeDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: RecipeDetailBinding
-    private val openAIRepository: OpenAIRepository = OpenAIRepositoryImpl(OpenAIApiClient.api())
-//    Какой у нас апи клиент?
-    private val token = "Bearer YOUR_API_KEY"
-//    Сюда надо добавить токен, но скрытый
+    private val openAIRepository: OpenAIRepository by lazy { getKoin().get<OpenAIRepository>() }
+
+    private val token = getString(R.string.openai)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,6 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         val request = ChatRequest(
             model = "gpt-3.5-turbo",
-//            UPD Какой у нас гпт?
             messages = messages
         )
 
