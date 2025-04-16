@@ -36,16 +36,16 @@ class MealPreviewAdapter(
         holder.mealTitle.text = meal.title
         holder.mealCalories.text = "${meal.calories.total} kcal (${meal.calories.carbs}g, ${meal.calories.protein}g, ${meal.calories.fats}g)"
 
-        val imageRes = if (selectedStates.contains(meal.id)) R.drawable.plus else R.drawable.plus_gray
+        val imageRes = if (selectedStates.contains(meal.id)) R.drawable.ic_plus else R.drawable.ic_plus_gray
         holder.mealActionIcon.setImageResource(imageRes)
 
         holder.card.setOnClickListener {
             if (selectedStates.contains(meal.id)) {
                 selectedStates.remove(meal.id)
-                holder.mealActionIcon.setImageResource(R.drawable.plus_gray)
+                holder.mealActionIcon.setImageResource(R.drawable.ic_plus_gray)
             } else {
                 selectedStates.add(meal.id)
-                holder.mealActionIcon.setImageResource(R.drawable.plus)
+                holder.mealActionIcon.setImageResource(R.drawable.ic_plus)
             }
             onMealClick(meals.filter { meal -> selectedStates.contains(meal.id) })
 
