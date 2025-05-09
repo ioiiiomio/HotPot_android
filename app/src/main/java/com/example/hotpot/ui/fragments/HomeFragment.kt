@@ -23,8 +23,19 @@ import com.example.hotpot.ui.viewmodels.FullScreenActivityVM
 import com.example.hotpot.ui.viewmodels.MainActivityVM
 import com.prowheelxrassistv01.data.AppStorage
 import org.koin.mp.KoinPlatform.getKoin
+import kotlin.random.Random
 
 class HomeFragment : Fragment() {
+    companion object{
+        val quotes = listOf("Every time you log a meal, you're telling your goals: I'm serious about you!",
+            "Consistency beats perfection — even a messy log moves you forward.",
+            "Tracking isn’t about restriction, it’s about understanding your power.",
+            "You're not just logging calories — you're building habits that last a lifetime.",
+            "A few seconds of tracking today can bring you a lifetime of results tomorrow.",
+            "Avoca-don’t forget to track it!",
+            "One tap, one step closer!"
+        )
+    }
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -54,6 +65,7 @@ class HomeFragment : Fragment() {
                 updateUi(viewModel.calorieNorm.value ?: emptyNorm, dailyMeal)
             }
         }
+        binding.quote.text = quotes.random()
 
         binding.btnProfile.setOnClickListener{
             val role = appStorage.getRole()
@@ -190,6 +202,8 @@ class HomeFragment : Fragment() {
         super.onResume()
         viewModel.fetchOrInitializeCalorieNorm()
     }
+
+    fun <E> List<E>.random(): E? = if (size > 0) get(Random.nextInt(size)) else null
 
 
     val emptyNorm = CalorieNorm(
