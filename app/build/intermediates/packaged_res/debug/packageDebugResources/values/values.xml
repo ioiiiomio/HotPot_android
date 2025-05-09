@@ -22,12 +22,15 @@
     <dimen name="item_spacing">5dp</dimen>
     <string name="app_name">HotPot</string>
     <string name="calories_consumed">calories consumed</string>
+    <string name="dafault_pfp">https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg</string>
     <string name="dressings_sauces"><![CDATA[Dressings & Sauces]]></string>
     <string name="forum_page">Forum</string>
     <string name="image">https://norma-center.ru/assets/uploads/images/u/89/t/dietolog-1562314436.jpg</string>
     <string name="login">Login</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </string>
     <string name="no_data"><![CDATA[No Data Yet :<]]></string>
+    <string name="not_working"><![CDATA[Oh no :<]]></string>
+    <string name="openai"/>
     <string name="or">OR</string>
     <string name="register">Register</string>
     <string name="register_now">Register now!</string>

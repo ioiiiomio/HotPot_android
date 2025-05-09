@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.hotpot.data.model.MealType
 import com.example.hotpot.data.model.Recipe
-import com.example.hotpot.data.repository.RecipeRepository
+import com.example.hotpot.data.repository.RecipeRepositoryLocal
 
 data class MealTypeWithRecipes(
     val mealType: MealType,
@@ -23,13 +23,13 @@ class RecipeViewModel : ViewModel() {
 
     private fun loadRecipes() {
         // Fetch recipes from the repository
-        val recipes = RecipeRepository.getAllRecipes()
+        val recipes = RecipeRepositoryLocal.getAllRecipes()
 
         // Group the recipes by MealType
         val groupedRecipes = MealType.values().map { mealType ->
             MealTypeWithRecipes(
                 mealType,
-                RecipeRepository.getRecipesByMealType(mealType)
+                RecipeRepositoryLocal.getRecipesByMealType(mealType)
             )
         }
 

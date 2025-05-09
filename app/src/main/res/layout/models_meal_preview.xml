@@ -55,7 +55,7 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:src="@drawable/plus_gray"/>
+                android:src="@drawable/ic_plus"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

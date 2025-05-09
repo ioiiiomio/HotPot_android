@@ -8,22 +8,26 @@ import com.example.hotpot.R
 import com.example.hotpot.databinding.RecipeFoodCardBinding
 import com.example.hotpot.data.model.Recipe
 
-class RecipeAdapter(private val recipes: List<Recipe>) :
-    RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+class RecipeAdapter(
+    private val recipes: List<Recipe>,
+    private val onRecipeClick: (Recipe) -> Unit
+) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     inner class RecipeViewHolder(private val binding: RecipeFoodCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(recipe: Recipe) {
-//            Gliiiide ;>
-            Glide.with(itemView.context)
-                .load(recipe.imageUrl)  // recipe.imageUrl is the URL
-                .placeholder(R.drawable.dummy_recipe)  // Optional placeholder
-                .into(binding.ivRecipeImage)
 
+        fun bind(recipe: Recipe) {
             binding.tvRecipeName.text = recipe.name
             binding.tvRecipeCalorie.text = "${recipe.calories} kcal"
 
-            Glide.with(binding.root.context).load(recipe.imageUrl).into(binding.ivRecipeImage)
+            Glide.with(itemView.context)
+                .load(recipe.imageUrl)
+                .placeholder(R.drawable.dummy_recipe)
+                .into(binding.ivRecipeImage)
+
+            binding.root.setOnClickListener {
+                onRecipeClick(recipe)
+            }
         }
     }
 

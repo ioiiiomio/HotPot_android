@@ -1,10 +1,11 @@
 package com.example.hotpot.data.model
+import com.example.hotpot.models.Calories
 
 data class Recipe(
     val id: Int,
     val name: String,
     val description: String,
-    val calories: Int,
+    val calories: Calories,
     val imageUrl: String,
     val mealType: MealType,
     val ingredients: List<String>,
