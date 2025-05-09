@@ -57,6 +57,7 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
     private lateinit var premiumCount : TextView
     private lateinit var viewModel: FullScreenActivityVM
     private lateinit var followButton : AppCompatButton
+    private var initialFollowing = false
 
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
 
@@ -75,9 +76,9 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         followButton = view.findViewById(R.id.followButton)
 
         val username = arguments?.getString("username")
-        Log.e("abcd", username.toString())
+        Log.e("abcd", "username is ${username.toString()}")
         val id = arguments?.getInt("id")
-        Log.e("abcd", username.toString())
+        Log.e("abcd", "id is ${username.toString()}")
 
         viewModel.dieticianProfile.observe(viewLifecycleOwner) { dietician ->
             updateUi(dietician)
@@ -96,21 +97,28 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
                     val result = profileRepository.getDietician(username)
                     if (result is DieticianResult.Success) {
                         val dietician = result.dietician
+                        Log.e("abcd", "dietician1 ${dietician}")
 
                         // Check if current user follows this dietician
-                        val isFollowing = checkIfFollowing(dietician.user_id)
+                        val isFollowing = checkIfFollowing(dietician.username.drop(1))
                         dietician.is_following = isFollowing
+                        initialFollowing = isFollowing
 
-                        viewModel.dieticianProfile.postValue(dietician)
+                        withContext(Dispatchers.Main) {
+                            updateUi(dietician)
+                            viewModel.dieticianProfile.postValue(dietician)
+                        }
                     }
                 } else if (id != null) {
                     val result = profileRepository.getDietician(id)
                     if (result is DieticianResult.Success) {
                         val dietician = result.dietician
+                        Log.e("abcd", "dietician2 ${dietician}")
 
                         // Check if current user follows this dietician
-                        val isFollowing = checkIfFollowing(dietician.user_id)
+                        val isFollowing = checkIfFollowing(dietician.username.drop(1))
                         dietician.is_following = isFollowing
+                        initialFollowing = isFollowing
 
                         viewModel.dieticianProfile.postValue(dietician)
                     }
@@ -135,7 +143,7 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         val currentUserId = appStorage.getId()
         return dietician.user_id == currentUserId
     }
-    private suspend fun checkIfFollowing(dieticianId: Int): Boolean {
+    private suspend fun checkIfFollowing(dieticianUsername: String): Boolean {
         return try {
             val currentUserId = appStorage.getId()
             val userProfileResult = currentUserId?.let { profileRepository.getUser(it)}
@@ -144,10 +152,11 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
 
             if (userProfileResult is UserResult.Success) {
                 val username = userProfileResult.user.username
-                val followsResult = profileRepository.getFollows(username)
+                val followsResult = profileRepository.getFollows(username.drop(1))
 
                 if (followsResult is FollowsResult.Success) {
-                    followsResult.follows.map { it -> it.user_id }.contains(dieticianId)
+                    Log.e("abcd", followsResult.follows.toString())
+                    followsResult.follows.map { it.username }.contains(dieticianUsername)
                 } else {
                     false
                 }
@@ -155,8 +164,9 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
                 val username = dieticianProfileResult.dietician.username
                 val followsResult = profileRepository.getFollows(username)
 
+
                 if (followsResult is FollowsResult.Success) {
-                    followsResult.follows.map { it -> it.user_id }.contains(dieticianId)
+                    followsResult.follows.map { it.username }.contains(dieticianUsername)
                 } else {
                     false
                 }
@@ -192,7 +202,7 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
             followButton.setOnClickListener {
                 viewLifecycleOwner.lifecycleScope.launch {
                     try {
-                        val result = profileRepository.follow(dietician.username)
+                        val result = profileRepository.follow(dietician.username.drop(1))
                         if (result is UpdateResult.Success) {
                             val newFollowingState = !dietician.is_following!!
                             dietician.is_following = newFollowingState
@@ -200,7 +210,7 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
                             withContext(Dispatchers.Main) {
                                 setFollowButtonState(newFollowingState)
                                 val updatedFollowers =
-                                    if (newFollowingState) dietician.followers + 1 else dietician.followers - 1
+                                    if (initialFollowing && !newFollowingState) dietician.followers - 1 else if (!initialFollowing && newFollowingState) dietician.followers + 1 else dietician.followers
                                 followersCount.text = updatedFollowers.toString()
                             }
                         } else {
