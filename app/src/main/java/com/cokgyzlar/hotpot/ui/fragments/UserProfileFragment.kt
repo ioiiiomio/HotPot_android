@@ -143,11 +143,11 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
     )
     val mockUserProfileSecond = UserProfile(
         user_id = 2,
-        name = "Anna",
-        surname = "Brown",
-        username = "@ann",
-        follows = 14,
-        profile_picture = "https://example.com/images/uldana.jpg",
+        name = "Zhaniya",
+        surname = "Koshkimbayeva",
+        username = "@ioiiiomoi",
+        follows = 128,
+        profile_picture = "https://example.com/images/mio.jpg",
         birth_date = null,
         sex = "Female",
         health_details = listOf(

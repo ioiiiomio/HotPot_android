@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hotpot.app-mergeDebugResources-74:/values/values.xml",
+            "outputFile": "com.cokgyzlar.hotpot.app-mergeDebugResources-74:/values/values.xml",
             "map": [
                 {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/77750dec23b86e2e66e87323bbf1d3c1/transformed/viewpager2-1.1.0-beta02/res/values/values.xml",
@@ -97,6 +97,23 @@
                     }
                 },
                 {
+                    "source": "/Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1,7,13,3,4,6,8,5,2,12,14,9,11,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "16,691,991,123,199,580,755,244,60,930,1168,795,884,829",
+                        "endColumns": "43,63,176,75,44,110,39,335,62,60,35,33,45,54",
+                        "endOffsets": "55,750,1163,194,239,686,790,575,118,986,1199,824,925,879"
+                    },
+                    "to": {
+                        "startLines": "1157,1168,1176,1180,1186,1189,1193,1194,1313,1315,1316,1317,1325,1326",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "67496,68570,69178,69579,70181,70533,70815,70855,85073,85190,85251,85279,86219,86265",
+                        "endColumns": "43,63,176,75,44,110,39,335,62,60,27,33,45,54",
+                        "endOffsets": "67535,68629,69350,69650,70221,70639,70850,71186,85131,85246,85274,85308,86260,86315"
+                    }
+                },
+                {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/17696a2a9204b224a8b2c8a79b9071aa/transformed/navigation-runtime-2.8.9/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,10,13",
@@ -185,6 +202,42 @@
                         "startOffsets": "63165",
                         "endColumns": "53",
                         "endOffsets": "63214"
+                    }
+                },
+                {
+                    "source": "/Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/res/values/colors.xml",
+                    "from": {
+                        "startLines": "5,4,2,8,12,7,14,10,11,6,9,3,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "188,137,55,332,515,286,600,423,469,239,377,97,559",
+                        "endColumns": "50,50,41,44,43,45,38,45,45,44,45,39,40",
+                        "endOffsets": "234,183,92,372,554,327,634,464,510,279,418,132,595"
+                    },
+                    "to": {
+                        "startLines": "429,434,435,450,490,495,496,499,536,541,542,545,546",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "20538,20908,20959,22022,24770,25080,25126,25300,27714,28046,28091,28258,28298",
+                        "endColumns": "50,50,41,44,43,45,38,45,45,44,45,39,40",
+                        "endOffsets": "20584,20954,20996,22062,24809,25121,25160,25341,27755,28086,28132,28293,28334"
+                    }
+                },
+                {
+                    "source": "/Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/res/values/themes.xml",
+                    "from": {
+                        "startLines": "7,1",
+                        "startColumns": "4,4",
+                        "startOffsets": "385,63",
+                        "endLines": "10,6",
+                        "endColumns": "12,12",
+                        "endOffsets": "528,380"
+                    },
+                    "to": {
+                        "startLines": "3582,4002",
+                        "startColumns": "4,4",
+                        "startOffsets": "233127,260303",
+                        "endLines": "3585,4007",
+                        "endColumns": "12,12",
+                        "endOffsets": "233270,260586"
                     }
                 },
                 {
@@ -310,95 +363,6 @@
                         "startOffsets": "60929,63105",
                         "endColumns": "41,59",
                         "endOffsets": "60966,63160"
-                    }
-                },
-                {
-                    "source": "/Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/res/values/themes.xml",
-                    "from": {
-                        "startLines": "7,1",
-                        "startColumns": "4,4",
-                        "startOffsets": "385,63",
-                        "endLines": "10,6",
-                        "endColumns": "12,12",
-                        "endOffsets": "528,380"
-                    },
-                    "to": {
-                        "startLines": "3582,4002",
-                        "startColumns": "4,4",
-                        "startOffsets": "233127,260303",
-                        "endLines": "3585,4007",
-                        "endColumns": "12,12",
-                        "endOffsets": "233270,260586"
-                    }
-                },
-                {
-                    "source": "/Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/res/values/colors.xml",
-                    "from": {
-                        "startLines": "5,4,2,8,12,7,14,10,11,6,9,3,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "188,137,55,332,515,286,600,423,469,239,377,97,559",
-                        "endColumns": "50,50,41,44,43,45,38,45,45,44,45,39,40",
-                        "endOffsets": "234,183,92,372,554,327,634,464,510,279,418,132,595"
-                    },
-                    "to": {
-                        "startLines": "429,434,435,450,490,495,496,499,536,541,542,545,546",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "20538,20908,20959,22022,24770,25080,25126,25300,27714,28046,28091,28258,28298",
-                        "endColumns": "50,50,41,44,43,45,38,45,45,44,45,39,40",
-                        "endOffsets": "20584,20954,20996,22062,24809,25121,25160,25341,27755,28086,28132,28293,28334"
-                    }
-                },
-                {
-                    "source": "/Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "1,7,13,3,4,6,8,5,2,12,14,9,11,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "16,691,991,123,199,580,755,244,60,930,1168,795,884,829",
-                        "endColumns": "43,63,176,75,44,110,39,335,62,60,35,33,45,54",
-                        "endOffsets": "55,750,1163,194,239,686,790,575,118,986,1199,824,925,879"
-                    },
-                    "to": {
-                        "startLines": "1157,1168,1176,1180,1186,1189,1193,1194,1313,1315,1316,1317,1325,1326",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "67496,68570,69178,69579,70181,70533,70815,70855,85073,85190,85251,85279,86219,86265",
-                        "endColumns": "43,63,176,75,44,110,39,335,62,60,27,33,45,54",
-                        "endOffsets": "67535,68629,69350,69650,70221,70639,70850,71186,85131,85246,85274,85308,86260,86315"
-                    }
-                },
-                {
-                    "source": "/Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/res/values/dimens.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "42",
-                        "endOffsets": "93"
-                    },
-                    "to": {
-                        "startLines": "702",
-                        "startColumns": "4",
-                        "startOffsets": "38692",
-                        "endColumns": "42",
-                        "endOffsets": "38730"
-                    }
-                },
-                {
-                    "source": "/Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/res/values/arrays.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "7",
-                        "endColumns": "19",
-                        "endOffsets": "250"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "150",
-                        "endLines": "7",
-                        "endColumns": "19",
-                        "endOffsets": "345"
                     }
                 },
                 {
@@ -531,6 +495,25 @@
                     }
                 },
                 {
+                    "source": "/Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/res/values/arrays.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "19",
+                        "endOffsets": "250"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "150",
+                        "endLines": "7",
+                        "endColumns": "19",
+                        "endOffsets": "345"
+                    }
+                },
+                {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/5946fd2c6aae6e7f159a317bdc113cf3/transformed/cardview-1.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,35,36,37,38,45,47,50,7",
@@ -547,6 +530,23 @@
                         "endLines": "30,446,447,448,449,630,631,632,1381,3352,3355,3358,6115",
                         "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
                         "endOffsets": "1381,21829,21891,21953,22017,33954,34011,34065,89900,216654,216780,216908,370333"
+                    }
+                },
+                {
+                    "source": "/Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "42",
+                        "endOffsets": "93"
+                    },
+                    "to": {
+                        "startLines": "702",
+                        "startColumns": "4",
+                        "startOffsets": "38692",
+                        "endColumns": "42",
+                        "endOffsets": "38730"
                     }
                 },
                 {

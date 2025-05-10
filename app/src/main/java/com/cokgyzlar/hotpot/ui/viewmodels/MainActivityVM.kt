@@ -13,11 +13,11 @@ import com.cokgyzlar.hotpot.data.openai.OpenAIRepository
 import com.cokgyzlar.hotpot.data.openai.OpenAIResult
 import com.cokgyzlar.hotpot.data.profile.ProfileRepository
 import com.cokgyzlar.hotpot.data.profile.UserResult
-import com.cokgyzlar.hotpot.models.CalorieNorm
+import com.cokgyzlar.hotpot.data.model.CalorieNorm
 import com.cokgyzlar.hotpot.models.Calories
-import com.cokgyzlar.hotpot.models.DailyMeal
-import com.cokgyzlar.hotpot.models.Meal
-import com.cokgyzlar.hotpot.models.MealDetail
+import com.cokgyzlar.hotpot.data.model.DailyMeal
+import com.cokgyzlar.hotpot.data.model.Meal
+import com.cokgyzlar.hotpot.data.model.MealDetail
 import com.cokgyzlar.hotpot.models.UserProfile
 import com.google.gson.Gson
 import com.prowheelxrassistv01.data.AppStorage

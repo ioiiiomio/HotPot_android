@@ -12,9 +12,9 @@ import com.cokgyzlar.hotpot.R
 import com.cokgyzlar.hotpot.databinding.FragmentHomeBinding
 import com.cokgyzlar.hotpot.fragments.DieticianProfileFragment
 import com.cokgyzlar.hotpot.fragments.UserProfileFragment
-import com.cokgyzlar.hotpot.models.CalorieNorm
+import com.cokgyzlar.hotpot.data.model.CalorieNorm
 import com.cokgyzlar.hotpot.models.Calories
-import com.cokgyzlar.hotpot.models.DailyMeal
+import com.cokgyzlar.hotpot.data.model.DailyMeal
 import com.cokgyzlar.hotpot.ui.activity.FullscreenActivity
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
 import com.prowheelxrassistv01.data.AppStorage
@@ -29,7 +29,8 @@ class HomeFragment : Fragment() {
             "You're not just logging calories — you're building habits that last a lifetime.",
             "A few seconds of tracking today can bring you a lifetime of results tomorrow.",
             "Avoca-don’t forget to track it!",
-            "One tap, one step closer!"
+            "One tap, one step closer!",
+            "Self-care is not selfish. You cannot serve from an empty vessel. – Eleanor Brown"
         )
     }
     private var _binding: FragmentHomeBinding? = null

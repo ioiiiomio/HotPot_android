@@ -1,6 +1,6 @@
 package com.cokgyzlar.hotpot.data.meal
 
-import com.cokgyzlar.hotpot.models.DailyMeal
+import com.cokgyzlar.hotpot.data.model.DailyMeal
 
 interface MealRepository {
     suspend fun getMeal(date: String) : MealResult

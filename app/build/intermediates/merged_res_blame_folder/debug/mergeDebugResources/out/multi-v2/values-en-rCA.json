@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hotpot.app-mergeDebugResources-74:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.cokgyzlar.hotpot.app-mergeDebugResources-74:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/1848f914ae2c25c66134d98f9cd4526b/transformed/material3-release/res/values-en-rCA/values-en-rCA.xml",

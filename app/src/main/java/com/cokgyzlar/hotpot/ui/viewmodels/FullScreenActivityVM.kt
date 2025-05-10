@@ -13,8 +13,9 @@ import com.cokgyzlar.hotpot.data.profile.ProfileRepository
 import com.cokgyzlar.hotpot.data.profile.UpdateRequest
 import com.cokgyzlar.hotpot.data.profile.UpdateResult
 import com.cokgyzlar.hotpot.data.profile.UserResult
-import com.cokgyzlar.hotpot.models.CalorieNorm
-import com.cokgyzlar.hotpot.models.Calories
+import com.cokgyzlar.hotpot.data.model.CalorieNorm
+import com.cokgyzlar.hotpot.data.model.Calories
+import com.cokgyzlar.hotpot.data.model.UserGoal
 import com.cokgyzlar.hotpot.models.Dietician
 import com.cokgyzlar.hotpot.models.HealthDetail
 import com.cokgyzlar.hotpot.models.PostItem
@@ -52,7 +53,7 @@ class FullScreenActivityVM : ViewModel() {
 
         userProfile.value = updatedProfile
         userProfile.value!!.health_details?.let { appStorage.saveHealthDetail(it) }
-        Log.e("abcd" , appStorage.getHealthDetail().toString())
+        Log.e("abcd", appStorage.getHealthDetail().toString())
         updateProfile()
         viewModelScope.launch {
             generateAndUpdateCalorieNorm()
@@ -72,11 +73,11 @@ class FullScreenActivityVM : ViewModel() {
                         currentProfile.health_details!!,
                         currentProfile.profile_picture,
                         currentProfile.sex!!,
-                        currentProfile.vision!!))
+                        currentProfile.UserGoal!!))
                 if (result is UpdateResult.Success) {
-                    Log.d("PostDebug", "Profile upd successful")
+                    Log.d("PostDebug", "Profile update successful")
                 } else {
-                    Log.e("PostDebug", "Profile upd failed: $result")
+                    Log.e("PostDebug", "Profile update failed: $result")
                 }
             } catch (e: Exception) {
                 Log.e("PostDebug", "Exception during post: ${e.message}", e)
@@ -84,10 +85,10 @@ class FullScreenActivityVM : ViewModel() {
         }
     }
 
-    fun updateVisions(visions : List<String>){
+    fun updateUserGoal(userGoal : UserGoal){
         val currentProfile = userProfile.value ?: return
         val updatedProfile = currentProfile.copy(
-            vision = visions
+            UserGoal = userGoal
         )
         userProfile.value=updatedProfile
         updateProfile()
@@ -129,6 +130,7 @@ class FullScreenActivityVM : ViewModel() {
             }
         }
     }
+
     fun createAppointment(username: String, newAppt: Appointment){
         viewModelScope.launch {
             try {
@@ -145,50 +147,32 @@ class FullScreenActivityVM : ViewModel() {
         }
     }
 
-
-
     suspend fun generateAndUpdateCalorieNorm() {
         if(userProfile.value == null) return
-        if(userProfile.value!!.health_details == null || userProfile.value!!.health_details!!.size == 0) return
-        if(userProfile.value!!.vision == null || userProfile.value!!.vision!!.isEmpty()) return
-        if(userProfile.value!!.sex == null ||  userProfile.value!!.sex!!.isEmpty() ) return
-        if(userProfile.value!!.birth_date == null  || userProfile.value!!.birth_date!!.endsWith("1900")) return
+        if(userProfile.value!!.health_details == null || userProfile.value!!.health_details!!.isEmpty()) return
+        if(userProfile.value!!.UserGoal == null) return // Updated to check userGoal
+        if(userProfile.value!!.sex == null ||  userProfile.value!!.sex!!.isEmpty()) return
+        if(userProfile.value!!.birth_date == null || userProfile.value!!.birth_date!!.endsWith("1900")) return
         try{
             val result = profileRepository.updateProfile(
                 userProfile.value!!.username,
-                UpdateRequest(userProfile.value!!.birth_date!!, userProfile.value!!.health_details!!, userProfile.value!!.profile_picture, userProfile.value!!.sex!!, userProfile.value!!.vision))
+                UpdateRequest(
+                    userProfile.value!!.birth_date!!,
+                    userProfile.value!!.health_details!!,
+                    userProfile.value!!.profile_picture,
+                    userProfile.value!!.sex!!,
+                    userProfile.value!!.UserGoal!!)) // Updated to use userGoal
         }catch (e: Exception){
             return
         }
-//        val profile = userProfile.value ?: return
-//
-//        val prompt = "Based on a ${profile.sex} born on ${profile.birth_date} weighing ${
-//            profile.health_details.lastOrNull()?.weight ?: "unknown"
-//        } kg and height ${
-//            profile.health_details.lastOrNull()?.height ?: "unknown"
-//        } cm, provide a recommended daily calorie, protein, fat, and carb intake in JSON format like {\"total\":2300, \"protein\":120, \"fats\":70, \"carbs\":300}."
-//
-//        val request = OpenAiRequest(
-//            messages = listOf(Message("user", prompt))
-//        )
-//
-//        val response = openAiApi.getCalorieNorm("Bearer YOUR_OPENAI_API_KEY", request)
-//        val resultContent = response.choices.firstOrNull()?.message?.content ?: return
-//
-//        // Parse JSON manually or via Gson/Kotlinx
-//        val calories = parseCaloriesFromJson(resultContent)
 
         // Update AppStorage
         appStorage.saveCalorieNorm(
-            CalorieNorm(1, Calories(2300, 120, 70, 300), 2000 ))
+            CalorieNorm(1, Calories(2300, 120, 70, 300), 2000)
+        )
 
         // Update MainActivityVM
-        Log.e("abcd", "here" )
-        mainActivityVM.updateCalorieNorm(CalorieNorm(1, Calories(2300, 120, 70, 300), 2000 ))
+        Log.e("abcd", "here")
+        mainActivityVM.updateCalorieNorm(CalorieNorm(1, Calories(2300, 120, 70, 300), 2000))
     }
-
-//    private fun parseCaloriesFromJson(json: String): CalorieNorm {
-//        // Assuming you're using kotlinx.serialization or Gson — example:
-//        return Gson().fromJson(json, CalorieNorm::class.java)
-//    }
 }

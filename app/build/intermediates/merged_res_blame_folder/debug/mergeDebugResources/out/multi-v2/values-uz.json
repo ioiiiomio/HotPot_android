@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hotpot.app-mergeDebugResources-74:/values-uz/values-uz.xml",
+            "outputFile": "com.cokgyzlar.hotpot.app-mergeDebugResources-74:/values-uz/values-uz.xml",
             "map": [
                 {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/8289d1390040bc5b5774a7c47a1747be/transformed/ui-release/res/values-uz/values-uz.xml",

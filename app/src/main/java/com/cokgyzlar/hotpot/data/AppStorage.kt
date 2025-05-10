@@ -10,8 +10,8 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 import android.util.Base64
 import android.util.Log
-import com.cokgyzlar.hotpot.models.CalorieNorm
-import com.cokgyzlar.hotpot.models.DailyMeal
+import com.cokgyzlar.hotpot.data.model.CalorieNorm
+import com.cokgyzlar.hotpot.data.model.DailyMeal
 import com.cokgyzlar.hotpot.models.HealthDetail
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
 import com.google.gson.Gson
