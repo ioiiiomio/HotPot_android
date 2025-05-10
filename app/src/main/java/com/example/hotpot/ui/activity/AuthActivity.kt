@@ -84,6 +84,7 @@ class AuthActivity : AppCompatActivity() {
                     appStorage.saveEmail(email)
                     appStorage.saveAccessToken(loginResult.accessToken)
                     appStorage.saveRole(Utils.getRole(loginResult.accessToken)?:"user")
+                    appStorage.saveIsPremium(true)
                     Utils.getId(loginResult.accessToken)?.let { appStorage.saveID(it) }
                     Log.e("role", "${appStorage.getRole()}")
                     Log.e("id", "${appStorage.getId()}")

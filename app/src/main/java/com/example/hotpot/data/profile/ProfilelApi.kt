@@ -46,6 +46,14 @@ interface ProfilelApi {
     @POST("user/api/v1/users/follow")
     suspend fun followAction(@Body request: FollowRequest) : ProfileUpdateResponse
 
+    @RequiresAuth
+    @GET("user/api/v1/dietolog/{username}/appointments")
+    suspend fun getAppointments(@Path("username") username : String) : AppointmentsResponse
+
+    @RequiresAuth
+    @POST("user/api/v1/dietolog/{username}/appointments")
+    suspend fun createAppointment(@Path("username") username : String, @Body newApt : AppointmentRequest) : ProfileUpdateResponse
+
 }
 
 data class FollowRequest(
@@ -98,5 +106,25 @@ data class UpdateRequest(
     val profile_picture : String,
     val sex : String,
     val vision: List<String>
+)
+
+data class AppointmentsResponse(
+    val code : Int,
+    val data : List<Appointment>,
+    val message: String
+)
+
+data class Appointment(
+    val id : Int? = null,
+    val title : String,
+    val time : String,
+    val date: String,
+    var client: Int? = null
+)
+
+data class AppointmentRequest(
+    val title: String,
+    val date: String,
+    val time: String
 )
 

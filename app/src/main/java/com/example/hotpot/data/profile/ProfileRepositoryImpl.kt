@@ -137,4 +137,35 @@ class ProfileRepositoryImpl (
             UpdateResult.Error(500, e.message)
         }
     }
+
+    override suspend fun getAppointments(username: String): AppointmentResult {
+        return try{
+            val response = api.getAppointments(username)
+            Log.e("Repository", "success")
+            AppointmentResult.Success(response.data)
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            AppointmentResult.Error(e.code(), e.message())
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            AppointmentResult.Error(500, e.message)
+        }
+    }
+
+    override suspend fun createAppointment(
+        username: String,
+        appt: AppointmentRequest
+    ): UpdateResult {
+        return try{
+            val response = api.createAppointment(username, appt)
+            Log.e("Repository", "success")
+            UpdateResult.Success(response.message)
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            UpdateResult.Error(e.code(), e.message())
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            UpdateResult.Error(500, e.message)
+        }
+    }
 }

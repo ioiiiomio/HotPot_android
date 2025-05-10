@@ -14,6 +14,8 @@ interface ProfileRepository {
     suspend fun getFollows(username: String) : FollowsResult
     suspend fun follow(username: String) : UpdateResult
     suspend fun unfollow(username: String) : UpdateResult
+    suspend fun getAppointments(username: String) : AppointmentResult
+    suspend fun createAppointment(username: String, appt: AppointmentRequest) : UpdateResult
 }
 sealed class FollowsResult{
     data class Success(val follows: List<FollowData>) : FollowsResult()
@@ -34,4 +36,8 @@ sealed class UpdateResult {
 sealed class DieticiansResult {
     data class Success(val dieticians: List<Dietician>) :  DieticiansResult()
     data class Error(val code: Int, val message: String?) :  DieticiansResult()
+}
+sealed class AppointmentResult {
+    data class Success(val appointments: List<Appointment>) :  AppointmentResult()
+    data class Error(val code: Int, val message: String?) :   AppointmentResult()
 }
