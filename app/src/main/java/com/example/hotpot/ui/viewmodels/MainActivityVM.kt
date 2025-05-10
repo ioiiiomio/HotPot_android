@@ -198,9 +198,10 @@ class MainActivityVM : ViewModel() {
     }
 
     suspend fun collectDataAndSendPrompt(token: String, id: Int) {
-        val feedback = appStorage.getFeedback()
-        if(feedback!=null && feedback.date==getTodayDate()){
-            healthLevel.postValue(feedback!!)
+        val feedbacks = appStorage.getFeedbacks()
+        val todayFeedback = feedbacks.firstOrNull { it.date == getTodayDate() }
+        if(todayFeedback!=null){
+            healthLevel.postValue(todayFeedback!!)
             return
         }
         try {
@@ -255,7 +256,9 @@ class MainActivityVM : ViewModel() {
                 val content = result.chatResponse.choices.firstOrNull()?.message?.content
                 val feedback = Gson().fromJson(content, Feedback::class.java)
                 feedback.date=getTodayDate()
-                appStorage.saveFeedback(feedback)
+                var feedbacks = appStorage.getFeedbacks()
+                feedbacks = feedbacks.plus(feedback)
+                appStorage.saveFeedbacks(feedbacks)
                 healthLevel.postValue(feedback)
                 Log.d("OpenAI", "Response: $content")
             }

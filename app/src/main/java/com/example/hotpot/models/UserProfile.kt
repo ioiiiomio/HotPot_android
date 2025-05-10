@@ -17,7 +17,7 @@ data class UserProfile(
 data class HealthDetail(
     val height: Int,
     val weight: Double,
-    val created_at: String
+    var created_at: String?
 )
 
 data class Dietician(
