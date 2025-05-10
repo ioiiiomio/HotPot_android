@@ -2,6 +2,7 @@ package com.cokgyzlar.hotpot.data.profile
 
 import com.cokgyzlar.hotpot.data.NoAuth
 import com.cokgyzlar.hotpot.data.RequiresAuth
+import com.cokgyzlar.hotpot.data.model.UserGoal
 import com.cokgyzlar.hotpot.models.Dietician
 import com.cokgyzlar.hotpot.models.HealthDetail
 import com.cokgyzlar.hotpot.models.UserProfile
@@ -99,11 +100,11 @@ data class Data(
 )
 
 data class UpdateRequest(
-    val birth_date  : String,
-    val health_details : List<HealthDetail>,
-    val profile_picture : String,
-    val sex : String,
-    val vision: List<String>
+    val birth_date: String,
+    val health_details: List<HealthDetail>,
+    val profile_picture: String,
+    val sex: String,
+    val userGoal: UserGoal
 )
 
 data class AppointmentsResponse(

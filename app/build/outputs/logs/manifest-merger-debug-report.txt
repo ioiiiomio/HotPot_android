@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:1-62:12
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:2:1-57:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:2:1-57:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:2:1-57:12
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:2:1-57:12
 MERGED from [androidx.databinding:viewbinding:8.6.1] /Users/amayakof/.gradle/caches/transforms-4/0a3ccfc1145b9271cf1cc905d147c507/transformed/viewbinding-8.6.1/AndroidManifest.xml:2:1-7:12
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-common:2.8.9] /Users/amayakof/.gradle/caches/transforms-4/117e381e15486afcfc1685996f2239dd/transformed/navigation-common-2.8.9/AndroidManifest.xml:17:1-22:12
@@ -82,6 +82,7 @@ MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/amaya
 MERGED from [androidx.core:core-ktx:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/edcfe542715cb4f1ff1a50db5ed65913/transformed/core-ktx-1.15.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/29efc0df99a844d99be87e165411b9a3/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/48bd931252afb78cce3a90d187576a7c/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/amayakof/.gradle/caches/transforms-4/32ce1354809ec21c5a1f0ab8007a9b61/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] /Users/amayakof/.gradle/caches/transforms-4/66dcb8610197c0f98a79d127bda617d4/transformed/gifdecoder-4.16.0/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/amayakof/.gradle/caches/transforms-4/be42bc6da612e19c16c501e09a066583/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/amayakof/.gradle/caches/transforms-4/40154facdf8fe9632a03a36972eaa580/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
@@ -98,28 +99,28 @@ MERGED from [androidx.print:print:1.0.0] /Users/amayakof/.gradle/caches/transfor
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/amayakof/.gradle/caches/transforms-4/478294e95bc5a0834e2ca1b66104f77e/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.core:core-viewtree:1.0.0] /Users/amayakof/.gradle/caches/transforms-4/06fc83ea76e44f35ec1ff729c9f73128/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
 	package
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:3:5-51
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:5:5-66
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:5:22-64
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:6:5-78
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:6:5-78
 MERGED from [androidx.media3:media3-common:1.6.0] /Users/amayakof/.gradle/caches/transforms-4/a1d0257c0e4e6b84f74518ae217b8d8d/transformed/media3-common-1.6.0/AndroidManifest.xml:22:5-79
 MERGED from [androidx.media3:media3-common:1.6.0] /Users/amayakof/.gradle/caches/transforms-4/a1d0257c0e4e6b84f74518ae217b8d8d/transformed/media3-common-1.6.0/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:6:22-76
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-57:19
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:8:5-57:19
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:8:5-52:19
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:8:5-52:19
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:9:5-20
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.4.0] /Users/amayakof/.gradle/caches/transforms-4/480695b7533d0740b9c1d4e1c0dbf71f/transformed/material-1.4.0/AndroidManifest.xml:22:5-20
@@ -145,87 +146,87 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/amayakof/.gradle/cac
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/amayakof/.gradle/caches/transforms-4/24049b206d868241b01dd54a73c0c1a3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/amayakof/.gradle/caches/transforms-4/24049b206d868241b01dd54a73c0c1a3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 	android:roundIcon
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:17:9-54
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:15:9-43
 	android:networkSecurityConfig
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:11:9-69
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:11:9-69
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:18:9-35
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:16:9-41
 	android:fullBackupContent
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:14:9-54
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:14:9-54
 	tools:targetApi
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:20:9-29
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:20:9-29
 	android:allowBackup
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:19:9-74
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:19:9-74
 	android:dataExtractionRules
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:13:9-65
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:13:9-65
 	android:usesCleartextTraffic
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:10:9-44
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:10:9-44
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:9:9-42
-activity#com.example.hotpot.ui.splash.SplashActivity
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:21:9-29:20
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:9:9-42
+activity#com.cokgyzlar.hotpot.ui.splash.SplashActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:21:9-29:20
 	android:exported
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:23:13-36
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:23:13-36
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:24:13-78
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:24:13-78
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:22:13-53
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:22:13-53
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:25:13-28:29
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:25:13-28:29
 action#android.intent.action.MAIN
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:26:17-69
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:27:17-77
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:27:27-74
-activity#com.example.hotpot.ui.activity.AuthActivity
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:30:9-34:20
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:27:27-74
+activity#com.cokgyzlar.hotpot.ui.activity.AuthActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:30:9-34:20
 	android:exported
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:32:13-36
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:32:13-36
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:33:13-78
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:33:13-78
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:31:13-53
-activity#com.example.hotpot.ui.activity.MainActivity
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:37:9-40:80
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:31:13-53
+activity#com.cokgyzlar.hotpot.ui.activity.MainActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:37:9-40:80
 	android:exported
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:39:13-36
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:39:13-36
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:40:13-78
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:40:13-78
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:38:13-71
-activity#com.example.hotpot.ui.activity.FullscreenActivity
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:42:9-46:20
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:38:13-73
+activity#com.cokgyzlar.hotpot.ui.activity.FullscreenActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:42:9-46:20
 	android:exported
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:44:13-36
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:44:13-36
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:45:13-78
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:45:13-78
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:43:13-59
-activity#com.example.hotpot.ui.activity.RecipeDetailActivity
-ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:47:9-50:20
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:43:13-59
+activity#com.cokgyzlar.hotpot.ui.activity.RecipeDetailActivity
+ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:47:9-50:20
 	android:exported
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:48:13-36
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:48:13-36
 	android:theme
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:49:13-78
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:49:13-78
 	android:name
-		ADDED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml:47:19-67
+		ADDED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml:47:19-67
 uses-sdk
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
-INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
+INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:8.6.1] /Users/amayakof/.gradle/caches/transforms-4/0a3ccfc1145b9271cf1cc905d147c507/transformed/viewbinding-8.6.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:8.6.1] /Users/amayakof/.gradle/caches/transforms-4/0a3ccfc1145b9271cf1cc905d147c507/transformed/viewbinding-8.6.1/AndroidManifest.xml:5:5-44
 MERGED from [io.insert-koin:koin-android:3.5.0] /Users/amayakof/.gradle/caches/transforms-4/f9b0787216ed4a8bbe29d26a5efff208/transformed/koin-android-3.5.0/AndroidManifest.xml:5:5-7:41
@@ -382,6 +383,8 @@ MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/ama
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/29efc0df99a844d99be87e165411b9a3/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/48bd931252afb78cce3a90d187576a7c/transformed/runtime-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/48bd931252afb78cce3a90d187576a7c/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/amayakof/.gradle/caches/transforms-4/32ce1354809ec21c5a1f0ab8007a9b61/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/amayakof/.gradle/caches/transforms-4/32ce1354809ec21c5a1f0ab8007a9b61/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] /Users/amayakof/.gradle/caches/transforms-4/66dcb8610197c0f98a79d127bda617d4/transformed/gifdecoder-4.16.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] /Users/amayakof/.gradle/caches/transforms-4/66dcb8610197c0f98a79d127bda617d4/transformed/gifdecoder-4.16.0/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/amayakof/.gradle/caches/transforms-4/be42bc6da612e19c16c501e09a066583/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
@@ -413,9 +416,9 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/amayakof/
 MERGED from [androidx.core:core-viewtree:1.0.0] /Users/amayakof/.gradle/caches/transforms-4/06fc83ea76e44f35ec1ff729c9f73128/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-viewtree:1.0.0] /Users/amayakof/.gradle/caches/transforms-4/06fc83ea76e44f35ec1ff729c9f73128/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/amayakof/AndroidStudioProjects/HotPot/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/amayakof/AndroidStudioProjects/cokgyzlar/app/src/main/AndroidManifest.xml
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/amayakof/.gradle/caches/transforms-4/8736ad781d4d9efdf1dcb11d1516e1ad/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 	android:exported
@@ -462,7 +465,7 @@ ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
-permission#com.example.hotpot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#com.cokgyzlar.hotpot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
@@ -472,7 +475,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
-uses-permission#com.example.hotpot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#com.cokgyzlar.hotpot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.15.0] /Users/amayakof/.gradle/caches/transforms-4/3b4faa81d4b4098f5f813e858cf5a52e/transformed/core-1.15.0/AndroidManifest.xml:26:22-94

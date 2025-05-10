@@ -1,5 +1,7 @@
 package com.cokgyzlar.hotpot.models
 
+import com.cokgyzlar.hotpot.data.model.UserGoal
+
 
 data class UserProfile(
     val user_id : Int,
@@ -11,7 +13,8 @@ data class UserProfile(
     val birth_date: String?,
     val sex: String?,
     var health_details: List<HealthDetail>?,
-    val vision: List<String>
+    val UserGoal: UserGoal?,
+//    Tut krch vmesto Vison -> UserGoal class
 )
 
 data class HealthDetail(

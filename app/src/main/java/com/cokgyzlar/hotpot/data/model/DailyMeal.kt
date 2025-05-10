@@ -1,4 +1,4 @@
-package com.cokgyzlar.hotpot.models
+package com.cokgyzlar.hotpot.data.model
 
 data class Meal(
     val id: Int,
@@ -7,12 +7,6 @@ data class Meal(
     val calories: Calories
 )
 
-data class Calories(
-    val total: Int,
-    val protein: Int,
-    val fats: Int,
-    val carbs: Int
-)
 
 data class DailyMeal(
     val user_id: Int,

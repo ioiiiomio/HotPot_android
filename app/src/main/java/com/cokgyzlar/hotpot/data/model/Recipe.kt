@@ -1,5 +1,5 @@
 package com.cokgyzlar.hotpot.data.model
-import com.cokgyzlar.hotpot.models.Calories
+
 
 data class Recipe(
     val id: Int,

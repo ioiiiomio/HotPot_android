@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cokgyzlar.hotpot.R
-import com.cokgyzlar.hotpot.models.Meal
+import com.cokgyzlar.hotpot.data.model.Meal
 import com.google.android.material.card.MaterialCardView
 
 class MealPreviewAdapter(

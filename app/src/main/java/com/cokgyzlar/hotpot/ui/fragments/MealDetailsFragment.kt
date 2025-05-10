@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cokgyzlar.hotpot.R
 import com.cokgyzlar.hotpot.adapters.MealPreviewAdapter
+import com.cokgyzlar.hotpot.data.model.Calories
 import com.cokgyzlar.hotpot.models.CaloriesProgressBarLine
-import com.cokgyzlar.hotpot.models.DailyMeal
-import com.cokgyzlar.hotpot.models.Meal
-import com.cokgyzlar.hotpot.models.Calories
+import com.cokgyzlar.hotpot.data.model.DailyMeal
+import com.cokgyzlar.hotpot.data.model.Meal
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
 import org.koin.mp.KoinPlatform.getKoin
 

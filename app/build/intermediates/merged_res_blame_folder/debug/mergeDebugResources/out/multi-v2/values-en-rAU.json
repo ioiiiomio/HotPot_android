@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hotpot.app-mergeDebugResources-74:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.cokgyzlar.hotpot.app-mergeDebugResources-74:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "/Users/amayakof/.gradle/caches/transforms-4/1848f914ae2c25c66134d98f9cd4526b/transformed/material3-release/res/values-en-rAU/values-en-rAU.xml",

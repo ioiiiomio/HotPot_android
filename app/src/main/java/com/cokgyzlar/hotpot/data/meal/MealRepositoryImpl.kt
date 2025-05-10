@@ -1,7 +1,7 @@
 package com.cokgyzlar.hotpot.data.meal
 
 import android.util.Log
-import com.cokgyzlar.hotpot.models.DailyMeal
+import com.cokgyzlar.hotpot.data.model.DailyMeal
 import retrofit2.HttpException
 
 class MealRepositoryImpl (
