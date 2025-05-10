@@ -64,4 +64,21 @@ class PostsRepositoryImpl (
             ArticleResult.Error(500, e.message)
         }
     }
+
+    override suspend fun post(post: PostRequest): Result {
+        return try{
+            val result = api.post(post)
+            Result.Success("ok")
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            if(e.code()==401){
+                Result.Unauthorized(e.code(), e.message())
+            }else{
+                Result.Error(e.code(), e.message())
+            }
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            Result.Error(500, e.message)
+        }
+    }
 }

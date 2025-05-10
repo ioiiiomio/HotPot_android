@@ -7,6 +7,7 @@ interface PostsRepository {
     suspend fun getPosts() : PostsResult
     suspend fun getFeed() : FeedResult
     suspend fun getPostById(id: Int): ArticleResult
+    suspend fun post(post: PostRequest): Result
 }
 sealed class PostsResult {
     data class Success(val posts: List<Article>) : PostsResult()
@@ -24,4 +25,10 @@ sealed class ArticleResult {
     data class Success(val article: Article) : ArticleResult()
     data class Unauthorized(val code: Int, val message: String?) : ArticleResult()
     data class Error(val code: Int, val message: String?) : ArticleResult()
+}
+
+sealed class Result {
+    data class Success(val status: String): Result()
+    data class Unauthorized(val code: Int, val message: String?): Result()
+    data class Error(val code: Int, val message: String?): Result()
 }

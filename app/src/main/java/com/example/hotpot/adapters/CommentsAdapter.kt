@@ -18,7 +18,7 @@ import com.example.hotpot.fragments.UserProfileFragment
 import com.example.hotpot.models.Comment
 import com.example.hotpot.ui.activity.FullscreenActivity
 
-class CommentsAdapter(private var comments: List<Comment>, private val onAuthorClick: (String) -> Unit) :
+class CommentsAdapter(var comments: List<Comment>, private val onAuthorClick: (String) -> Unit) :
     RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {
 
     inner class CommentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -26,10 +26,6 @@ class CommentsAdapter(private var comments: List<Comment>, private val onAuthorC
         val authorName: TextView = view.findViewById(R.id.commentAuthor)
         val timestamp: TextView = view.findViewById(R.id.commentTimestamp)
         val commentText: TextView = view.findViewById(R.id.commentText)
-        val replyButton: TextView = view.findViewById(R.id.replyButton)
-        val repliesCount: TextView = view.findViewById(R.id.repliesCount)
-        val repliesRecyclerView: RecyclerView = view.findViewById(R.id.repliesRecyclerView)
-        val repliesContainer: LinearLayout = view.findViewById(R.id.repliesContainer)
 
         fun bind(comment: Comment) {
             authorName.text = comment.author
@@ -46,29 +42,6 @@ class CommentsAdapter(private var comments: List<Comment>, private val onAuthorC
                 onAuthorClick(authorName.text.toString())
             }
 
-
-            // Handle replies
-            if (comment.replies!!.isNotEmpty()) {
-                repliesCount.text = "${comment.replies!!.size} replies"
-                repliesCount.visibility = View.VISIBLE
-                repliesRecyclerView.layoutManager = LinearLayoutManager(itemView.context)
-                repliesRecyclerView.adapter = comment.replies?.let { RepliesAdapter(it, onAuthorClick) }
-            } else {
-                repliesCount.visibility = View.GONE
-            }
-
-            repliesContainer.visibility = View.GONE
-
-            // Show replies on click
-            repliesCount.setOnClickListener {
-                repliesContainer.visibility =
-                    if (repliesContainer.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            }
-
-            replyButton.setOnClickListener {
-                // Handle reply action (open input field, etc.)
-                Toast.makeText(itemView.context, "Replying to ${comment.author}", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 
