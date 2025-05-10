@@ -70,6 +70,8 @@ class ProfileRepositoryImpl (
     ): UpdateResult {
         return try{
             val response = api.updateProfile(username, updateRequest)
+            Log.e("Repository", username)
+            Log.e("Repository", updateRequest.toString())
             Log.e("Repository", "success")
             UpdateResult.Success(response.message)
         }catch(e: HttpException) {

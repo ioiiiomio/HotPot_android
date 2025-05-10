@@ -58,8 +58,36 @@ class FullScreenActivityVM : ViewModel() {
         )
 
         userProfile.value = updatedProfile
+        userProfile.value!!.health_details?.let { appStorage.saveHealthDetail(it) }
+        Log.e("abcd" , appStorage.getHealthDetail().toString())
+        updateProfile()
         viewModelScope.launch {
             generateAndUpdateCalorieNorm()
+        }
+    }
+
+    fun updateProfile(){
+        viewModelScope.launch {
+            try {
+                val currentProfile = userProfile.value
+                currentProfile?.health_details?.map { it.created_at = null }
+                Log.e("currentprofforupd", currentProfile.toString())
+                val result = profileRepository.updateProfile(
+                    currentProfile!!.username.drop(1),
+                    UpdateRequest(
+                        currentProfile.birth_date!!,
+                        currentProfile.health_details!!,
+                        currentProfile.profile_picture,
+                        currentProfile.sex!!,
+                        currentProfile.vision!!))
+                if (result is UpdateResult.Success) {
+                    Log.d("PostDebug", "Profile upd successful")
+                } else {
+                    Log.e("PostDebug", "Profile upd failed: $result")
+                }
+            } catch (e: Exception) {
+                Log.e("PostDebug", "Exception during post: ${e.message}", e)
+            }
         }
     }
 

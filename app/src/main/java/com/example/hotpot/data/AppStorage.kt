@@ -12,8 +12,10 @@ import android.util.Base64
 import android.util.Log
 import com.example.hotpot.models.CalorieNorm
 import com.example.hotpot.models.DailyMeal
+import com.example.hotpot.models.HealthDetail
 import com.example.hotpot.ui.viewmodels.MainActivityVM
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 public class AppStorage private constructor(context: Context) {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("HotpotPrefs", Context.MODE_PRIVATE)
@@ -29,8 +31,9 @@ public class AppStorage private constructor(context: Context) {
         const val USER_ID = "user_id"
         const val CALORIE_NORM = "calorie_norm"
         const val DAILY_MEAL = "daily_meal"
-        const val PROGRESS = "progress"
+        const val PROGRESS = "feedbacks"
         const val IS_PREMIUM = "is_premium"
+        const val HEALTH_DETAIL = "health_details"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -77,12 +80,17 @@ public class AppStorage private constructor(context: Context) {
     fun saveDailyMeal(meal : DailyMeal){
         saveToStorage(DAILY_MEAL, Gson().toJson(meal))
     }
-    fun saveFeedback(feedback : MainActivityVM.Feedback){
-        saveToStorage(PROGRESS, Gson().toJson(feedback))
+    fun saveFeedbacks(feedbacks : List<MainActivityVM.Feedback>){
+        saveToStorage(PROGRESS, Gson().toJson(feedbacks))
     }
     fun saveIsPremium(isPremium : Boolean){
         saveToStorage(IS_PREMIUM, isPremium.toString())
     }
+    fun saveHealthDetail(healthDetails: List<HealthDetail>) {
+        val json = Gson().toJson(healthDetails)
+        saveToStorage(HEALTH_DETAIL, json)
+    }
+
     fun getAccessToken() : String?{
         val accessToken = getData(ACCESS_TOKEN)
         if(accessToken==null){
@@ -134,14 +142,27 @@ public class AppStorage private constructor(context: Context) {
         }
         return Gson().fromJson(norm, DailyMeal::class.java)
     }
-    fun getFeedback() : MainActivityVM.Feedback?{
-        val norm = retrieveFromStorage(PROGRESS)
-        if(norm==null){
+    fun getFeedbacks(): List<MainActivityVM.Feedback> {
+        val json = retrieveFromStorage(PROGRESS)
+        if (json == null) {
             Log.e("AppStorage", "progress was not found")
-            return null
+            return emptyList()
         }
-        return Gson().fromJson(norm, MainActivityVM.Feedback::class.java)
+
+        val type = object : TypeToken<List<MainActivityVM.Feedback>>() {}.type
+        return Gson().fromJson(json, type)
     }
+    fun getHealthDetail(): List<HealthDetail> {
+        val json = retrieveFromStorage(HEALTH_DETAIL)
+        if (json == null) {
+            Log.e("AppStorage", "progress was not found")
+            return emptyList()
+        }
+
+        val type = object : TypeToken<List<HealthDetail>>() {}.type
+        return Gson().fromJson(json, type)
+    }
+
     fun getIsPremium(): Boolean?{
         val isPrem = retrieveFromStorage(IS_PREMIUM)
         if(isPrem==null){
