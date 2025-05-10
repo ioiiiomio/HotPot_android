@@ -2,6 +2,7 @@ package com.cokgyzlar.hotpot.ui.fragments
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -12,7 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.cokgyzlar.hotpot.R
 import com.cokgyzlar.hotpot.models.UserProfile
+import com.cokgyzlar.hotpot.ui.activity.AuthActivity
+import com.cokgyzlar.hotpot.ui.activity.ProposalActivity
 import com.cokgyzlar.hotpot.ui.viewmodels.FullScreenActivityVM
+import com.google.android.material.card.MaterialCardView
 import java.util.Calendar
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
@@ -25,6 +29,18 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         val healthDetails = view.findViewById<TextView>(R.id.healthDetails)
 
+        val logout = view.findViewById<MaterialCardView>(R.id.myCard)
+        val proposalOpen = view.findViewById<MaterialCardView>(R.id.goProposal)
+
+        logout.setOnClickListener{
+            val intent = Intent(context, AuthActivity::class.java)
+            startActivity(intent)
+        }
+
+        proposalOpen.setOnClickListener {
+            val intent = Intent(context, ProposalActivity::class.java)
+            startActivity(intent)
+        }
 
 
         val visions = arrayOf("Lose Weight", "Gain Weight", "Healthy Lifestyle", "Custom Plan", "Improve Endurance",

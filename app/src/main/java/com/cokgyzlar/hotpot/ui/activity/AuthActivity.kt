@@ -12,6 +12,7 @@ import com.cokgyzlar.hotpot.data.Utils
 import com.cokgyzlar.hotpot.data.auth.login.LoginRepository
 import com.cokgyzlar.hotpot.data.auth.login.LoginRequest
 import com.cokgyzlar.hotpot.data.auth.login.LoginResult
+import com.cokgyzlar.hotpot.data.auth.premium.PremiumRepository
 import com.cokgyzlar.hotpot.data.auth.register.RegisterRepository
 import com.cokgyzlar.hotpot.data.auth.register.RegisterRequest
 import com.cokgyzlar.hotpot.data.auth.register.RegisterResult
@@ -28,6 +29,7 @@ import org.koin.mp.KoinPlatform.getKoin
 class AuthActivity : AppCompatActivity() {
     private val registerRepository: RegisterRepository by lazy { getKoin().get<RegisterRepository>() }
     private val loginRepository: LoginRepository by lazy { getKoin().get<LoginRepository>() }
+    private val premiumRepository: PremiumRepository by lazy { getKoin().get<PremiumRepository>() }
 
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
@@ -79,15 +81,17 @@ class AuthActivity : AppCompatActivity() {
             viewModelScope.launch {
                 val loginResult = loginRepository.login(LoginRequest(email, password))
                 if(loginResult is LoginResult.Success){
-                    redirectToMainActivity()
+                    val isPremium = premiumRepository.isPremium()
+                    Log.e("abcd", isPremium.toString())
                     appStorage.savePassword(password)
                     appStorage.saveEmail(email)
                     appStorage.saveAccessToken(loginResult.accessToken)
                     appStorage.saveRole(Utils.getRole(loginResult.accessToken)?:"user")
-                    appStorage.saveIsPremium(true)
+                    appStorage.saveIsPremium(isPremium)
                     Utils.getId(loginResult.accessToken)?.let { appStorage.saveID(it) }
                     Log.e("role", "${appStorage.getRole()}")
                     Log.e("id", "${appStorage.getId()}")
+                    redirectToMainActivity()
                 }else{
                     Toast.makeText(this@AuthActivity, "Error occurred while authorizing", Toast.LENGTH_SHORT).show()
                 }

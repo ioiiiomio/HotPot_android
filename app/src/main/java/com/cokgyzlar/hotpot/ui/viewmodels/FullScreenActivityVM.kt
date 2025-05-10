@@ -90,7 +90,8 @@ class FullScreenActivityVM : ViewModel() {
         val updatedProfile = currentProfile.copy(
             UserGoal = userGoal
         )
-        userProfile.value = updatedProfile
+        userProfile.value=updatedProfile
+        updateProfile()
         viewModelScope.launch {
             generateAndUpdateCalorieNorm()
         }

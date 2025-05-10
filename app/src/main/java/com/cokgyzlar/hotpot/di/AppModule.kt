@@ -4,6 +4,9 @@ import com.cokgyzlar.hotpot.data.AuthInterceptor
 import com.cokgyzlar.hotpot.data.auth.login.LoginApi
 import com.cokgyzlar.hotpot.data.auth.login.LoginRepository
 import com.cokgyzlar.hotpot.data.auth.login.LoginRepositoryImpl
+import com.cokgyzlar.hotpot.data.auth.premium.PremiumApi
+import com.cokgyzlar.hotpot.data.auth.premium.PremiumRepository
+import com.cokgyzlar.hotpot.data.auth.premium.PremiumRepositoryImpl
 import com.cokgyzlar.hotpot.data.auth.register.RegisterApi
 import com.cokgyzlar.hotpot.data.auth.register.RegisterRepository
 import com.cokgyzlar.hotpot.data.auth.register.RegisterRepositoryImpl
@@ -35,7 +38,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "http://192.168.101.16:8080"
+const val BASE_URL = "https://hotpot-go.onrender.com"
 
 val appModule = module {
 
@@ -93,6 +96,9 @@ val appModule = module {
 
     single { get<Retrofit>(named("interceptorRetrofit")).create(ProfilelApi::class.java) }
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
+
+    single { get<Retrofit>(named("interceptorRetrofit")).create(PremiumApi::class.java) }
+    single<PremiumRepository> { PremiumRepositoryImpl(get()) }
 
     single(named("openAIHttpClient")) {
         OkHttpClient.Builder()
