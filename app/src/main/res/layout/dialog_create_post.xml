@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_beige">
+
+    <EditText
+        android:id="@+id/titleInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+
+    <EditText
+        android:id="@+id/tagsInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="tag1, tag2, tag3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/imageInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Image url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+    <EditText
+        android:id="@+id/contentInput"
+        android:fontFamily="@font/inria_serif_bold"
+        android:hint="Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+
+</LinearLayout>

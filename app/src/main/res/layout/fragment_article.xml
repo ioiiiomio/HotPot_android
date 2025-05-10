@@ -74,20 +74,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:paddingTop="4dp"/>
-                <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/follow"
-                android:textAlignment="textStart"
-                android:fontFamily="@font/inria_serif_bold"
-                android:textSize="15sp"
-                android:text="Follow"
-                android:background="@drawable/button_selector"
-                android:textColor="@color/title_green"
-                android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:paddingHorizontal="30dp"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="15dp"/>
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="300dp"
@@ -148,6 +135,7 @@
         android:layout_marginTop="0dp"/>
     <LinearLayout
         android:id="@+id/rating"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/articleRecyclerView"
@@ -181,7 +169,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/commentsContainer"
+        android:id="@+id/commentInputContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/white_rounded_bg"
@@ -190,6 +178,41 @@
         android:padding="15dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/rating">
+        <EditText
+            android:id="@+id/commentInput"
+            android:fontFamily="@font/inria_serif_bold"
+            android:hint="Comment"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="8dp"/>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sendButton"
+        android:textAlignment="center"
+        android:fontFamily="@font/inria_serif_bold"
+        android:textSize="20sp"
+        android:text="Send"
+        android:background="@drawable/light_green_rounded_background"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:paddingHorizontal="20dp"
+        android:textStyle="bold"
+        android:layout_marginVertical="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commentInputContainer"/>
+    <LinearLayout
+        android:id="@+id/commentsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_rounded_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:padding="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/sendButton">
 
         <!-- Header with Expand Button and Sorting -->
         <LinearLayout
@@ -219,7 +242,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/light_green_rounded_background"
-                android:text="3"
+                android:text="0"
                 android:textSize="10dp"
                 android:layout_marginHorizontal="10dp"/>
 
@@ -238,13 +261,13 @@
             android:background="@drawable/beige_background"
             android:layout_marginTop="15dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/commentPreviewImage"
-                android:src="@drawable/dummy_image"
+                android:src="@drawable/default_profile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:scaleType="centerCrop"
-                android:background="@drawable/rounded_image_background"
+                app:shapeAppearanceOverlay="@style/RoundedImage"
                 android:layout_margin="10dp"/>
             <TextView
                 android:id="@+id/commentPreviewText"
@@ -252,7 +275,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inria_serif_bold"
                 android:textSize="16sp"
-                android:text="Karma is a b**ch, chia seeds! 😏"
+                android:text="Be the first to comment!"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="10dp"/>
 

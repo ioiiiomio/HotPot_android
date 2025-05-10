@@ -4,6 +4,7 @@ import com.example.hotpot.data.NoAuth
 import com.example.hotpot.data.RequiresAuth
 import com.example.hotpot.models.Article
 import com.example.hotpot.models.PostItem
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -20,6 +21,10 @@ interface PostsApi {
     @RequiresAuth
     @GET("/posts/api/v1/protected/feed")
     suspend fun getFeed(): FeedResponse
+
+    @RequiresAuth
+    @POST("/posts/api/v1/protected/posts")
+    suspend fun post(@Body post: PostRequest): Response
 }
 data class FeedResponse(
     val code : Int,
@@ -31,4 +36,21 @@ data class ArticleResponse(
     val code: Int,
     val data: Article,
     val message: String
+)
+
+data class Response(
+    val code: Int,
+    val data: Data,
+    val message: String
+)
+
+data class Data(
+    val status : String
+)
+
+data class PostRequest(
+    val content: String,
+    val imageUrl: String,
+    val tags: List<String>,
+    val title: String
 )

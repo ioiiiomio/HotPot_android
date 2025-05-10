@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hotpot.data.meal.MealRepository
 import com.example.hotpot.data.meal.MealResult
+import com.example.hotpot.data.posts.posts.PostRequest
+import com.example.hotpot.data.posts.posts.PostsRepository
+import com.example.hotpot.data.posts.posts.Result
 import com.example.hotpot.data.profile.ProfileRepository
 import com.example.hotpot.data.profile.UpdateRequest
 import com.example.hotpot.data.profile.UserResult
@@ -29,9 +32,11 @@ class FullScreenActivityVM : ViewModel() {
     var userProfile = MutableLiveData<UserProfile>()
     var dieticianProfile = MutableLiveData<Dietician>()
     var posts = MutableLiveData<List<PostItem>>()
+    var reloadDieticianProfile = MutableLiveData<Boolean>(false)
     private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
     private val mainActivityVM: MainActivityVM by lazy { getKoin().get<MainActivityVM>()}
     private val profileRepository: ProfileRepository by lazy { getKoin().get<ProfileRepository>() }
+    private val postsRepository: PostsRepository by lazy { getKoin().get<PostsRepository>() }
 
 
     fun updateHealthDetails(height: Int, weight: Double, dob: String, sex: String) {
@@ -83,6 +88,23 @@ class FullScreenActivityVM : ViewModel() {
             }
         }
     }
+
+    fun post(post: PostRequest){
+        viewModelScope.launch {
+            try {
+                val result = postsRepository.post(post)
+                if (result is Result.Success) {
+                    Log.d("PostDebug", "Post successful")
+                    reloadDieticianProfile.postValue(true)
+                } else {
+                    Log.e("PostDebug", "Post failed: $result")
+                }
+            } catch (e: Exception) {
+                Log.e("PostDebug", "Exception during post: ${e.message}", e)
+            }
+        }
+    }
+
 
 
     suspend fun generateAndUpdateCalorieNorm() {

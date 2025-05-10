@@ -13,8 +13,10 @@ import com.bumptech.glide.Glide
 import com.example.hotpot.R
 import com.example.hotpot.adapters.ArticleAdapter
 import com.example.hotpot.adapters.CommentsAdapter
+import com.example.hotpot.data.posts.comments.CommentRequest
 import com.example.hotpot.data.posts.comments.CommentsRepository
 import com.example.hotpot.data.posts.comments.CommentsResult
+import com.example.hotpot.data.posts.comments.Result
 import com.example.hotpot.data.posts.posts.ArticleResult
 import com.example.hotpot.models.Article
 import com.example.hotpot.models.ArticleContent
@@ -36,6 +38,9 @@ class ArticleFragment : Fragment() {
 
     private lateinit var articleRecyclerView: RecyclerView
     private lateinit var articleAdapter: ArticleAdapter
+
+    private lateinit var commentInput : EditText
+    private lateinit var commentSendButton : AppCompatButton
 
     private lateinit var commentPreviewImage : ImageView
     private lateinit var commentPreviewText : TextView
@@ -104,6 +109,9 @@ class ArticleFragment : Fragment() {
         commentsNumber = view.findViewById(R.id.commentsNumber)
         commentPreview = view.findViewById(R.id.commentPreview)
 
+        commentInput = view.findViewById(R.id.commentInput)
+        commentSendButton = view.findViewById(R.id.sendButton)
+
         commentsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         commentsRecyclerView.adapter = commentsAdapter
 
@@ -113,10 +121,53 @@ class ArticleFragment : Fragment() {
         commentsContainer.setOnClickListener { toggleComments() }
         expandCollapseButton.setOnClickListener { toggleComments() }
 
+        commentSendButton.setOnClickListener{postComment()}
+
         loadComments()
         initArticle()
 
         return view
+    }
+
+    private fun postComment(){
+        if(commentInput.text.isNotEmpty()) {
+            viewLifecycleOwner.lifecycleScope.launch {
+                val result = commentsRepository.postComment(articleID.toString(), CommentRequest(commentInput.text.toString()))
+                if(result is Result.Success){
+                    commentInput.text.clear()
+                    val getResult = try {
+                        commentsRepository.getComments(articleID.toString())
+                    } catch (e: Exception) {
+                        Log.e("CommentError", "Error fetching comments", e)
+                        return@launch
+                    }
+
+                    if (getResult is CommentsResult.Success) {
+                        val comments = getResult.comments ?: emptyList()
+
+                        withContext(Dispatchers.Main) {
+                            // Optional UI update (showing latest comment)
+                            if (comments.isNotEmpty()) {
+                                Glide.with(requireContext())
+                                    .load(comments[0].authorImageUrl)
+                                    .error(R.drawable.default_profile)
+                                    .fallback(R.drawable.default_profile)
+                                    .circleCrop()
+                                    .into(commentPreviewImage)
+                                commentPreviewText.text = comments[0].content
+                                commentPreview.visibility = View.VISIBLE
+                            } else {
+                                commentPreview.visibility = View.GONE
+                            }
+
+                            commentsAdapter.updateComments(comments)
+                            commentsNumber.text = comments.size.toString()
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     private fun toggleComments() {
