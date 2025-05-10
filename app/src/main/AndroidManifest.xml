@@ -48,6 +48,10 @@
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         </activity>
+        <activity android:name=".ui.activity.ProposalActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        </activity>
 
     </application>
 
