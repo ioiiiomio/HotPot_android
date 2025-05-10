@@ -56,7 +56,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <com.example.hotpot.models.HealthLevelCirlce
+            <com.cokgyzlar.hotpot.models.HealthLevelCirlce
                 android:id="@+id/ringProgressView"
                 android:layout_width="300dp"
                 android:layout_height="300dp"

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.hotpot"
+    namespace = "com.cokgyzlar.hotpot"
     compileSdk = 35
 //Added to make views in MainActivity
     viewBinding {
@@ -14,7 +14,7 @@ android {
     }
 //->mio
     defaultConfig {
-        applicationId = "com.example.hotpot"
+        applicationId = "com.cokgyzlar.hotpot"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -106,4 +106,8 @@ dependencies {
 
     //dependency injection
     implementation ("io.insert-koin:koin-android:3.5.0")
+
+    //graphs
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
 }

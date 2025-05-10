@@ -35,7 +35,7 @@
 
         <!-- MainActivity (After Splash) -->
         <activity
-            android:name="com.example.hotpot.ui.activity.MainActivity"
+            android:name="com.cokgyzlar.hotpot.ui.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
 
