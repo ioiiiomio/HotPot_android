@@ -90,6 +90,7 @@ class FullScreenActivityVM : ViewModel() {
             vision = visions
         )
         userProfile.value=updatedProfile
+        updateProfile()
         viewModelScope.launch {
             generateAndUpdateCalorieNorm()
         }

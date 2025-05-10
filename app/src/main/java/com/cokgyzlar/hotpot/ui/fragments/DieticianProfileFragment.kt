@@ -71,8 +71,13 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
 
         var username = arguments?.getString("username")
         Log.e("abcd", "username is ${username.toString()}")
-        val id = arguments?.getInt("id")
+        var id = arguments?.getInt("id")
+        if(id==null){
+            id = appStorage.getId()
+        }
         Log.e("abcd", "id is ${id.toString()}")
+
+
 
         viewModel.dieticianProfile.observe(viewLifecycleOwner) { dietician ->
             updateUi(dietician)
