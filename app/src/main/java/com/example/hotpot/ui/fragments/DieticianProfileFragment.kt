@@ -34,6 +34,7 @@ import com.example.hotpot.data.profile.UpdateResult
 import com.example.hotpot.data.profile.UserResult
 import com.example.hotpot.models.Dietician
 import com.example.hotpot.models.GuideItem
+import com.example.hotpot.ui.fragments.AppointmentFragment
 import com.example.hotpot.ui.fragments.DetailsFragment
 import com.example.hotpot.ui.fragments.DieticianPostsFragment
 import com.example.hotpot.ui.fragments.GuidesFragment
@@ -84,8 +85,11 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
         viewModel.dieticianProfile.observe(viewLifecycleOwner) { dietician ->
             updateUi(dietician)
         }
+        var tabs = listOf("Guides", "Posts")
+        if(isOwnProfile() || appStorage.getIsPremium()==true){
+            tabs = listOf("Guides", "Posts", "Appointments")
+        }
 
-        val tabs = listOf("Guides", "Posts")
         setupCustomTabs(tabLayout, tabs)
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -253,6 +257,15 @@ class DieticianProfileFragment : Fragment(R.layout.fragment_dietician_profile) {
                 val fragment = when (tab.position) {
                     0 -> GuidesFragment()
                     1 -> DieticianPostsFragment(isOwnProfile())
+                    2 -> {
+                        val profile = viewModel.dieticianProfile.value
+                        if (profile != null) {
+                            AppointmentFragment(appStorage.getIsPremium(), profile.username)
+                        } else {
+                            Toast.makeText(requireContext(), "Profile not loaded yet", Toast.LENGTH_SHORT).show()
+                            return
+                        }
+                    }
                     else -> GuidesFragment()
                 }
 

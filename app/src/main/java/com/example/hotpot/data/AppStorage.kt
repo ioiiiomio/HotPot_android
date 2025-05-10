@@ -30,6 +30,7 @@ public class AppStorage private constructor(context: Context) {
         const val CALORIE_NORM = "calorie_norm"
         const val DAILY_MEAL = "daily_meal"
         const val PROGRESS = "progress"
+        const val IS_PREMIUM = "is_premium"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -78,6 +79,9 @@ public class AppStorage private constructor(context: Context) {
     }
     fun saveFeedback(feedback : MainActivityVM.Feedback){
         saveToStorage(PROGRESS, Gson().toJson(feedback))
+    }
+    fun saveIsPremium(isPremium : Boolean){
+        saveToStorage(IS_PREMIUM, isPremium.toString())
     }
     fun getAccessToken() : String?{
         val accessToken = getData(ACCESS_TOKEN)
@@ -137,6 +141,14 @@ public class AppStorage private constructor(context: Context) {
             return null
         }
         return Gson().fromJson(norm, MainActivityVM.Feedback::class.java)
+    }
+    fun getIsPremium(): Boolean?{
+        val isPrem = retrieveFromStorage(IS_PREMIUM)
+        if(isPrem==null){
+            Log.e("AppStorage", "progress was not found")
+            return null
+        }
+        return isPrem.toBoolean()
     }
 
     /**

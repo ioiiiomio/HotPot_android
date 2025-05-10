@@ -9,8 +9,11 @@ import com.example.hotpot.data.meal.MealResult
 import com.example.hotpot.data.posts.posts.PostRequest
 import com.example.hotpot.data.posts.posts.PostsRepository
 import com.example.hotpot.data.posts.posts.Result
+import com.example.hotpot.data.profile.Appointment
+import com.example.hotpot.data.profile.AppointmentRequest
 import com.example.hotpot.data.profile.ProfileRepository
 import com.example.hotpot.data.profile.UpdateRequest
+import com.example.hotpot.data.profile.UpdateResult
 import com.example.hotpot.data.profile.UserResult
 import com.example.hotpot.models.CalorieNorm
 import com.example.hotpot.models.Calories
@@ -94,6 +97,21 @@ class FullScreenActivityVM : ViewModel() {
             try {
                 val result = postsRepository.post(post)
                 if (result is Result.Success) {
+                    Log.d("PostDebug", "Post successful")
+                    reloadDieticianProfile.postValue(true)
+                } else {
+                    Log.e("PostDebug", "Post failed: $result")
+                }
+            } catch (e: Exception) {
+                Log.e("PostDebug", "Exception during post: ${e.message}", e)
+            }
+        }
+    }
+    fun createAppointment(username: String, newAppt: Appointment){
+        viewModelScope.launch {
+            try {
+                val result = profileRepository.createAppointment(username, AppointmentRequest(newAppt.title, newAppt.date, newAppt.time))
+                if (result is UpdateResult.Success) {
                     Log.d("PostDebug", "Post successful")
                     reloadDieticianProfile.postValue(true)
                 } else {
