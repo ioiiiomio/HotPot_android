@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.cokgyzlar.hotpot.R
 import com.cokgyzlar.hotpot.databinding.FragmentHomeBinding
 import com.cokgyzlar.hotpot.fragments.DieticianProfileFragment
@@ -17,7 +18,9 @@ import com.cokgyzlar.hotpot.models.Calories
 import com.cokgyzlar.hotpot.models.DailyMeal
 import com.cokgyzlar.hotpot.ui.activity.FullscreenActivity
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
+import com.google.gson.Gson
 import com.prowheelxrassistv01.data.AppStorage
+import kotlinx.coroutines.launch
 import org.koin.mp.KoinPlatform.getKoin
 import kotlin.random.Random
 
@@ -90,9 +93,19 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.fetchOrInitializeCalorieNorm()
+        genPlan()
 
         return binding.root
     }
+    fun genPlan() {
+        Log.e("GENPLAN", "here")
+        lifecycleScope.launch {
+            val token = getString(R.string.openai)
+            val id = appStorage.getId() ?: return@launch
+            viewModel.collectDataAndSendPromptForPlan(token, id)
+        }
+    }
+
 
     fun updateUi(norm: CalorieNorm, dailyMeal: DailyMeal){
         val currentCalories = dailyMeal.calories.total
@@ -175,11 +188,19 @@ class HomeFragment : Fragment() {
         mealViews.forEach { (view, mealType) ->
             view.setOnClickListener {
                 if (isEnabled) {
+                    val mealList = when (mealType) {
+                        "breakfast" -> viewModel.mealPlan.value?.breakfast
+                        "lunch" -> viewModel.mealPlan.value?.lunch
+                        "dinner" -> viewModel.mealPlan.value?.dinner
+                        "snack" -> viewModel.mealPlan.value?.snack
+                        else -> emptyList()
+                    } ?: emptyList()
                     FullscreenActivity.launch(
                         requireContext(),
                         MealDetailsFragment::class.java,
                         Bundle().apply {
                             putString("mealType", mealType)
+                            putString("sampleMeals", Gson().toJson(mealList))
                             putString("date", viewModel.getCurrentDate())}
                     )
                 } else {
@@ -197,6 +218,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.fetchOrInitializeCalorieNorm()
+        genPlan()
     }
 
     fun <E> List<E>.random(): E? = if (size > 0) get(Random.nextInt(size)) else null

@@ -51,14 +51,14 @@
                     android:src="@drawable/ic_search"
                     android:contentDescription="Search icon" />
 
-                <TextView
+                <EditText
                     android:id="@+id/search_bar_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/inria_serif_bold"
-                    android:text="Find Recipes"
+                    android:hint="Find Recipes"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </LinearLayout>

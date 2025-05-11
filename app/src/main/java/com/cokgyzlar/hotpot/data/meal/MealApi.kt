@@ -1,6 +1,8 @@
 package com.cokgyzlar.hotpot.data.meal
 
+import com.cokgyzlar.hotpot.data.NoAuth
 import com.cokgyzlar.hotpot.data.RequiresAuth
+import com.cokgyzlar.hotpot.data.model.Recipe
 import com.cokgyzlar.hotpot.data.posts.comments.Response
 import com.cokgyzlar.hotpot.models.DailyMeal
 import retrofit2.http.POST
@@ -16,7 +18,18 @@ interface MealApi {
     @RequiresAuth
     @POST("meal/api/v1")
     suspend fun postMeal(@Body request: DailyMeal): Response
+
+    @NoAuth
+    @GET("recipes/api/v1/recipes")
+    suspend fun getRecipes() : RecipesResponse
+
+    @RequiresAuth
+    @POST("/recipes/api/v1/protected/recipes/{id}/rating")
+    suspend fun postRating(@Path("id") id: String, @Body rating : Rating) : Response
 }
+data class Rating(
+    val score : Int
+)
 
 data class Response(
     val code : Int,
@@ -31,4 +44,10 @@ data class DailyMealResponse(
 
 data class MealResponseData(
     val message: String
+)
+
+data class RecipesResponse(
+    val code : Int,
+    val data : List<Recipe>,
+    val message : String
 )

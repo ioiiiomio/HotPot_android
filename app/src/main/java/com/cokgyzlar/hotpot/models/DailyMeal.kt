@@ -7,6 +7,14 @@ data class Meal(
     val calories: Calories
 )
 
+data class MealByDate(
+    val date : String?,
+    val breakfast: List<Meal>,
+    val lunch: List<Meal>,
+    val dinner: List<Meal>,
+    val snack: List<Meal>
+)
+
 data class Calories(
     val total: Int,
     val protein: Int,

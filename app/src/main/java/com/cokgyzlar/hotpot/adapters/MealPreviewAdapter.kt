@@ -31,7 +31,7 @@ class MealPreviewAdapter(
     }
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
-        val meal = meals[position]
+        val meal = meals[position] as Meal
 
         holder.mealTitle.text = meal.title
         holder.mealCalories.text = "${meal.calories.total} kcal (${meal.calories.carbs}g, ${meal.calories.protein}g, ${meal.calories.fats}g)"

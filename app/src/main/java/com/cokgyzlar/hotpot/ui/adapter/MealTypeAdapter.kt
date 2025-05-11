@@ -10,16 +10,15 @@ import com.cokgyzlar.hotpot.databinding.RecipesVerticalViewBinding
 
 class MealTypeAdapter(
     private val mealTypes: List<MealType>,
-    private val recipeMap: Map<MealType, List<Recipe>>,
-    private val onMealTypeClick: (MealType) -> Unit,
+    private val recipeMap: Map<String, List<Recipe>>,
     private val onRecipeClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<MealTypeAdapter.MealTypeViewHolder>() {
 
     inner class MealTypeViewHolder(private val binding: RecipesVerticalViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(mealType: MealType) {
-            binding.mealTypeTitle.text = mealType.name
+        fun bind(mealType: String) {
+            binding.mealTypeTitle.text = mealType
 
             val horizontalAdapter = RecipeAdapter(
                 recipeMap[mealType] ?: emptyList(),
@@ -28,9 +27,6 @@ class MealTypeAdapter(
             binding.recipesRecyclerView.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
             binding.recipesRecyclerView.adapter = horizontalAdapter
 
-            binding.mealTypeTitle.setOnClickListener {
-                onMealTypeClick(mealType)
-            }
 
             // Optional: click whole vertical card
             // binding.root.setOnClickListener {
@@ -45,7 +41,7 @@ class MealTypeAdapter(
     }
 
     override fun onBindViewHolder(holder: MealTypeViewHolder, position: Int) {
-        holder.bind(mealTypes[position])
+        holder.bind(mealTypes[position].name)
     }
 
     override fun getItemCount(): Int = mealTypes.size

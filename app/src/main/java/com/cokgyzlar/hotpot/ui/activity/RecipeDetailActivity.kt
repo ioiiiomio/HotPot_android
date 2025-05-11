@@ -3,6 +3,7 @@ package com.cokgyzlar.hotpot.ui.activity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.cokgyzlar.hotpot.R
 import com.cokgyzlar.hotpot.databinding.RecipeDetailBinding
 import com.cokgyzlar.hotpot.data.model.MealType
@@ -13,6 +14,7 @@ import com.cokgyzlar.hotpot.data.openai.Message
 import com.cokgyzlar.hotpot.data.openai.OpenAIRepository
 import com.cokgyzlar.hotpot.data.openai.OpenAIResult
 import com.cokgyzlar.hotpot.models.Calories
+import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,9 +25,7 @@ import org.koin.mp.KoinPlatform.getKoin
 class RecipeDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: RecipeDetailBinding
-    private val openAIRepository: OpenAIRepository by lazy { getKoin().get<OpenAIRepository>() }
-
-    private val token = getString(R.string.openai)
+    private lateinit var viewModel: MainActivityVM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,47 +52,9 @@ class RecipeDetailActivity : AppCompatActivity() {
             messages = messages
         )
 
-        // Call the OpenAI API using the repository
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = openAIRepository.getChatResponse(token, request)
-                withContext(Dispatchers.Main) {
-                    when (response) {
-                        is OpenAIResult.Success -> {
-                            val recipe = parseRecipeFromResponse(response.chatResponse)
-                            displayRecipe(recipe)
-                        }
-                        is OpenAIResult.Error -> {
-                            Toast.makeText(this@RecipeDetailActivity, "Error: ${response.message}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@RecipeDetailActivity, "Failed to fetch recipe", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
+
     }
 
-    private fun parseRecipeFromResponse(response: ChatResponse): Recipe {
-        // Here you need to parse the response from OpenAI to get recipe details
-        val recipeText = response.choices.firstOrNull()?.message?.content ?: "No recipe found"
-
-        // A simple simulation of converting the recipeText into a Recipe object
-        // In a real implementation, you can improve this by parsing the structured recipe data from the response
-        return Recipe(
-            id = 1,
-            name = "Generated Recipe",
-            description = recipeText,
-            calories = Calories(300, 20, 10, 30),
-            imageUrl = "https://yourcdn.com/generated_recipe.jpg",
-            mealType = MealType.BREAKFAST, // Or parse based on the prompt
-            ingredients = listOf("Ingredient 1", "Ingredient 2"),
-            instructions = listOf("Step 1", "Step 2"),
-            isFavorite = false
-        )
-    }
 
     private fun displayRecipe(recipe: Recipe) {
         with(binding) {

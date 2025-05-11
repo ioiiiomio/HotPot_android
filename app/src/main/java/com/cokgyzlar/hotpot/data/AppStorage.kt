@@ -13,6 +13,7 @@ import android.util.Log
 import com.cokgyzlar.hotpot.models.CalorieNorm
 import com.cokgyzlar.hotpot.models.DailyMeal
 import com.cokgyzlar.hotpot.models.HealthDetail
+import com.cokgyzlar.hotpot.models.MealByDate
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -34,6 +35,7 @@ public class AppStorage private constructor(context: Context) {
         const val PROGRESS = "feedbacks"
         const val IS_PREMIUM = "is_premium"
         const val HEALTH_DETAIL = "health_details"
+        const val MEALS = "meals"
 
         private const val KEY_ALIAS = "Hotpot"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
@@ -89,6 +91,10 @@ public class AppStorage private constructor(context: Context) {
     fun saveHealthDetail(healthDetails: List<HealthDetail>) {
         val json = Gson().toJson(healthDetails)
         saveToStorage(HEALTH_DETAIL, json)
+    }
+    fun saveMeals(meals: List<MealByDate>) {
+        val json = Gson().toJson(meals)
+        saveToStorage(MEALS, json)
     }
 
     fun getAccessToken() : String?{
@@ -160,6 +166,16 @@ public class AppStorage private constructor(context: Context) {
         }
 
         val type = object : TypeToken<List<HealthDetail>>() {}.type
+        return Gson().fromJson(json, type)
+    }
+    fun getMeals(): List<MealByDate> {
+        val json = retrieveFromStorage(MEALS)
+        if (json == null) {
+            Log.e("AppStorage", "meals was not found")
+            return emptyList()
+        }
+
+        val type = object : TypeToken<List<MealByDate>>() {}.type
         return Gson().fromJson(json, type)
     }
 
