@@ -17,6 +17,7 @@ import com.cokgyzlar.hotpot.models.DailyMeal
 import com.cokgyzlar.hotpot.models.Meal
 import com.cokgyzlar.hotpot.models.Calories
 import com.cokgyzlar.hotpot.ui.viewmodels.MainActivityVM
+import com.prowheelxrassistv01.data.AppStorage
 import org.koin.mp.KoinPlatform.getKoin
 
 class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
@@ -31,6 +32,7 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
     lateinit var fatsText : TextView
     lateinit var addCustom : TextView
     lateinit var recyclerView: RecyclerView
+    private val appStorage: AppStorage by lazy { getKoin().get<AppStorage>()}
     private val mainActivityVM: MainActivityVM by lazy { getKoin().get<MainActivityVM>()}
 
 
@@ -51,9 +53,28 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
         recyclerView = view.findViewById(R.id.mealsRecyclerView)
 
 
+
+
+
         val mealType = arguments?.getString("mealType")
         Log.e("abcd", mealType.toString())
         val date = arguments?.getString("date")
+
+
+
+        val meals = appStorage.getMeals()
+        val todayPlan = meals.firstOrNull { it.date == mainActivityVM.getTodayDate() }
+
+        if (todayPlan != null) {
+            Log.e("mealplan", todayPlan.toString())
+            sampleMeals = when (mealType) {
+                "breakfast" -> todayPlan.breakfast.toMutableList()
+                "lunch" -> todayPlan.lunch.toMutableList()
+                "dinner" -> todayPlan.dinner.toMutableList()
+                "snack" -> todayPlan.snack.toMutableList()
+                else -> emptyList<Meal>().toMutableList()
+            }
+        }
 
 
         mainActivityVM.calorieNorm.observe(viewLifecycleOwner) { norm ->
@@ -67,6 +88,18 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        mainActivityVM.mealPlan.observe(viewLifecycleOwner) { mealPlan ->
+            Log.e("mealplan", mealPlan.toString())  // log here
+            sampleMeals = when (mealType) {
+                "breakfast" -> mealPlan.breakfast.toMutableList()
+                "lunch" -> mealPlan.lunch.toMutableList()
+                "dinner" -> mealPlan.dinner.toMutableList()
+                "snack" -> mealPlan.snack.toMutableList()
+                else -> emptyList<Meal>().toMutableList()
+            }
+            sampleMeals.forEach{adapter.addMeal(it)}
+        }
 
         title.text = mealType
 
@@ -131,7 +164,7 @@ class MealDetailsFragment : Fragment(R.layout.fragment_meal) {
 
 
     }
-    val sampleMeals = mutableListOf(
+    var sampleMeals = mutableListOf(
         Meal(
             id = 1,
             type = "recipe",

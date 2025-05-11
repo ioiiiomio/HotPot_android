@@ -2,11 +2,14 @@ package com.cokgyzlar.hotpot.ui.viewmodels
 
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cokgyzlar.hotpot.data.meal.MealRepository
 import com.cokgyzlar.hotpot.data.meal.MealResult
+import com.cokgyzlar.hotpot.data.meal.RecipesResult
+import com.cokgyzlar.hotpot.data.model.Recipe
 import com.cokgyzlar.hotpot.data.openai.ChatRequest
 import com.cokgyzlar.hotpot.data.openai.Message
 import com.cokgyzlar.hotpot.data.openai.OpenAIRepository
@@ -17,6 +20,7 @@ import com.cokgyzlar.hotpot.models.CalorieNorm
 import com.cokgyzlar.hotpot.models.Calories
 import com.cokgyzlar.hotpot.models.DailyMeal
 import com.cokgyzlar.hotpot.models.Meal
+import com.cokgyzlar.hotpot.models.MealByDate
 import com.cokgyzlar.hotpot.models.MealDetail
 import com.cokgyzlar.hotpot.models.UserProfile
 import com.google.gson.Gson
@@ -36,6 +40,9 @@ class MainActivityVM : ViewModel() {
     var calorieNorm = MutableLiveData<CalorieNorm?>()
     var dailyMeal = MutableLiveData<DailyMeal>()
     val healthLevel = MutableLiveData<Feedback>()
+    val mealPlan = MutableLiveData<MealByDate>()
+    private val _recipes = MutableLiveData<List<Recipe>>()
+    val recipes: LiveData<List<Recipe>> get() = _recipes
     private var currentDate: String? = null
 
     fun fetchOrInitializeCalorieNorm() {
@@ -72,6 +79,15 @@ class MainActivityVM : ViewModel() {
             }
         }
 
+    }
+
+    fun initRecipes(){
+        viewModelScope.launch {
+            val result = mealRepository.getRecipes()
+            if(result is RecipesResult.Success){
+                _recipes.postValue(result.recipes)
+            }
+        }
     }
 
     fun addWaterIntake(){
@@ -173,6 +189,8 @@ class MainActivityVM : ViewModel() {
         return currentDate!!
     }
 
+
+
     fun nextDate() {
         val date = SimpleDateFormat("dd-MM-yyyy").parse(getCurrentDate())
         val calendar = Calendar.getInstance().apply { time = date }
@@ -194,6 +212,30 @@ class MainActivityVM : ViewModel() {
             val date = dateFormat.format(calendar.time)
             calendar.add(Calendar.DAY_OF_YEAR, -1)
             date
+        }
+    }
+    suspend fun collectDataAndSendPromptForPlan(token: String, id: Int) {
+        val meals = appStorage.getMeals()
+        val todayPlan = meals.firstOrNull { it.date == getTodayDate() }
+        if(todayPlan!=null){
+            Log.e("mealplan", todayPlan.toString())
+            mealPlan.postValue(todayPlan!!)
+            return
+        }
+        try {
+            val userResult = profileRepository.getUser(id)
+            if(userResult is UserResult.Success){
+                val userProfile = userResult.user
+                val result = mealRepository.getRecipes()
+                if(result is RecipesResult.Success){
+                    _recipes.postValue(result.recipes)
+                    val prompt = buildPromptPlan(userProfile, result.recipes)
+                    sendPromptToOpenAIPlan(token, prompt, result.recipes)
+                }
+            }
+
+        } catch (e: Exception) {
+            Log.e("ProgressFragment", "Error: ${e.message}")
         }
     }
 
@@ -238,6 +280,76 @@ class MainActivityVM : ViewModel() {
         { rating: 1, feedback: "some feedback" }
     """.trimIndent()
     }
+    private fun buildPromptPlan(profile: UserProfile, recipes: List<Recipe>): String {
+        val profileJson: String = Gson().toJson(profile)
+        val mealsJson: String = Gson().toJson(recipes)
+        return """
+        Based on my profile:
+        ${profileJson.toString()}
+        Based on existing recipes:
+        ${mealsJson.toString()}
+        Pick what meals i should prepare for today. Provide answer in this json, where list of numbers contains id's of needed recipes, return json only.:
+        { breakfast: [3, 5], lunch: [2], dinner: [5], snack: [1]  }
+    """.trimIndent()
+    }
+    private suspend fun sendPromptToOpenAIPlan(token: String, prompt: String, recipes: List<Recipe>) {
+
+        val request = ChatRequest(
+            model = "gpt-3.5-turbo",
+            messages = listOf(
+                Message("user", Gson().toJson(prompt))
+            )
+        )
+        Log.e("abcd", Gson().toJson(prompt))
+
+        val result = openAIRepository.getChatResponse("Bearer $token", request)
+
+        when (result) {
+            is OpenAIResult.Success -> {
+                val content = result.chatResponse.choices.firstOrNull()?.message?.content
+                val response = Gson().fromJson(content, PlanResponse::class.java)
+                response.date=getTodayDate()
+                val mealByDate = mapPlanResponseToMealByDate(response, recipes)
+                mealPlan.postValue(mealByDate)
+                appStorage.saveMeals(appStorage.getMeals().plus(mealByDate))
+                Log.d("OpenAI", "Response: $content")
+            }
+            is OpenAIResult.Error -> {
+                Log.e("OpenAI", "Error: ${result.message}")
+            }
+        }
+    }
+    private fun mapPlanResponseToMealByDate(response: PlanResponse, recipes: List<Recipe>): MealByDate {
+        fun mapIdsToMeals(ids: List<Int>, type: String): List<Meal> {
+            return ids.mapNotNull { id ->
+                recipes.find { it.id == id }?.let { recipe ->
+                    Meal(
+                        id = recipe.id,
+                        type = type,
+                        title = recipe.name,
+                        calories = recipe.calories
+                    )
+                }
+            }
+        }
+
+        return MealByDate(
+            date = response.date,
+            breakfast = mapIdsToMeals(response.breakfast, "breakfast"),
+            lunch = mapIdsToMeals(response.lunch, "lunch"),
+            dinner = mapIdsToMeals(response.dinner, "dinner"),
+            snack = mapIdsToMeals(response.snack, "snack")
+        )
+    }
+
+
+    data class PlanResponse(
+        var date: String?,
+        val breakfast: List<Int>,
+        val lunch: List<Int>,
+        val dinner: List<Int>,
+        val snack: List<Int>
+    )
 
 
     private suspend fun sendPromptToOpenAI(token: String, prompt: String) {

@@ -34,4 +34,32 @@ class MealRepositoryImpl (
             MealResult.Error(500, e.message)
         }
     }
+
+    override suspend fun getRecipes(): RecipesResult {
+        return try{
+            val response = api.getRecipes()
+            Log.e("Repository", "success")
+            RecipesResult.Success(response.data)
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            RecipesResult.Error(e.code(), e.message())
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            RecipesResult.Error(500, e.message)
+        }
+    }
+
+    override suspend fun postRating(id: Int, score: Int): Result {
+        return try{
+            val response = api.postRating(id.toString(), Rating(score))
+            Log.e("Repository", "success")
+            Result.Success("ok")
+        }catch(e: HttpException) {
+            Log.e("Repository", "{${e.message()}}")
+            Result.Error(e.code(), e.message())
+        } catch (e: Exception) {
+            Log.e("Repository", "{${e.message}}")
+            Result.Error(500, e.message)
+        }
+    }
 }
